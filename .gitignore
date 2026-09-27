@@ -27,3 +27,6 @@ Thumbs.db
 !.vscode/extensions.json
 .idea/
 *.log
+
+# Legacy Codebase & Database 
+/legacy

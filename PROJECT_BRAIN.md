@@ -319,7 +319,15 @@ To maintain database integrity across offline PWA devices, all tools adhere to u
 - Canonical multi-tenant schema definitions tracked in `packages/db/` and `supabase/migrations/`, synchronized via `./scripts/sync_schema.sh`.
 - Primary master tables: `companies`, `sites`, `zones`, `zone_versions`, `profiles`, `workers`, `worker_qr_tokens`, `site_profile_access`, `company_modules`, `audit_events`, `sync_inbox`, `attachments`.
 - Module tables: The Vault (`training_assets`, `training_assignments`, `training_completions`, `checklist_templates`, `checklist_runs`, `checklist_answers`, `signature_events`), Spray Trace (`spray_product_library`, `spray_plans`, `spray_applications`, `spray_application_products`, `agro_stock_locations`, `agro_stock_ledger`, `spray_processor_networks`, `spray_supplier_links`, `spray_processor_submissions`), Fleet Log (`assets`, `asset_meter_events`, `fuel_tanks`, `fuel_events`, `asset_inspections`, `asset_defects`, `asset_service_jobs`), Packhouse Pass (`intake_records`, `quality_tests`, `pack_lots`, `pallets`, `dispatches`, `dispatch_pallets`).
+- **Legacy Ingest Mapping & Migration Plan**:
+  - Full legacy schema analysis and migration blueprint documented in [`docs/MIGRATION_PLAN.md`](file:///home/luca/dev/simple-solutions-ecosystem/docs/MIGRATION_PLAN.md).
+  - Legacy `the-vault-web` schema (18 tables, 1 view) mapped to the Ecosystem master schema.
+  - Key architectural transformation: Extraction of free-text workers from legacy `training_records` into the first-class `workers` directory and issuance of privacy-preserving `worker_qr_tokens`.
+  - Supabase Auth Custom Access Token Hook (`auth.custom_access_token_hook`) specified to inject `company_id`, `role`, and `site_ids` into JWT claims, eliminating nested subqueries and error `42P17`.
+  - Legacy storage buckets (`sops`: 109 documents, `thumbnails`: 106 SVGs) mapped to tenant-isolated storage paths.
 
 ## 6. Changelog & Current State
+- **2026-09-27**: Completed legacy ingest analysis of `/legacy` codebase and database exports (`the-vault-web`). Generated comprehensive migration plan in [`docs/MIGRATION_PLAN.md`](file:///home/luca/dev/simple-solutions-ecosystem/docs/MIGRATION_PLAN.md) covering entity transformations, two-tier identity enforcement, custom JWT claims hook, decoupled module layout, and 6-phase milestone sign-off roadmap.
 - **2026-09-27**: Section 1 and Section 2 fully updated to incorporate the exact feature specifications, operational workflows, product concepts, and architectural definitions from The Ecosystem master blueprint (worker-vs-profile split, offline-first PWA sync, Trojan Horse dual-portal Spray Trace, discovery-led Fleet and Packhouse spokes, and automated audit-pack standards).
 - **2026-09-27**: Monorepo scaffolding initialized. Persona agents (`@architect`, `@auditor`, `@closer`) and domain skills (`monorepo`, `supabase`, `responsive-ui`) deployed.
+
