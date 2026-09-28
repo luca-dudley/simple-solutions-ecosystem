@@ -105,7 +105,8 @@ The repository is structured as a zero-build, modular monorepo where the central
 ```
 simple-solutions-ecosystem/
 ├── portal/                          # Central Hub: Administration, Auth, Worker Registry & Billing
-│   ├── index.html                   # Public landing page & application launcher
+│   ├── index.html                   # Public landing page: The Operational Ecosystem
+│   ├── bespoke.html                 # Bespoke Systems & Data Architectures
 │   ├── dashboard/                   # Unified operations cockpit & cross-tool analytics
 │   ├── admin/                       # Tenant admin: company setup, site/zone management, module toggles, Paystack billing
 │   └── assets/                      # Shared portal styling, icons, and client scripts
@@ -330,4 +331,8 @@ To maintain database integrity across offline PWA devices, all tools adhere to u
 - **2026-09-27**: Completed legacy ingest analysis of `/legacy` codebase and database exports (`the-vault-web`). Generated comprehensive migration plan in [`docs/MIGRATION_PLAN.md`](file:///home/luca/dev/simple-solutions-ecosystem/docs/MIGRATION_PLAN.md) covering entity transformations, two-tier identity enforcement, custom JWT claims hook, decoupled module layout, and 6-phase milestone sign-off roadmap.
 - **2026-09-27**: Section 1 and Section 2 fully updated to incorporate the exact feature specifications, operational workflows, product concepts, and architectural definitions from The Ecosystem master blueprint (worker-vs-profile split, offline-first PWA sync, Trojan Horse dual-portal Spray Trace, discovery-led Fleet and Packhouse spokes, and automated audit-pack standards).
 - **2026-09-27**: Monorepo scaffolding initialized. Persona agents (`@architect`, `@auditor`, `@closer`) and domain skills (`monorepo`, `supabase`, `responsive-ui`) deployed.
+- **2026-09-28**: Frontend integration and landing page overhaul completed per [`docs/FRONTEND_INTEGRATION_PLAN.md`](file:///home/luca/dev/simple-solutions-ecosystem/docs/FRONTEND_INTEGRATION_PLAN.md):
+  - Refactored [`portal/index.html`](file:///home/luca/dev/simple-solutions-ecosystem/portal/index.html) (The Operational Ecosystem) with softened high-trust industrial utility, 4-pill benefit metric bar ("100% Offline-First", "Zero Seat Tax", "< 30s Field Forms", "1-Click Audits"), synthesized interactive tabs combining video carousels and authentic micro-UI telemetry cards (Nomsa Dlamini QR, Spray Trace Batch #AZX-492 Pre-Harvest Interval, Fleet John Deere bowser ledger, Packhouse Serial RS232 weighbridge), and the authoritative 4-tier pricing model (Vault Streaming R180, Vault Essential R280, Full Site Bundle R2,250, Processor Subsidized Networks).
+  - Built [`portal/bespoke.html`](file:///home/luca/dev/simple-solutions-ecosystem/portal/bespoke.html) (Bespoke Systems & Data Architectures) detailing 3 capability pillars (ClickUp, Web Apps, AI/ETL), 3 fixed-scope milestone tiers (R14.5k, R38k, R85k+), direct client licensing policy, verified client reviews (Verve Water, Tigre Solutions, Elliott Farm CC), and technical FAQ.
+  - Deployed shared vanilla JS utility [`portal/assets/js/portal-core.js`](file:///home/luca/dev/simple-solutions-ecosystem/portal/assets/js/portal-core.js) for modal, tab, carousel, and navigation drawer management with zero build dependencies.
 
