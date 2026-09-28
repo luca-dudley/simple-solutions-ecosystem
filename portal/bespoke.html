@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bespoke Operational Systems &amp; Data Architectures | Simple Solutions</title>
+  <link rel="icon" type="image/png" href="assets/logos/Simple_Logo-removebg-preview.png">
+  <meta name="description" content="Custom workflow engineering, ClickUp workspace architectures, hardware bridging, and AI data extraction with 100% intellectual property ownership.">
+
+  <!-- Tailwind CSS CDN & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            primary: '#0f172a',
+            'primary-light': '#1e293b',
+            accent: '#1e3a5f',
+            border: '#e2e8f0',
+          },
+          boxShadow: {
+            'card': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+            'card-hover': '0 10px 30px -4px rgba(0, 0, 0, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gradient-to-b from-slate-50 via-slate-100/60 via-40% to-slate-200/50 font-sans text-slate-900 antialiased overflow-x-hidden min-h-screen">
+
+  <!-- ============================================== -->
+  <!-- UNIFIED HEADER -->
+  <!-- ============================================== -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-white/90 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/logos/Simple_Logo-removebg-preview.png" alt="Simple Solutions" class="h-9 w-auto object-contain">
+        <div class="hidden sm:block text-left">
+          <div class="font-serif text-lg font-bold tracking-tight text-primary leading-none">Simple Solutions</div>
+          <div class="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-slate-500 mt-1">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Modular Operating Layer
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html#ecosystem" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">The Ecosystem</a>
+        <a href="bespoke.html" class="text-sm font-semibold text-primary transition-colors flex items-center gap-1.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> Bespoke Systems
+        </a>
+        <a href="index.html#pricing" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Pricing &amp; Packaging</a>
+        <a href="#proof" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Client Reviews</a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden md:flex items-center gap-3">
+        <button onclick="openModal('loginModal')" class="text-sm font-semibold text-slate-600 hover:text-primary px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors">Client Login</button>
+        <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="bg-primary px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-primary-light transition-all shadow-sm">Book Scoping Call</a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 hover:text-primary focus:outline-none" aria-label="Toggle Navigation">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobileMenu" class="hidden border-t border-border bg-white/95 backdrop-blur-md px-5 py-4 shadow-lg md:hidden">
+      <div class="flex flex-col gap-4 text-left">
+        <a href="index.html#ecosystem" class="text-sm font-bold text-slate-700 hover:text-primary">The Ecosystem</a>
+        <a href="bespoke.html" class="text-sm font-bold text-primary flex items-center gap-2">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> Bespoke Systems
+        </a>
+        <a href="index.html#pricing" class="text-sm font-bold text-slate-700 hover:text-primary">Pricing &amp; Packaging</a>
+        <a href="#proof" onclick="toggleMobileMenu()" class="text-sm font-bold text-slate-700 hover:text-primary">Client Reviews</a>
+        <div class="border-t border-border pt-4 flex flex-col gap-3">
+          <button onclick="toggleMobileMenu(); openModal('loginModal')" class="w-full rounded-lg border border-border py-2.5 text-sm font-bold text-slate-700 hover:bg-slate-50">Client Login</button>
+          <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="w-full rounded-lg bg-primary py-2.5 text-center text-sm font-bold text-white hover:bg-primary-light">Book Scoping Call</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================== -->
+  <!-- CONTEXTUAL BREADCRUMB SUB-BAR -->
+  <!-- ============================================== -->
+  <div class="pt-16 w-full bg-white/80 border-b border-border/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 h-11 flex items-center justify-between text-xs font-mono text-slate-500">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="hover:text-primary transition-colors flex items-center gap-1">
+          <span>&larr;</span>
+          <span>The Ecosystem</span>
+        </a>
+        <span>/</span>
+        <span class="text-primary font-semibold">Bespoke Operational Systems</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4">
+        <span class="inline-flex items-center gap-1.5 text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded text-[11px] font-bold">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+          <span>100% Direct IP Transfer</span>
+        </span>
+        <span class="text-slate-400">Zero Open-Ended Retainers</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- HERO SECTION -->
+  <!-- ============================================== -->
+  <section class="py-16 sm:py-24 border-b border-border/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="max-w-3xl text-left">
+        
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-slate-200 rounded-full shadow-sm mb-6">
+          <span class="font-mono text-xs text-primary font-bold">⚡</span>
+          <span class="text-xs font-bold text-slate-700 uppercase tracking-wider font-mono">Workflow Engineering &amp; Systems Consulting</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight leading-[1.15] mb-6">
+          Bespoke Operational Architectures &amp; Data Pipelines.
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed">
+          We eliminate manual bottlenecks, replace scattered spreadsheets, and remove communication chaos by building custom digital infrastructure tailored directly to your daily physical operations.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap items-center gap-4 mb-12">
+          <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="h-11 px-6 inline-flex items-center justify-center text-sm font-bold bg-primary text-white hover:bg-primary-light rounded-xl transition-all shadow-md gap-2">
+            <span>Schedule 30-Min Scoping Call</span>
+            <span>&rarr;</span>
+          </a>
+          <a href="#roadmap" class="h-11 px-6 inline-flex items-center justify-center text-sm font-bold bg-white text-primary border border-slate-300 hover:bg-slate-50 rounded-xl transition-all shadow-sm">
+            View Fixed-Scope Roadmap
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Trust & Proof Stats Bar -->
+      <div class="w-full bg-white/95 rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-6 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
+        
+        <div class="flex items-start gap-3.5 p-3 md:px-5 text-left">
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0">✓</div>
+          <div>
+            <div class="text-sm font-bold text-primary font-mono">100% Client IP Ownership</div>
+            <div class="text-xs text-slate-500 mt-0.5">Zero lock-in. All source code, schemas &amp; templates transferred directly.</div>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-3 md:px-5 text-left">
+          <div class="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm shrink-0">#</div>
+          <div>
+            <div class="text-sm font-bold text-primary font-mono">Zero Hourly Retainers</div>
+            <div class="text-xs text-slate-500 mt-0.5">Guaranteed milestone-based contracts with unalterable deliverables.</div>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-3 md:px-5 text-left">
+          <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm shrink-0">📍</div>
+          <div>
+            <div class="text-sm font-bold text-primary font-mono">Stellenbosch &amp; Durban Engineering</div>
+            <div class="text-xs text-slate-500 mt-0.5">Direct technical consultation with our engineering lead. No sales reps.</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- CORE PHILOSOPHY SECTION -->
+  <!-- ============================================== -->
+  <section class="py-16 sm:py-20 bg-white/90 border-b border-border/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left">
+        
+        <div class="lg:col-span-4">
+          <div class="text-xs font-bold uppercase tracking-wider font-mono text-slate-400 mb-2">Our Core Philosophy</div>
+          <h2 class="font-serif text-3xl font-bold text-primary tracking-tight">Keeping Things Simple</h2>
+        </div>
+
+        <div class="lg:col-span-8 flex flex-col gap-6">
+          <p class="text-base text-slate-600 leading-relaxed border-l-2 border-primary pl-4">
+            Too many companies deploy complex, bloated enterprise software before getting their core workflows right. We start simple: <strong class="text-primary font-semibold">nail the operational fundamentals and build a rock-solid foundation.</strong> Once your primary operational pipeline is clean, scaling up and layering automations becomes effortless.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-5 bg-slate-50 border border-slate-200 rounded-xl">
+              <div class="flex items-center gap-2 text-primary font-bold text-sm mb-1.5">
+                <span class="text-emerald-600">✓</span>
+                <span>Audit &amp; Distill</span>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Isolate the true daily bottlenecks in logistics, compliance, and staff handovers before writing a single line of code.
+              </p>
+            </div>
+            
+            <div class="p-5 bg-slate-50 border border-slate-200 rounded-xl">
+              <div class="flex items-center gap-2 text-primary font-bold text-sm mb-1.5">
+                <span class="text-emerald-600">✓</span>
+                <span>Standardize &amp; Automate</span>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Create clean, repeatable data structures that run autonomously with zero operator confusion or double-handling.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- WHAT WE BUILD (3 CORE CAPABILITY PILLARS) -->
+  <!-- ============================================== -->
+  <section id="capabilities" class="py-20 lg:py-24 border-b border-border/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 text-left">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider font-mono text-slate-400 mb-2">Capabilities &amp; Services</div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-primary tracking-tight">Custom Workspaces, Web Applications &amp; AI Systems</h2>
+        </div>
+        <div class="text-xs font-mono text-slate-600 bg-white border border-slate-200 px-3 py-1.5 rounded-full self-start md:self-auto shadow-sm">
+          Tailored Architecture Matrix
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left">
+        
+        <!-- Card 1: ClickUp Workspace Architecture -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-card">
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-border mb-5">
+              <span class="text-xs font-mono uppercase text-slate-400 font-bold">01 / Workspace Architecture</span>
+              <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center font-bold text-primary text-xs">CU</div>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-primary mb-3">ClickUp Workspace Architecture</h3>
+            <p class="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
+              End-to-end operational systems built directly inside ClickUp. From task hierarchies and digital permit-to-work pipelines to real-time executive reporting dashboards.
+            </p>
+            <ul class="space-y-3 mb-8 text-xs text-slate-600">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Custom task hierarchies &amp; operational boards</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Real-time KPI &amp; executive dashboards</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Automated status updates &amp; team instant alerts</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Resource allocation &amp; field workload tracking</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-border font-mono text-[10px] text-slate-500">
+            <span class="px-2 py-0.5 bg-slate-100 rounded border border-slate-200">ClickUp API</span>
+            <span class="px-2 py-0.5 bg-slate-100 rounded border border-slate-200">Kanban Sprints</span>
+            <span class="px-2 py-0.5 bg-slate-100 rounded border border-slate-200">Gantt Timelines</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Web Portals & App Development -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-card">
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-border mb-5">
+              <span class="text-xs font-mono uppercase text-slate-400 font-bold">02 / Custom Web Software</span>
+              <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center font-bold text-primary text-xs">PWA</div>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-primary mb-3">Web Portals &amp; Field Apps</h3>
+            <p class="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
+              Tailor-built web interfaces and internal portals for operations that outgrow off-the-shelf software. Fast, mobile-first web apps that talk directly to your databases.
+            </p>
+            <ul class="space-y-3 mb-8 text-xs text-slate-600">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Custom client &amp; staff operational input portals</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Tailored mobile-first low-latency field forms</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Direct database &amp; bidirectional ClickUp sync</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Secure client audit and certification directories</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-border font-mono text-[10px] text-slate-500">
+            <span class="px-2 py-0.5 bg-slate-100 rounded border border-slate-200">TypeScript</span>
+            <span class="px-2 py-0.5 bg-slate-100 rounded border border-slate-200">Supabase</span>
+            <span class="px-2 py-0.5 bg-slate-100 rounded border border-slate-200">IndexedDB Offline</span>
+          </div>
+        </div>
+
+        <!-- Card 3: AI Integration & Custom Automations -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-card">
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-border mb-5">
+              <span class="text-xs font-mono uppercase text-slate-400 font-bold">03 / AI &amp; Automations</span>
+              <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center font-bold text-primary text-xs">AI</div>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-primary mb-3">AI Integration &amp; Custom Bots</h3>
+            <p class="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
+              Eliminate repetitive manual paperwork by embedding intelligent AI tools into your daily workflow to read, process, and summarize complex agricultural and industrial field data.
+            </p>
+            <ul class="space-y-3 mb-8 text-xs text-slate-600">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Automated document &amp; invoice data extraction</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Instant AI summaries for lengthy site and safety reports</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Tailored internal AI assistants for technical staff support</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Automated data routing via Make.com and webhooks</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-border font-mono text-[10px] text-slate-500">
+            <span class="px-2 py-0.5 bg-slate-100 rounded border border-slate-200">Document OCR</span>
+            <span class="px-2 py-0.5 bg-slate-100 rounded border border-slate-200">Automated ETL</span>
+            <span class="px-2 py-0.5 bg-slate-100 rounded border border-slate-200">Make.com</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- FIXED-SCOPE COMMERCIAL FRAMEWORK (3 TIERS) -->
+  <!-- ============================================== -->
+  <section id="roadmap" class="py-20 lg:py-24 bg-white/90 border-b border-border/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 text-left">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider font-mono text-slate-400 mb-2">Commercial Framework</div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-primary tracking-tight">Predictable Fixed-Scope Commercial Models</h2>
+          <p class="text-sm sm:text-base text-slate-600 max-w-2xl mt-2 leading-relaxed">
+            No open-ended billing or runaway hourly retainers. Every custom build is delivered on transparent, milestone-tied contracts with 100% intellectual property ownership from day one.
+          </p>
+        </div>
+        <div class="inline-flex items-center gap-2 text-xs font-mono text-slate-700 bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-full self-start md:self-auto shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          <span>Zero Hourly Retainers • 100% Direct IP Transfer</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 text-left">
+        
+        <!-- Tier 1: Blueprint -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-sm">
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-border mb-5">
+              <span class="text-xs font-mono uppercase text-slate-400 font-bold">Tier 01 // Audit &amp; Blueprint</span>
+              <span class="text-slate-400 font-mono text-xs font-bold">SPEC</span>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-primary mb-1">Discovery &amp; Blueprint</h3>
+            <div class="text-xs text-slate-500 mb-4">Facility audits &amp; technical specification.</div>
+            <div class="flex items-baseline gap-1 mb-6 pb-6 border-b border-border">
+              <span class="text-4xl font-bold text-primary font-mono">R14,500</span>
+              <span class="text-xs text-slate-500 font-medium">/ fixed project</span>
+            </div>
+            <ul class="space-y-3 mb-8 text-xs text-slate-600">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Comprehensive workflow audit &amp; bottleneck mapping</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Data schema &amp; Entity Relationship (ERD) architecture</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>ClickUp / Power BI / Supabase technical specification</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Fixed-scope implementation roadmap with deliverable matrix</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="h-11 w-full px-4 inline-flex items-center justify-center text-sm font-bold bg-white text-primary border border-slate-300 hover:bg-slate-50 rounded-xl transition-all shadow-sm gap-2">
+              <span>Schedule Scoping Session</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 2: Targeted System Sprint (Most Popular) -->
+        <div class="bg-white rounded-3xl border-2 border-primary p-8 flex flex-col justify-between relative shadow-xl">
+          <div class="absolute -top-3.5 right-6 bg-primary text-white text-[10px] font-mono uppercase tracking-wider px-3 py-1 rounded-full font-bold">
+            Most Popular
+          </div>
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-border mb-5">
+              <span class="text-xs font-mono uppercase text-emerald-700 font-bold">Tier 02 // Core Build</span>
+              <span class="text-emerald-600 font-mono text-xs font-bold">SPRINT</span>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-primary mb-1">Targeted System Sprint</h3>
+            <div class="text-xs text-slate-500 mb-4">Single pipeline or department workflow transformation.</div>
+            <div class="flex items-baseline gap-1 mb-6 pb-6 border-b border-border">
+              <span class="text-4xl font-bold text-primary font-mono">R38,000</span>
+              <span class="text-xs text-slate-500 font-medium">/ fixed milestone</span>
+            </div>
+            <ul class="space-y-3 mb-8 text-xs text-slate-600">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Custom ClickUp operational workspace architecture</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Automated intake portals &amp; mobile-first field forms</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Automated webhook &amp; data routing pipelines (Make / Supabase)</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Real-time executive Power BI / ClickUp KPI dashboard</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Live team pilot testing &amp; 100% credential/IP handover</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="h-11 w-full px-4 inline-flex items-center justify-center text-sm font-bold bg-primary text-white hover:bg-primary-light rounded-xl transition-all shadow-md gap-2">
+              <span>Commission Sprint</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 3: Full Enterprise Infrastructure -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-sm">
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-border mb-5">
+              <span class="text-xs font-mono uppercase text-slate-400 font-bold">Tier 03 // Turnkey</span>
+              <span class="text-slate-400 font-mono text-xs font-bold">ENTERPRISE</span>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-primary mb-1">Full Infrastructure</h3>
+            <div class="text-xs text-slate-500 mb-4">Multi-facility ecosystem &amp; hardware bridging.</div>
+            <div class="flex items-baseline gap-1 mb-6 pb-6 border-b border-border">
+              <span class="text-xs text-slate-400 font-mono uppercase mr-1">From</span>
+              <span class="text-4xl font-bold text-primary font-mono">R85,000</span>
+              <span class="text-xs text-slate-500 font-medium">/ turnkey</span>
+            </div>
+            <div class="text-[11px] font-bold text-primary uppercase tracking-wider font-mono mb-3">Everything in Sprint, plus:</div>
+            <ul class="space-y-3 mb-8 text-xs text-slate-600">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Custom web portal &amp; offline IndexedDB application development</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Physical hardware bridging (RS232 scales, barcode/QR scanners)</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Act 36 / SIZA / GLOBALG.A.P. compliant data pipelines</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Multi-facility consolidated executive command plane</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Dedicated engineer SLA &amp; post-launch hypercare support</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="h-11 w-full px-4 inline-flex items-center justify-center text-sm font-bold bg-white text-primary border border-slate-300 hover:bg-slate-50 rounded-xl transition-all shadow-sm gap-2">
+              <span>Discuss Enterprise Architecture</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Direct Client Licensing Guarantee -->
+      <div class="p-6 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-left">
+        <div class="flex items-start gap-3">
+          <span class="text-emerald-600 font-bold text-lg mt-0.5">✓</span>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <strong class="text-primary font-semibold">Direct Client Licensing:</strong> To guarantee total independence and data security, third-party software subscriptions (such as ClickUp, Microsoft 365 / Power BI, Supabase, Make.com) are licensed directly by your company. Simple Solutions never acts as a middleman markup on software subscriptions.
+          </p>
+        </div>
+        <div class="shrink-0 font-mono text-xs text-slate-500 bg-white border border-slate-200 px-3 py-1.5 rounded-lg font-semibold">
+          Milestone-Tied Sign-offs
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- VERIFIED CLIENT FEEDBACK & SOCIAL PROOF -->
+  <!-- ============================================== -->
+  <section id="proof" class="py-20 lg:py-24 border-b border-border/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-left">
+      
+      <div class="mb-12">
+        <div class="text-xs font-bold uppercase tracking-wider font-mono text-slate-400 mb-2">Verified Client Feedback</div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-primary tracking-tight">Proven Results in the Field</h2>
+        <p class="text-sm text-slate-600 mt-2">Direct feedback from operational leads running on our custom architectures.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Quote 1: Verve Water -->
+        <div class="p-8 bg-white border border-slate-200 rounded-2xl flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-5 text-sm">
+              ★ ★ ★ ★ ★
+            </div>
+            <p class="text-sm text-slate-800 italic mb-8 leading-relaxed">
+              “These workflows just work! Start small and scale up.”
+            </p>
+          </div>
+          <div class="pt-5 border-t border-border">
+            <div class="font-bold text-primary text-sm">Stephan de Swardt</div>
+            <div class="text-xs text-slate-500 mt-0.5">CEO, Verve Water</div>
+          </div>
+        </div>
+
+        <!-- Quote 2: Tigre Solutions -->
+        <div class="p-8 bg-white border border-slate-200 rounded-2xl flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-5 text-sm">
+              ★ ★ ★ ★ ★
+            </div>
+            <p class="text-sm text-slate-800 italic mb-8 leading-relaxed">
+              “Simple transformed our workflows into a smarter, more efficient system that's easy to use. If you want practical automation and streamlined operations, I highly recommend them.”
+            </p>
+          </div>
+          <div class="pt-5 border-t border-border">
+            <div class="font-bold text-primary text-sm">Kunaal Dukhi</div>
+            <div class="text-xs text-slate-500 mt-0.5">Tigre Solutions</div>
+          </div>
+        </div>
+
+        <!-- Quote 3: Elliott Farm -->
+        <div class="p-8 bg-white border border-slate-200 rounded-2xl flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-5 text-sm">
+              ★ ★ ★ ★ ★
+            </div>
+            <p class="text-sm text-slate-800 italic mb-8 leading-relaxed">
+              “Very practical with high efficiency implementation.”
+            </p>
+          </div>
+          <div class="pt-5 border-t border-border">
+            <div class="font-bold text-primary text-sm">Quentin Elliott</div>
+            <div class="text-xs text-slate-500 mt-0.5">GG &amp; QG Elliott Farm CC</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TECHNICAL CONSULTANCY FAQ -->
+  <!-- ============================================== -->
+  <section id="faq" class="py-20 lg:py-24 border-b border-border/80">
+    <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-left">
+      
+      <div class="mb-12 text-center">
+        <div class="text-xs font-bold uppercase tracking-wider font-mono text-slate-400 mb-2">Technical Consultancy FAQ</div>
+        <h2 class="font-serif text-3xl font-bold text-primary tracking-tight">Questions About Custom Builds</h2>
+      </div>
+
+      <div class="space-y-4">
+        <details class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm cursor-pointer">
+          <summary class="flex justify-between items-center font-bold text-primary text-sm">
+            Do you build outside of ClickUp?
+            <span class="text-slate-400 group-open:rotate-45 transition-transform text-xl">+</span>
+          </summary>
+          <p class="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-border pt-4">
+            Absolutely. ClickUp is a versatile starting point, but we engineer custom solutions choosing the right tool for the job — Microsoft Power BI, Supabase Postgres backends, Make.com pipelines, serial hardware bridges, and custom offline TypeScript Progressive Web Apps.
+          </p>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm cursor-pointer">
+          <summary class="flex justify-between items-center font-bold text-primary text-sm">
+            Do workflow builds incur third-party software subscription costs?
+            <span class="text-slate-400 group-open:rotate-45 transition-transform text-xl">+</span>
+          </summary>
+          <p class="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-border pt-4">
+            Yes. Simple Solutions charges a fixed project fee for custom architecture, automation engineering, and team onboarding. Any third-party software subscriptions required for your pipeline (such as ClickUp, Microsoft Power BI, Make.com, or cloud databases) are paid directly by your organization to ensure 100% data ownership and direct licensing control.
+          </p>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm cursor-pointer">
+          <summary class="flex justify-between items-center font-bold text-primary text-sm">
+            How does fixed-scope project pricing work?
+            <span class="text-slate-400 group-open:rotate-45 transition-transform text-xl">+</span>
+          </summary>
+          <p class="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-border pt-4">
+            After the 30-minute discovery call, we define a clear, milestone-based scope with an unalterable fixed price for each deliverable milestone. There are zero surprise hourly charges or open-ended consulting bills.
+          </p>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm cursor-pointer">
+          <summary class="flex justify-between items-center font-bold text-primary text-sm">
+            Who owns the intellectual property and data at handover?
+            <span class="text-slate-400 group-open:rotate-45 transition-transform text-xl">+</span>
+          </summary>
+          <p class="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-border pt-4">
+            You do — completely. At live handover you receive full ownership of your data, dashboards, custom automations, scripts, and workspace administrative credentials.
+          </p>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- SCOPING CALL CTA BANNER -->
+  <!-- ============================================== -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="border border-slate-200 rounded-3xl bg-slate-50 p-8 sm:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 text-left shadow-sm">
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-slate-500 mb-2">
+            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+            <span>Direct Technical Scoping</span>
+          </div>
+          <h2 class="font-serif text-3xl font-bold text-primary tracking-tight mb-2">
+            Have a unique operational setup or complex facility workflow?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Direct technical consultation with our engineering lead. No sales reps. Fixed-scope implementation roadmap within 48 hours.
+          </p>
+        </div>
+        <div class="shrink-0 w-full md:w-auto">
+          <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="h-12 px-6 w-full md:w-auto inline-flex items-center justify-center text-sm font-bold bg-primary text-white hover:bg-primary-light rounded-xl transition-all shadow-md gap-2">
+            <span>Schedule 30-Min Scoping Call</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- UNIFIED FOOTER -->
+  <!-- ============================================== -->
+  <footer class="border-t border-slate-200/80 bg-white/70 backdrop-blur-md py-16">
+    <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 text-left">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-border pb-12 mb-8">
+        
+        <!-- Col 1: Bio -->
+        <div class="md:col-span-1">
+          <div class="flex items-center gap-2 mb-3">
+            <img src="assets/logos/Simple_Logo-removebg-preview.png" alt="Simple Solutions" class="h-7 w-auto object-contain">
+            <span class="font-serif font-bold text-lg text-primary">Simple Solutions</span>
+          </div>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">
+            Modular, offline-first operational software for commercial agriculture, packhouses, logistics, and heavy industry.
+          </p>
+          <p class="text-[11px] text-slate-400 font-medium">📍 Stellenbosch &amp; Durban, South Africa</p>
+          <p class="text-[11px] text-slate-400 font-medium mt-1">✉️ simple.lucadudley@gmail.com</p>
+        </div>
+
+        <!-- Col 2: The Ecosystem -->
+        <div>
+          <h5 class="font-bold text-primary text-xs uppercase tracking-wider mb-4 font-mono">The Ecosystem</h5>
+          <div class="flex flex-col gap-2.5 text-xs text-slate-600">
+            <a href="index.html#ecosystem" class="hover:text-primary transition-colors">The Vault (OHS &amp; Compliance)</a>
+            <a href="index.html#ecosystem" class="hover:text-primary transition-colors">Spray Trace (Act 36 Agri)</a>
+            <a href="index.html#ecosystem" class="hover:text-primary transition-colors">Fleet Log &amp; Fuel Track</a>
+            <a href="index.html#ecosystem" class="hover:text-primary transition-colors">Packhouse Pass (Intake &amp; QC)</a>
+            <a href="index.html#pricing" class="hover:text-primary transition-colors">Site Bundle Pricing (R2,250)</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Bespoke Engineering -->
+        <div>
+          <h5 class="font-bold text-primary text-xs uppercase tracking-wider mb-4 font-mono">Bespoke Engineering</h5>
+          <div class="flex flex-col gap-2.5 text-xs text-slate-600">
+            <a href="#capabilities" class="hover:text-primary transition-colors">ClickUp Workspace Architecture</a>
+            <a href="#capabilities" class="hover:text-primary transition-colors">Custom Web Apps &amp; Field Portals</a>
+            <a href="#capabilities" class="hover:text-primary transition-colors">AI Data Extraction &amp; Pipelines</a>
+            <a href="#roadmap" class="hover:text-primary transition-colors">Fixed-Scope Milestones</a>
+            <a href="#proof" class="hover:text-primary transition-colors">Client Reviews &amp; Feedback</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Legal -->
+        <div>
+          <h5 class="font-bold text-primary text-xs uppercase tracking-wider mb-4 font-mono">Legal &amp; Assurance</h5>
+          <div class="flex flex-col gap-2.5 text-xs text-slate-600">
+            <a href="docs/POPIA%20PRIVACY%20POLICY.pdf" target="_blank" class="hover:text-primary transition-colors">POPIA Privacy Policy</a>
+            <a href="docs/TERMS%20OF%20SERVICE.pdf" target="_blank" class="hover:text-primary transition-colors">Terms of Service</a>
+            <a href="docs/LEGAL%20AND%20LIABILITY%20DISCLAIMER.pdf" target="_blank" class="hover:text-primary transition-colors">Statutory Audit Disclaimer</a>
+            <span class="text-[11px] text-slate-400 mt-2 block">SIZA, GLOBALG.A.P. &amp; Act 36 evidence alignment.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400">
+        <p>&copy; 2026 Simple Solutions. All rights reserved.</p>
+        <p class="mt-2 sm:mt-0 font-mono text-[11px]">BUILT FOR FRONTLINE OPERATIONS • NOT SPREADSHEETS</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================== -->
+  <!-- MODALS -->
+  <!-- ============================================== -->
+  
+  <!-- 1. Video Modal -->
+  <div id="videoModal" class="fixed inset-0 z-[100] hidden bg-primary/90 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target === this) closeModal('videoModal')">
+    <div class="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl">
+      <button onclick="closeModal('videoModal')" class="absolute top-4 right-4 z-10 h-10 w-10 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors" aria-label="Close modal">&times;</button>
+      <div class="aspect-video w-full">
+        <iframe id="videoIframe" src="" data-src="https://player.vimeo.com/video/1219493264?title=0&byline=0&portrait=0&badge=0&autoplay=1" class="w-full h-full" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Login Modal -->
+  <div id="loginModal" class="fixed inset-0 z-[100] hidden bg-primary/80 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target === this) closeModal('loginModal')">
+    <div class="relative w-full max-w-sm bg-white rounded-3xl p-8 shadow-2xl border border-border text-left">
+      <button onclick="closeModal('loginModal')" class="absolute right-5 top-5 text-slate-400 hover:text-primary text-2xl font-bold" aria-label="Close modal">&times;</button>
+      <h3 class="font-serif text-2xl font-bold text-primary mb-1">Client Login</h3>
+      <p class="text-xs text-slate-500 mb-6">Access your Simple Solutions workspace.</p>
+      <form class="space-y-4" onsubmit="event.preventDefault(); alert('Connecting to Supabase Auth...');">
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">Work Email</label>
+          <input type="email" class="w-full border border-border px-4 py-3 rounded-xl text-sm outline-none focus:border-primary" placeholder="name@company.com" required>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">Password</label>
+          <input type="password" class="w-full border border-border px-4 py-3 rounded-xl text-sm outline-none focus:border-primary" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold text-sm hover:bg-primary-light transition-colors mt-2">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Checkout Modal Placeholder -->
+  <div id="checkoutModal" class="fixed inset-0 z-[100] hidden bg-primary/80 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target === this) closeModal('checkoutModal')">
+    <div class="relative w-full max-w-sm bg-white rounded-3xl p-8 shadow-2xl border border-border text-center">
+      <button onclick="closeModal('checkoutModal')" class="absolute right-5 top-5 text-slate-400 hover:text-primary text-2xl font-bold" aria-label="Close modal">&times;</button>
+      <div class="h-12 w-12 bg-sky-50 rounded-full flex items-center justify-center text-sky-600 text-xl mx-auto mb-4 font-mono font-bold">🔒</div>
+      <h3 class="font-serif text-2xl font-bold text-primary mb-2">Secure Checkout</h3>
+      <p class="text-xs text-slate-600 mb-6">Connects directly with Paystack for automated monthly billing and account provisioning.</p>
+      <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="block w-full bg-primary text-white py-3 rounded-xl font-bold text-sm hover:bg-primary-light transition-colors mb-2">Schedule Setup Call</a>
+      <button onclick="closeModal('checkoutModal')" class="w-full bg-slate-100 text-slate-700 py-3 rounded-xl font-bold text-sm hover:bg-slate-200 transition-colors">Close</button>
+    </div>
+  </div>
+
+  <!-- Shared Core Scripts -->
+  <script src="assets/js/portal-core.js"></script>
+</body>
+</html>
