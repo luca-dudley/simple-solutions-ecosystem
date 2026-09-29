@@ -4,7 +4,7 @@ SCHEMA_FILE=".ai/SUPABASE_SCHEMA.md"
 TMP_SCHEMA="/tmp/ecosystem_live_schema.sql"
 
 echo "[INFO] Checking Supabase schema synchronization..."
-if npx supabase db dump --schema-only -f "$TMP_SCHEMA" >/dev/null 2>&1; then
+if npx --yes supabase db dump --schema-only -f "$TMP_SCHEMA" >/dev/null 2>&1; then
     cat << 'HEADER' > "$SCHEMA_FILE"
 # The Ecosystem: Master Supabase Schema
 > Auto-generated via Supabase CLI. Do not manually edit.

@@ -27,6 +27,7 @@ Thumbs.db
 !.vscode/extensions.json
 .idea/
 *.log
+*:Zone.Identifier
 
 # Legacy Codebase & Database 
 /legacy

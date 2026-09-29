@@ -268,7 +268,7 @@ Identical structure on both `index.html` and `bespoke.html`, with contextual act
     
     <!-- Brand / Logo -->
     <a href="index.html" class="flex items-center gap-3">
-      <img src="assets/logos/Simple_Logo-removebg-preview.png" alt="Simple Solutions" class="h-9 w-auto object-contain">
+      <img src="assets/logos/business/simple_bg-removed.png" alt="Simple Solutions" class="h-9 w-auto object-contain">
       <div class="hidden sm:block text-left">
         <div class="font-serif text-lg font-bold tracking-tight text-slate-900 leading-none">Simple Solutions</div>
         <div class="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-slate-500 mt-1">

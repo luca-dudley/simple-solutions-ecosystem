@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Solutions | Modular Operational Tools &amp; Systems</title>
-  <link rel="icon" type="image/png" href="assets/logos/Simple_Logo-removebg-preview.png">
+  <link rel="icon" type="image/png" href="assets/logos/business/simple_bg-removed.png">
   <meta name="description" content="Replace bloated ERPs with dead-simple operational tools for commercial agriculture, logistics, and heavy industry.">
 
   <!-- Tailwind CSS CDN & Google Fonts -->
@@ -55,6 +55,14 @@
       color: #0f172a; 
       background-color: #ffffff; 
     }
+    .tab-active .universal-ohs-badge {
+      background-color: #94a3b8;
+      color: #ffffff;
+    }
+    .tab-inactive .universal-ohs-badge {
+      background-color: #94a3b8;
+      color: #0f172a;
+    }
     .snap-carousel { 
       scroll-snap-type: x mandatory; 
       scrollbar-width: none; 
@@ -67,84 +75,24 @@
 <body class="bg-gradient-to-b from-slate-50 via-slate-100/60 via-40% to-slate-200/50 font-sans text-slate-900 antialiased overflow-x-hidden min-h-screen">
 
   <!-- ============================================== -->
-  <!-- UNIFIED HEADER -->
+  <!-- CENTRALIZED HEADER MOUNT -->
   <!-- ============================================== -->
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-white/90 backdrop-blur-md">
-    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
-      
-      <!-- Logo & Brand Mark -->
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/logos/Simple_Logo-removebg-preview.png" alt="Simple Solutions" class="h-9 w-auto object-contain">
-        <div class="hidden sm:block text-left">
-          <div class="font-serif text-lg font-bold tracking-tight text-primary leading-none">Simple Solutions</div>
-          <div class="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-slate-500 mt-1">
-            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Modular Operating Layer
-          </div>
-        </div>
-      </a>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="index.html#ecosystem" class="text-sm font-semibold text-primary transition-colors flex items-center gap-1.5">
-          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> The Ecosystem
-        </a>
-        <a href="bespoke.html" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Bespoke Systems</a>
-        <a href="index.html#pricing" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Pricing &amp; Packaging</a>
-        <a href="bespoke.html#proof" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Client Reviews</a>
-      </nav>
-
-      <!-- Desktop CTAs -->
-      <div class="hidden md:flex items-center gap-3">
-        <button onclick="openModal('loginModal')" class="text-sm font-semibold text-slate-600 hover:text-primary px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors">Client Login</button>
-        <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="bg-primary px-4 py-2 rounded-lg text-sm font-semibold text-white hover:bg-primary-light transition-all shadow-sm">Book Scoping Call</a>
-      </div>
-
-      <!-- Mobile Menu Toggle -->
-      <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 hover:text-primary focus:outline-none" aria-label="Toggle Navigation">
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-
-    <!-- Mobile Menu Drawer -->
-    <div id="mobileMenu" class="hidden border-t border-border bg-white/95 backdrop-blur-md px-5 py-4 shadow-lg md:hidden">
-      <div class="flex flex-col gap-4 text-left">
-        <a href="index.html#ecosystem" onclick="toggleMobileMenu()" class="text-sm font-bold text-primary flex items-center gap-2">
-          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> The Ecosystem
-        </a>
-        <a href="bespoke.html" class="text-sm font-bold text-slate-700 hover:text-primary">Bespoke Systems</a>
-        <a href="index.html#pricing" onclick="toggleMobileMenu()" class="text-sm font-bold text-slate-700 hover:text-primary">Pricing &amp; Packaging</a>
-        <a href="bespoke.html#proof" class="text-sm font-bold text-slate-700 hover:text-primary">Client Reviews</a>
-        <div class="border-t border-border pt-4 flex flex-col gap-3">
-          <button onclick="toggleMobileMenu(); openModal('loginModal')" class="w-full rounded-lg border border-border py-2.5 text-sm font-bold text-slate-700 hover:bg-slate-50">Client Login</button>
-          <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="w-full rounded-lg bg-primary py-2.5 text-center text-sm font-bold text-white hover:bg-primary-light">Book Scoping Call</a>
-        </div>
-      </div>
-    </div>
-  </header>
+  <div id="site-header" data-active-page="ecosystem"></div>
 
   <!-- ============================================== -->
   <!-- HERO SECTION -->
   <!-- ============================================== -->
   <section class="pt-32 pb-16 sm:pt-40 sm:pb-24">
     <div class="mx-auto max-w-5xl px-5 text-center sm:px-6 lg:px-8">
-      
-      <!-- Eyebrow Pill Badge -->
-      <div class="inline-flex items-center gap-2 rounded-full border border-border bg-white/90 backdrop-blur-sm px-4 py-1.5 text-xs font-bold text-slate-700 shadow-sm mb-8">
-        <span class="flex h-2 w-2 relative">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-        </span>
-        <span>Offline-First Operational Infrastructure • Mission-Critical Field Software</span>
-      </div>
 
       <!-- Main Headline -->
       <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-primary leading-[1.1] mx-auto text-balance">
-        Replace Bloated Enterprise Software with <span class="text-slate-500">Dead-Simple</span> Operational Tools.
+        Africa-Proof Systems for Operations That Can't Stop.
       </h1>
 
       <!-- Subheadline -->
       <p class="mt-6 text-base sm:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
-        We build high-utility, offline-first field execution tools and engineer bespoke software systems for commercial agriculture, supply chains, and industrial facilities. Capture field facts in under 30 seconds with zero per-seat tax.
+        From field to facility, The Ecosystem reveals operational blind spots before they become costly headaches. Purpose-built for African agriculture and industry, it gives frontline teams the tools they need to work smarter, faster, and with complete confidence.
       </p>
 
       <!-- Dual Call to Actions -->
@@ -158,12 +106,6 @@
           </span>
           Watch 2-Min Demo
         </button>
-      </div>
-
-      <!-- Regulatory Standard Sub-ribbon -->
-      <div class="flex items-center justify-center gap-2 mt-8 text-center text-xs text-slate-500">
-        <svg class="h-4 w-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        <span>Structured digital evidence frameworks supporting records for SIZA, GLOBALG.A.P., and Act 36 documentation standards.</span>
       </div>
 
       <!-- Precision Trust Metric Bar (4 Benefit Pills from target layout) -->
@@ -208,66 +150,76 @@
       </div>
 
       <!-- Tool Switcher Navigation -->
-      <div class="flex flex-wrap items-center justify-center gap-3 p-2 max-w-5xl mx-auto mb-12 bg-slate-200/50 backdrop-blur-sm rounded-2xl border border-border/80">
-        <button onclick="switchTab('vault')" id="btn-vault" class="tab-active flex items-center gap-2.5 px-5 py-3 rounded-xl text-sm transition-all border">
-          <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-          <span>The Vault</span>
-          <span class="text-[9px] uppercase px-1.5 py-0.5 rounded bg-white/20 font-bold">Universal OHS</span>
+      <div class="flex items-center justify-center gap-3 p-2 max-w-6xl mx-auto mb-10 bg-slate-200/50 backdrop-blur-sm rounded-2xl border border-border/80 overflow-x-auto">
+        <button onclick="switchTab('vault')" id="btn-vault" class="tab-active flex items-center gap-2.5 px-5 py-3 rounded-xl text-sm transition-all border shadow-sm whitespace-nowrap">
+          <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="4" width="16" height="16" rx="2"/>
+            <circle cx="12" cy="12" r="4"/>
+            <path stroke-linecap="round" d="M12 8v2M12 14v2M8 12h2M14 12h2M9.2 9.2l1.4 1.4M13.4 13.4l1.4 1.4M14.8 9.2l-1.4 1.4M10.6 13.4l-1.4 1.4"/>
+          </svg>
+          <span class="font-bold">The Vault</span>
+          <span class="universal-ohs-badge text-[9px] uppercase px-1.5 py-0.5 rounded bg-slate-400 text-white font-bold">Universal OHS</span>
         </button>
-        <button onclick="switchTab('spray')" id="btn-spray" class="tab-inactive flex items-center gap-2.5 px-5 py-3 rounded-xl text-sm transition-all border">
-          <span class="h-2 w-2 rounded-full bg-sky-500"></span>
-          <span>Spray Trace</span>
+        <button onclick="switchTab('spray')" id="btn-spray" class="tab-inactive flex items-center gap-2.5 px-5 py-3 rounded-xl text-sm transition-all border whitespace-nowrap">
+          <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+          </svg>
+          <span class="font-bold">Spray Trace</span>
           <span class="text-[9px] uppercase px-1.5 py-0.5 rounded bg-sky-100 text-sky-800 font-bold">Agri Specific</span>
         </button>
-        <button onclick="switchTab('fleet')" id="btn-fleet" class="tab-inactive flex items-center gap-2.5 px-5 py-3 rounded-xl text-sm transition-all border">
-          <span class="h-2 w-2 rounded-full bg-amber-500"></span>
-          <span>Fleet &amp; Fuel</span>
-          <span class="text-[9px] uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">Fleet &amp; Plant</span>
+        <button onclick="switchTab('fleet')" id="btn-fleet" class="tab-inactive flex items-center gap-2.5 px-5 py-3 rounded-xl text-sm transition-all border whitespace-nowrap">
+          <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v5M12 16v5M3 12h5M16 12h5M6.5 6.5l3.5 3.5M14 14l3.5 3.5M17.5 6.5l-3.5 3.5M10 14l-3.5 3.5"/>
+            <circle cx="12" cy="12" r="2.5"/>
+          </svg>
+          <span class="font-bold">Supply Conduit</span>
+          <span class="text-[9px] uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">Procurement</span>
         </button>
-        <button onclick="switchTab('packhouse')" id="btn-packhouse" class="tab-inactive flex items-center gap-2.5 px-5 py-3 rounded-xl text-sm transition-all border">
-          <span class="h-2 w-2 rounded-full bg-purple-500"></span>
-          <span>Packhouse Pass</span>
+        <button onclick="switchTab('packhouse')" id="btn-packhouse" class="tab-inactive flex items-center gap-2.5 px-5 py-3 rounded-xl text-sm transition-all border whitespace-nowrap">
+          <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10.5 12 4l9 6.5V20H3V10.5Z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 20v-5h8v5M6 11h3M15 11h3M6 13h3M15 13h3"/>
+          </svg>
+          <span class="font-bold">Packhouse Pass</span>
           <span class="text-[9px] uppercase px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 font-bold">Intake &amp; QC</span>
         </button>
       </div>
 
-      <!-- MEGA CONTAINER FOR TABS -->
+      <!-- SINGLE INTERACTIVE STAGE CONTAINER -->
       <div class="max-w-6xl mx-auto">
-        
-        <!-- ============================================== -->
-        <!-- TAB 1: THE VAULT (Universal Compliance) -->
-        <!-- ============================================== -->
-        <div id="tab-vault" class="block">
-          <div class="bg-white/95 backdrop-blur-sm rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-card mb-8">
+        <div class="bg-white/95 backdrop-blur-sm rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-card">
+          
+          <!-- SPOKE 1: THE VAULT -->
+          <div id="tab-vault" class="block">
             <div class="grid lg:grid-cols-12 gap-10 items-center">
-              
-              <!-- Left Column: Copy & Benefits -->
+              <!-- Left Column: Value Prop & Quick Features -->
               <div class="lg:col-span-7 text-left">
                 <div class="inline-flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 rounded-full mb-4">
                   <span class="h-1.5 w-1.5 rounded-full bg-emerald-600"></span> Live Core • Universal Compliance
                 </div>
                 <h3 class="font-serif text-3xl font-bold text-primary mb-4">The Vault</h3>
                 <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                  Deliver streamable video SOPs in local languages (English &amp; Zulu) with instant worker compliance sign-offs, QR badge verification, and automated audit packs for commercial farms, workshops, and industrial plants.
+                  <strong>Training. Compliance. Accountability. All in one place.</strong><br><br>
+                  Multilingual safety training your employees actually understand. Delivered through easy to understand videos, track worker competency and sign-offs, manage SOPs and risk assessments, and generate audit-ready records whenever they're needed. Built for agricultural and industrial operations where compliance must work on the frontline, not just in the office.
                 </p>
-                <ul class="space-y-3.5 text-sm text-slate-700 mb-8">
+                <ul class="space-y-3.5 text-sm text-slate-700">
                   <li class="flex items-start gap-3">
                     <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">✓</span>
-                    <span><strong>Video SOP streaming</strong> with accompanying bilingual SOP documentation &amp; checklists.</span>
+                    <span><strong>Extensive multilingual video training library</strong></span>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">✓</span>
-                    <span><strong>Worker QR badge scanning</strong> (zero email login friction for hundreds of frontline operators).</span>
+                    <span><strong>SOPs, checklists, and record tracking</strong></span>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">✓</span>
-                    <span><strong>1-Click statutory audit exports</strong> structured for SIZA, GLOBALG.A.P. IFA v6, and OHSA.</span>
+                    <span><strong>Risk assessments and audit-ready compliance records</strong></span>
                   </li>
                 </ul>
               </div>
-              
-              <!-- Right Column: Micro-UI Attribution Card (From Stitch) -->
-              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full">
+
+              <!-- Right Column: Micro-UI Attribution Card -->
+              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full text-left">
                 <div class="flex items-center justify-between pb-3 mb-4 border-b border-border">
                   <span class="text-[10px] font-bold font-mono uppercase text-slate-400">Live Verification Feed</span>
                   <span class="text-[10px] text-emerald-600 font-bold flex items-center gap-1.5">
@@ -275,7 +227,6 @@
                   </span>
                 </div>
                 <div class="space-y-3">
-                  <!-- Micro UI Card 1: Nomsa Dlamini -->
                   <div class="p-4 bg-white border border-slate-200/90 rounded-xl flex items-center justify-between shadow-sm">
                     <div class="flex items-center gap-3">
                       <div class="w-9 h-9 rounded-lg bg-slate-100 border border-border flex items-center justify-center font-mono text-xs font-bold text-primary">QR</div>
@@ -286,7 +237,6 @@
                     </div>
                     <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 font-bold font-mono rounded text-[9px] uppercase tracking-wider">Verified</span>
                   </div>
-                  <!-- Micro UI Card 2: Pre-Start Register -->
                   <div class="p-4 bg-white border border-slate-200/90 rounded-xl flex items-center justify-between shadow-sm">
                     <div>
                       <p class="text-xs font-bold text-primary">Tractor &amp; Plant Pre-Start</p>
@@ -300,156 +250,40 @@
                   <span class="text-emerald-600 font-semibold">1-CLICK AUDIT EXPORT</span>
                 </div>
               </div>
-
             </div>
           </div>
 
-          <!-- Video Catalog Carousel -->
-          <div class="bg-white/95 backdrop-blur-sm rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-card mb-8">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8 text-center sm:text-left">
-              <div>
-                <h4 class="font-serif text-2xl font-bold text-primary">Pre-Loaded Training Modules</h4>
-                <p class="text-sm text-slate-500 mt-1">Short, equipment-specific modules streaming directly on any mobile device.</p>
-              </div>
-              <div class="flex items-center gap-2">
-                <button onclick="scrollCarousel('vault-carousel', -340)" class="p-3 rounded-full border border-border bg-white text-slate-600 hover:bg-slate-50 shadow-sm" aria-label="Previous">&larr;</button>
-                <button onclick="scrollCarousel('vault-carousel', 340)" class="p-3 rounded-full border border-border bg-white text-slate-600 hover:bg-slate-50 shadow-sm" aria-label="Next">&rarr;</button>
-              </div>
-            </div>
-            
-            <div id="vault-carousel" class="snap-carousel flex gap-6 overflow-x-auto pb-4">
-              <!-- Carousel Card 1 -->
-              <div class="snap-card w-[300px] shrink-0 rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm flex flex-col justify-between cursor-pointer group" onclick="openModal('videoModal')">
-                <div class="aspect-video w-full bg-slate-100 flex items-center justify-center p-6 relative">
-                  <img src="https://ujhfkvoaaebdntuheyqo.supabase.co/storage/v1/object/public/thumbnails/Simple/General_Farm_Employees.svg" alt="General Safety" class="h-full w-full object-contain group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                    <div class="h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg"><svg class="h-4 w-4 ml-1 text-primary" fill="currentColor" viewBox="0 0 12 12"><path d="M10.5 6 2 11V1l8.5 5Z"/></svg></div>
-                  </div>
-                </div>
-                <div class="p-5 border-t border-border">
-                  <span class="text-[9px] font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2 py-1 rounded">Universal Safety</span>
-                  <h5 class="font-bold text-sm text-primary mt-3">General Workforce Induction</h5>
-                  <p class="text-xs text-slate-500 mt-1">English &amp; Zulu • Standard PPE &amp; Risk</p>
-                </div>
-              </div>
-
-              <!-- Carousel Card 2 -->
-              <div class="snap-card w-[300px] shrink-0 rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm flex flex-col justify-between cursor-pointer group" onclick="openModal('videoModal')">
-                <div class="aspect-video w-full bg-slate-100 flex items-center justify-center p-6 relative">
-                  <img src="https://ujhfkvoaaebdntuheyqo.supabase.co/storage/v1/object/public/thumbnails/Simple/Chemical_Spraying.svg" alt="Chemical" class="h-full w-full object-contain group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                    <div class="h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg"><svg class="h-4 w-4 ml-1 text-primary" fill="currentColor" viewBox="0 0 12 12"><path d="M10.5 6 2 11V1l8.5 5Z"/></svg></div>
-                  </div>
-                </div>
-                <div class="p-5 border-t border-border">
-                  <span class="text-[9px] font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2 py-1 rounded">Agri Ops</span>
-                  <h5 class="font-bold text-sm text-primary mt-3">Chemical Handling &amp; Spraying</h5>
-                  <p class="text-xs text-slate-500 mt-1">English &amp; Zulu • PPE &amp; Emergency Flush</p>
-                </div>
-              </div>
-
-              <!-- Carousel Card 3 -->
-              <div class="snap-card w-[300px] shrink-0 rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm flex flex-col justify-between cursor-pointer group" onclick="openModal('videoModal')">
-                <div class="aspect-video w-full bg-slate-100 flex items-center justify-center p-6 relative">
-                  <img src="https://ujhfkvoaaebdntuheyqo.supabase.co/storage/v1/object/public/thumbnails/Simple/Welding.svg" alt="Welding" class="h-full w-full object-contain group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                    <div class="h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg"><svg class="h-4 w-4 ml-1 text-primary" fill="currentColor" viewBox="0 0 12 12"><path d="M10.5 6 2 11V1l8.5 5Z"/></svg></div>
-                  </div>
-                </div>
-                <div class="p-5 border-t border-border">
-                  <span class="text-[9px] font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2 py-1 rounded">Workshop &amp; Plant</span>
-                  <h5 class="font-bold text-sm text-primary mt-3">Welding &amp; Angle Grinder Safety</h5>
-                  <p class="text-xs text-slate-500 mt-1">Arc Eye, Hot Work &amp; Guard Controls</p>
-                </div>
-              </div>
-              
-              <!-- Carousel Card 4 -->
-              <div class="snap-card w-[300px] shrink-0 rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm flex flex-col justify-between cursor-pointer group" onclick="openModal('videoModal')">
-                <div class="aspect-video w-full bg-slate-100 flex items-center justify-center p-6 relative">
-                  <img src="https://ujhfkvoaaebdntuheyqo.supabase.co/storage/v1/object/public/thumbnails/Simple/Dehusking.svg" alt="Processing" class="h-full w-full object-contain group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                    <div class="h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg"><svg class="h-4 w-4 ml-1 text-primary" fill="currentColor" viewBox="0 0 12 12"><path d="M10.5 6 2 11V1l8.5 5Z"/></svg></div>
-                  </div>
-                </div>
-                <div class="p-5 border-t border-border">
-                  <span class="text-[9px] font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2 py-1 rounded">Processing Plant</span>
-                  <h5 class="font-bold text-sm text-primary mt-3">Processing, Drying &amp; Storage</h5>
-                  <p class="text-xs text-slate-500 mt-1">LOTO, Guarding &amp; High-Volume Machinery</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Standalone Vault Pricing Cards -->
-          <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
-            <div class="rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-sm p-8 shadow-sm">
-              <h4 class="font-serif text-xl font-bold text-primary">Vault Streaming</h4>
-              <p class="text-xs text-slate-500 mt-1">On-demand safety streaming library for lean teams.</p>
-              <div class="mt-6 mb-6">
-                <span class="text-3xl font-bold text-primary font-mono">R180</span>
-                <span class="text-sm text-slate-500">/mo per site</span>
-              </div>
-              <ul class="space-y-3 text-sm text-slate-600 mb-8 border-t border-border pt-6">
-                <li class="flex gap-2.5"><span class="text-emerald-500 font-bold">✓</span> Full video training catalog (Zulu &amp; English)</li>
-                <li class="flex gap-2.5"><span class="text-emerald-500 font-bold">✓</span> Mobile &amp; tablet streaming playback</li>
-                <li class="flex gap-2.5"><span class="text-emerald-500 font-bold">✓</span> 1 Admin profile seat</li>
-              </ul>
-              <button onclick="openModal('checkoutModal')" class="w-full bg-white border border-slate-300 text-primary font-bold text-sm py-3 rounded-lg hover:bg-slate-50 transition-colors">Select Streaming</button>
-            </div>
-            
-            <div class="rounded-2xl border-2 border-primary bg-white p-8 shadow-card relative">
-              <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest font-mono">Most Popular</span>
-              <h4 class="font-serif text-xl font-bold text-primary">Vault Essential</h4>
-              <p class="text-xs text-slate-500 mt-1">Complete digital compliance &amp; training sign-offs.</p>
-              <div class="mt-6 mb-6">
-                <span class="text-3xl font-bold text-primary font-mono">R280</span>
-                <span class="text-sm text-slate-500">/mo per site</span>
-              </div>
-              <ul class="space-y-3 text-sm text-slate-600 mb-8 border-t border-border pt-6">
-                <li class="flex gap-2.5"><span class="text-emerald-500 font-bold">✓</span> Everything in Streaming</li>
-                <li class="flex gap-2.5"><span class="text-emerald-500 font-bold">✓</span> Digital worker training registers &amp; sign-offs</li>
-                <li class="flex gap-2.5"><span class="text-emerald-500 font-bold">✓</span> Unlimited registered frontline workers</li>
-                <li class="flex gap-2.5"><span class="text-emerald-500 font-bold">✓</span> 4 Management supervisor seats</li>
-              </ul>
-              <button onclick="openModal('checkoutModal')" class="w-full bg-primary text-white font-bold text-sm py-3 rounded-lg hover:bg-primary-light transition-colors shadow-sm">Select Essential</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- ============================================== -->
-        <!-- TAB 2: SPRAY TRACE (Agri Specific) -->
-        <!-- ============================================== -->
-        <div id="tab-spray" class="hidden">
-          <div class="bg-white/95 backdrop-blur-sm rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-card mb-8">
+          <!-- SPOKE 2: SPRAY TRACE -->
+          <div id="tab-spray" class="hidden">
             <div class="grid lg:grid-cols-12 gap-10 items-center">
-              
-              <!-- Left Column: Copy & Benefits -->
+              <!-- Left Column: Value Prop & Quick Features -->
               <div class="lg:col-span-7 text-left">
                 <div class="inline-flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-sky-800 bg-sky-100 rounded-full mb-4">
                   <span class="h-1.5 w-1.5 rounded-full bg-sky-600"></span> Agriculture &amp; Orchard Specific
                 </div>
                 <h3 class="font-serif text-3xl font-bold text-primary mb-4">Spray Trace</h3>
                 <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                  Connect orchard-level spray execution to processor-level export traceability without forcing farmers through slow ERP menus.
+                  <strong>Orchard to Market Chemical Traceability</strong>
+                  Capture spray activities in the orchard, maintain chemical compliance automatically, and provide exporters and packhouses with accurate, audit-ready traceability records. Spray Trace bridges the gap between field execution and market access.
                 </p>
-                <ul class="space-y-3.5 text-sm text-slate-700 mb-8">
+                <ul class="space-y-3.5 text-sm text-slate-700">
                   <li class="flex items-start gap-3">
                     <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-600 font-bold text-xs">✓</span>
-                    <span><strong>Dual portal architecture:</strong> Mobile field logs for growers + Master compliance dashboard for exporters.</span>
+                    <span><strong>Fast mobile spray logging</strong> designed for use in the field, not behind a desk.</span>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-600 font-bold text-xs">✓</span>
-                    <span><strong>South African Act 36 compliance:</strong> Chemical inventory deductions, registered dosage limits &amp; MRL withholding timers.</span>
+                    <span><strong>Automated compliance controls</strong> including chemical inventories, dosage limits, and withholding period tracking.</span>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-600 font-bold text-xs">✓</span>
-                    <span><strong>1-Click CSV export profiles:</strong> Formatted to exact commercial packhouse and exporter intake schemas.</span>
+                    <span><strong>Export-ready traceability records</strong> formatted for packhouses, exporters, and certification requirements.</span>
                   </li>
                 </ul>
               </div>
-              
-              <!-- Right Column: Micro-UI Agrochemical Check (From Stitch) -->
-              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full">
+
+              <!-- Right Column: Micro-UI Agrochemical Check -->
+              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full text-left">
                 <div class="flex items-center justify-between pb-3 mb-4 border-b border-border">
                   <span class="text-[10px] font-bold font-mono uppercase text-slate-400">Processor Compliance Bridge</span>
                   <span class="text-[10px] font-bold text-sky-700 bg-sky-100 px-2 py-0.5 rounded">Coastal Macadamia Pilot</span>
@@ -479,56 +313,40 @@
                   <span class="text-sky-600 font-semibold">GEO-TAGGED ORCHARD</span>
                 </div>
               </div>
-
             </div>
           </div>
-          
-          <!-- Add-On Callout Banner -->
-          <div class="max-w-3xl mx-auto rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-sm p-8 shadow-sm text-center">
-            <h4 class="font-serif text-xl font-bold text-primary">Modular Add-On or Processor Network Tier</h4>
-            <p class="text-sm text-slate-600 mt-2 max-w-xl mx-auto mb-6">Spray Trace can be deployed as an add-on to individual farm sites, or funded centrally by agricultural processors covering their supplying grower network.</p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <span class="bg-slate-100 text-slate-800 px-4 py-2 rounded-lg text-sm font-bold border border-border">+ R550/mo per Farm Site</span>
-              <span class="text-slate-400 text-xs">or</span>
-              <a href="#pricing" class="bg-sky-50 text-sky-700 px-4 py-2 rounded-lg text-sm font-bold border border-sky-200 hover:bg-sky-100 transition-colors">Processor Network Subscriptions &rarr;</a>
-            </div>
-          </div>
-        </div>
 
-        <!-- ============================================== -->
-        <!-- TAB 3: FLEET LOG (Fleet & Heavy Plant) -->
-        <!-- ============================================== -->
-        <div id="tab-fleet" class="hidden">
-          <div class="bg-white/95 backdrop-blur-sm rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-card mb-8">
+          <!-- SPOKE 3: SUPPLY CONDUIT -->
+          <div id="tab-fleet" class="hidden">
             <div class="grid lg:grid-cols-12 gap-10 items-center">
-              
-              <!-- Left Column: Copy & Benefits -->
+              <!-- Left Column: Value Prop & Quick Features -->
               <div class="lg:col-span-7 text-left">
                 <div class="inline-flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-100 rounded-full mb-4">
-                  <span class="h-1.5 w-1.5 rounded-full bg-amber-600"></span> Fleet, Logistics &amp; Plant
+                  <span class="h-1.5 w-1.5 rounded-full bg-amber-600"></span> Procurement & Logistics
                 </div>
-                <h3 class="font-serif text-3xl font-bold text-primary mb-4">Fleet Log &amp; Fuel Track</h3>
+                <h3 class="font-serif text-3xl font-bold text-primary mb-4">Supply Conduit</h3>
                 <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                  Replace clipboard pre-starts, vehicle defect sheets, and unmetered diesel loss across transport fleets, construction plant, and agricultural estates.
+                  <strong>Request Accounted For. Every Order Tracked.</strong><br><br>
+                  Supply Conduit streamlines the flow between frontline teams and procurement. Field staff can submit supply requests in seconds through WhatsApp, while office teams manage approvals, purchasing, and fulfillment through a centralized dashboard. No missed requests, no duplicate orders, and complete visibility from request to delivery.
                 </p>
-                <ul class="space-y-3.5 text-sm text-slate-700 mb-8">
+                <ul class="space-y-3.5 text-sm text-slate-700">
                   <li class="flex items-start gap-3">
                     <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-600 font-bold text-xs">✓</span>
-                    <span><strong>30-second mobile pre-starts:</strong> Binary checks on driver phones with instant critical defect flagging.</span>
+                    <span><strong>WhatsApp-based requisitions</strong></span>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-600 font-bold text-xs">✓</span>
-                    <span><strong>Bulk diesel bowser ledger:</strong> Immutable fuel issue logs with automated consumption variance alerts.</span>
+                    <span><strong>Centralized procurement tracking & management</strong></span>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-600 font-bold text-xs">✓</span>
-                    <span><strong>Hour-meter &amp; odometer triggers:</strong> Preventive maintenance service intervals reset automatically.</span>
+                    <span><strong>Full traceability from request to purchase</strong></span>
                   </li>
                 </ul>
               </div>
-              
-              <!-- Right Column: Micro-UI Bowser Ledger Card (From Stitch) -->
-              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full">
+
+              <!-- Right Column: Micro-UI Bowser Ledger Card -->
+              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full text-left">
                 <div class="flex items-center justify-between pb-3 mb-4 border-b border-border">
                   <span class="text-[10px] font-bold font-mono uppercase text-slate-400">Fleet Telemetry Ledger</span>
                   <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Active Asset</span>
@@ -560,51 +378,40 @@
                   <span class="text-amber-600 font-semibold">HOUR METER SYNC</span>
                 </div>
               </div>
-
             </div>
           </div>
 
-          <div class="max-w-3xl mx-auto rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-sm p-8 shadow-sm text-center">
-            <h4 class="font-serif text-xl font-bold text-primary">Modular Add-On for Fleet &amp; Workshop Sites</h4>
-            <p class="text-sm text-slate-600 mt-2 max-w-xl mx-auto mb-6">Deploy to workshops, transport depots, or farms to track unlimited assets and drivers.</p>
-            <span class="inline-block bg-slate-100 text-slate-800 px-5 py-2.5 rounded-lg text-sm font-bold border border-border">+ R550/mo per Operating Site</span>
-          </div>
-        </div>
-
-        <!-- ============================================== -->
-        <!-- TAB 4: PACKHOUSE PASS (Processing & Intake) -->
-        <!-- ============================================== -->
-        <div id="tab-packhouse" class="hidden">
-          <div class="bg-white/95 backdrop-blur-sm rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-card mb-8">
+          <!-- SPOKE 4: PACKHOUSE PASS -->
+          <div id="tab-packhouse" class="hidden">
             <div class="grid lg:grid-cols-12 gap-10 items-center">
-              
-              <!-- Left Column: Copy & Benefits -->
+              <!-- Left Column: Value Prop & Quick Features -->
               <div class="lg:col-span-7 text-left">
                 <div class="inline-flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-purple-800 bg-purple-100 rounded-full mb-4">
                   <span class="h-1.5 w-1.5 rounded-full bg-purple-600"></span> Processing &amp; Intake
                 </div>
                 <h3 class="font-serif text-3xl font-bold text-primary mb-4">Packhouse Pass</h3>
                 <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                  Digitize bulk intake, grading, moisture sampling, and lot dispatch records directly at the scale or intake bay without spreadsheet delays.
+                  <strong>From Intake to Dispatch. Fully Traceable.</strong><br><br>
+                  Digitize intake, grading, quality control, and dispatch processes from a single platform. Packhouse Pass replaces paper forms and clipboards with real-time operational records, giving processors complete visibility from receiving through to final shipment.
                 </p>
-                <ul class="space-y-3.5 text-sm text-slate-700 mb-8">
+                <ul class="space-y-3.5 text-sm text-slate-700">
                   <li class="flex items-start gap-3">
                     <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-50 text-purple-600 font-bold text-xs">✓</span>
-                    <span><strong>Serial RS232 weighbridge bridging:</strong> Automatic gross/tare calculations eliminating transcription mistakes.</span>
+                    <span><strong>Serial RS232 weighbridge bridging:</strong>Eliminate paper-based intake records</span>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-50 text-purple-600 font-bold text-xs">✓</span>
-                    <span><strong>Moisture &amp; quality testing:</strong> Run charts and sound-kernel recovery (SKR) tracking linked to origin block.</span>
+                    <span><strong>Moisture &amp; quality testing:</strong>Quality testing, grading, and lot tracking</span>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-50 text-purple-600 font-bold text-xs">✓</span>
-                    <span><strong>Outbound pallet dispatch:</strong> Complete backward trace from export container seal back to orchard tree.</span>
+                    <span><strong>Outbound pallet dispatch:</strong>End-to-end traceability from source to dispatch</span>
                   </li>
                 </ul>
               </div>
-              
-              <!-- Right Column: Micro-UI RS232 Differential (From Stitch) -->
-              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full">
+
+              <!-- Right Column: Micro-UI RS232 Differential -->
+              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full text-left">
                 <div class="flex items-center justify-between pb-3 mb-4 border-b border-border">
                   <span class="text-[10px] font-bold font-mono uppercase text-slate-400">RS232 Serial Weighbridge</span>
                   <span class="text-[10px] font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded">Intake Bay 02</span>
@@ -638,17 +445,10 @@
                   <span class="text-purple-600 font-semibold">PALLET LINEAGE</span>
                 </div>
               </div>
-
             </div>
           </div>
 
-          <div class="max-w-3xl mx-auto rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-sm p-8 shadow-sm text-center">
-            <h4 class="font-serif text-xl font-bold text-primary">Modular Add-On for Processing Facilities</h4>
-            <p class="text-sm text-slate-600 mt-2 max-w-xl mx-auto mb-6">Designed for packhouse intake stations, cold stores, and bulk processing lines.</p>
-            <span class="inline-block bg-slate-100 text-slate-800 px-5 py-2.5 rounded-lg text-sm font-bold border border-border">+ R650/mo per Packhouse Site</span>
-          </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -673,148 +473,113 @@
         </div>
       </div>
 
-      <!-- 3 Primary Pricing Cards Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+      <!-- Anchor Grid: Flagship Site Bundle + Processor Subsidized Network Banner -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 items-stretch">
         
-        <!-- Card 1: Vault Streaming -->
-        <div class="rounded-3xl border border-slate-200 bg-white p-8 flex flex-col justify-between shadow-sm hover:border-slate-300 transition-all text-left">
+        <!-- Flagship Full Ecosystem Site Bundle Card -->
+        <div class="lg:col-span-8 rounded-3xl border-2 border-primary bg-primary p-8 sm:p-10 text-white shadow-2xl flex flex-col justify-between relative overflow-hidden text-left">
+          <div class="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"></div>
           <div>
-            <div class="text-[10px] font-mono uppercase font-bold text-slate-400">Tier 01 // Lean Operations</div>
-            <h3 class="font-serif text-2xl font-bold text-primary mt-2">Vault Streaming</h3>
-            <div class="mt-4 flex items-baseline gap-1">
-              <span class="text-4xl font-bold text-primary font-mono">R180</span>
-              <span class="text-xs text-slate-500 font-medium">/ site / mo</span>
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <span class="text-xs font-mono uppercase font-bold text-emerald-400 flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Flagship Commercial Model
+              </span>
+              <span class="bg-white/10 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider font-mono">
+                Full Ecosystem
+              </span>
             </div>
-            <div class="mt-3 inline-block text-[10px] font-mono tracking-wider text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded font-semibold uppercase">
-              Digital Video Safety Catalog
+            
+            <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-1">Full Ecosystem Site Bundle</h3>
+            <p class="mt-2 text-sm text-slate-300 max-w-xl">
+              All four operational spokes deployed across your entire operating site, farm gate, or industrial facility.
+            </p>
+
+            <div class="mt-6 flex items-baseline gap-2 pb-6 border-b border-white/15">
+              <span class="text-5xl sm:text-6xl font-extrabold text-white font-mono tracking-tight">R2,250</span>
+              <span class="text-sm text-slate-300 font-medium font-mono">/ site / month</span>
             </div>
-            <ul class="mt-8 space-y-3.5 text-xs text-slate-600 border-t border-border pt-6">
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold text-sm">✓</span>
-                <span>Full streaming video SOP library (isiZulu &amp; English)</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold text-sm">✓</span>
-                <span>1 Operating site or facility deployment</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold text-sm">✓</span>
-                <span>Mobile, tablet, and smart TV streaming playback</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold text-sm">✓</span>
-                <span>1 Administrator management seat</span>
-              </li>
-            </ul>
+
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-200">
+              <div class="space-y-3">
+                <div class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold text-sm shrink-0">✓</span>
+                  <span><strong>The Vault:</strong> Video SOPs, bilingual training &amp; 1-click statutory audit packs</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold text-sm shrink-0">✓</span>
+                  <span><strong>Spray Trace:</strong> Act 36 inventory, MRL withholding timers &amp; export intake bridge</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold text-sm shrink-0">✓</span>
+                  <span><strong>Fleet Log:</strong> 30s mobile pre-starts, diesel bowser ledger &amp; meter sync</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold text-sm shrink-0">✓</span>
+                  <span><strong>Packhouse Pass:</strong> Scale serial bridging, gross/tare &amp; pallet lineage</span>
+                </div>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold text-sm shrink-0">✓</span>
+                  <span><strong>Zero Seat Tax:</strong> Unlimited registered frontline workers, drivers &amp; sorters</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold text-sm shrink-0">✓</span>
+                  <span><strong>10 Supervisory Seats:</strong> Farm managers, agronomists &amp; compliance officers</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold text-sm shrink-0">✓</span>
+                  <span><strong>100% Offline Resilience:</strong> Client Dexie.js outbox sync over 2G/EDGE</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold text-sm shrink-0">✓</span>
+                  <span><strong>No Long-Term Lock-in:</strong> Transparent month-to-month subscription</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="mt-8 pt-6 border-t border-border">
-            <button onclick="openModal('checkoutModal')" class="w-full bg-white border border-slate-300 text-primary font-bold text-sm py-3 rounded-xl hover:bg-slate-50 transition-colors shadow-sm">Select Streaming</button>
+
+          <div class="mt-8 pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center gap-4">
+            <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-white text-primary font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-slate-100 transition-colors shadow-md">Schedule Operational Scoping Call</a>
+            <button onclick="openModal('checkoutModal')" class="w-full sm:w-auto text-center border border-white/30 text-white font-bold text-sm px-6 py-3.5 rounded-xl hover:bg-white/10 transition-colors">Paystack Instant Activation</button>
           </div>
         </div>
 
-        <!-- Card 2: Vault Essential -->
-        <div class="rounded-3xl border border-slate-200 bg-white p-8 flex flex-col justify-between shadow-sm hover:border-slate-300 transition-all text-left">
+        <!-- Processor Subsidized Network Banner (Card Alongside) -->
+        <div class="lg:col-span-4 rounded-3xl border border-slate-200/90 bg-slate-50/90 p-8 flex flex-col justify-between text-left shadow-sm">
           <div>
-            <div class="text-[10px] font-mono uppercase font-bold text-slate-400">Tier 02 // Full Safety Registers</div>
-            <h3 class="font-serif text-2xl font-bold text-primary mt-2">Vault Essential</h3>
-            <div class="mt-4 flex items-baseline gap-1">
-              <span class="text-4xl font-bold text-primary font-mono">R280</span>
-              <span class="text-xs text-slate-500 font-medium">/ site / mo</span>
+            <div class="flex items-center gap-2 text-[10px] font-mono uppercase font-bold text-sky-700 mb-2">
+              <span class="h-2 w-2 rounded-full bg-sky-500 animate-pulse"></span>
+              <span>Enterprise Subsidized Networks</span>
             </div>
-            <div class="mt-3 inline-block text-[10px] font-mono tracking-wider text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded font-semibold uppercase">
-              Unlimited Frontline Sign-Offs
+            <h4 class="font-serif text-2xl font-bold text-primary mb-3">Agri Exporters &amp; Processor Networks</h4>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+              Sponsor Spray Trace centrally across your supplying grower base (30–150 farms). Exporters receive automated, verified CSV intake compliance dossiers before product arrives at the weighbridge.
+            </p>
+            <div class="p-4 bg-white rounded-xl border border-slate-200/80 mb-6 text-xs space-y-2">
+              <div class="flex justify-between font-mono">
+                <span class="text-slate-500">Dual Portal Setup:</span>
+                <span class="font-bold text-primary">Farm + Processor</span>
+              </div>
+              <div class="flex justify-between font-mono">
+                <span class="text-slate-500">Grower Friction:</span>
+                <span class="font-bold text-emerald-600">Zero Login Barriers</span>
+              </div>
+              <div class="flex justify-between font-mono">
+                <span class="text-slate-500">Compliance Audit:</span>
+                <span class="font-bold text-primary">1-Click CSV Dossiers</span>
+              </div>
             </div>
-            <ul class="mt-8 space-y-3.5 text-xs text-slate-600 border-t border-border pt-6">
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold text-sm">✓</span>
-                <span>Everything in Vault Streaming</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold text-sm">✓</span>
-                <span>Digital worker training registers &amp; supervisor sign-offs</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold text-sm">✓</span>
-                <span><strong>Unlimited registered frontline workers</strong></span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold text-sm">✓</span>
-                <span>Privacy-preserving worker QR credentials &amp; scanning</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold text-sm">✓</span>
-                <span>4 Facility manager &amp; supervisor seats</span>
-              </li>
-            </ul>
           </div>
-          <div class="mt-8 pt-6 border-t border-border">
-            <button onclick="openModal('checkoutModal')" class="w-full bg-slate-100 text-primary font-bold text-sm py-3 rounded-xl hover:bg-slate-200 transition-colors shadow-sm">Select Essential</button>
-          </div>
-        </div>
-
-        <!-- Card 3: Full Ecosystem Site Bundle (Flagship) -->
-        <div class="rounded-3xl border-2 border-primary bg-primary p-8 text-white shadow-2xl flex flex-col justify-between relative overflow-hidden text-left">
-          <div class="absolute -right-12 -top-12 h-44 w-44 rounded-full bg-white/5 blur-2xl"></div>
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-mono uppercase font-bold text-emerald-400">Flagship • Complete Suite</span>
-              <span class="bg-white/10 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider font-mono">Full Ecosystem</span>
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-white mt-1">Site Bundle</h3>
-            <div class="mt-4 flex items-baseline gap-1">
-              <span class="text-5xl font-bold text-white font-mono">R2,250</span>
-              <span class="text-xs text-slate-300 font-medium">/ site / mo</span>
-            </div>
-            <div class="mt-3 inline-block text-[10px] font-mono tracking-wider text-emerald-300 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded font-semibold uppercase">
-              All 4 Operational Spokes Included
-            </div>
-            <ul class="mt-8 space-y-3 text-xs text-slate-200 border-t border-white/10 pt-6">
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-400 font-bold text-sm">✓</span>
-                <span><strong>The Vault:</strong> Video SOPs, worker registers &amp; SIZA audit packs</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-400 font-bold text-sm">✓</span>
-                <span><strong>Spray Trace:</strong> Act 36 stock ledger &amp; MRL export intake bridge</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-400 font-bold text-sm">✓</span>
-                <span><strong>Fleet Log:</strong> 30s pre-starts, diesel bowser ledger &amp; service triggers</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-400 font-bold text-sm">✓</span>
-                <span><strong>Packhouse Pass:</strong> Scale serial bridging, tare/gross &amp; pallet lineage</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-400 font-bold text-sm">✓</span>
-                <span><strong>Zero Per-User Tax:</strong> Unlimited workers, drivers &amp; operators</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-400 font-bold text-sm">✓</span>
-                <span>10 Facility manager seats + priority edge synchronization</span>
-              </li>
-            </ul>
-          </div>
-          <div class="mt-8 pt-6 border-t border-white/10">
-            <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-white text-primary font-bold text-sm py-3.5 rounded-xl hover:bg-slate-100 transition-colors shadow-md">Schedule Operational Scoping Call</a>
+            <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-primary text-white font-bold text-xs py-3.5 rounded-xl hover:bg-primary-light transition-all shadow-sm">
+              Inquire About Processor Networks &rarr;
+            </a>
           </div>
         </div>
 
-      </div>
-
-      <!-- Corporate Agribusiness & Processor Subsidized Banner -->
-      <div class="rounded-2xl border border-slate-200/90 bg-slate-50/80 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-left shadow-sm">
-        <div class="max-w-3xl">
-          <div class="flex items-center gap-2 text-[10px] font-mono uppercase font-bold text-sky-700 mb-1">
-            <span class="h-2 w-2 rounded-full bg-sky-500"></span>
-            <span>Enterprise Subsidized Networks</span>
-          </div>
-          <h4 class="font-serif text-xl font-bold text-primary">Agri Exporters &amp; Processor Networks</h4>
-          <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-            Sponsor Spray Trace centrally across your supplying grower base (30–150 farms). Exporters receive automated, verified CSV intake compliance dossiers before product arrives at the weighbridge.
-          </p>
-        </div>
-        <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="shrink-0 bg-primary text-white px-5 py-3 rounded-xl text-xs font-bold hover:bg-primary-light transition-all shadow-sm">Inquire About Processor Networks &rarr;</a>
       </div>
 
       <!-- Philosophy Pill Bar -->
@@ -832,6 +597,72 @@
   </section>
 
   <!-- ============================================== -->
+  <!-- VERIFIED CLIENT FEEDBACK & SOCIAL PROOF -->
+  <!-- ============================================== -->
+  <section id="proof" class="py-20 lg:py-24 border-b border-border/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-left">
+      
+      <div class="mb-12 text-left">
+        <div class="text-xs font-bold uppercase tracking-wider font-mono text-slate-400 mb-2">Verified Client Feedback</div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-primary tracking-tight">Proven Results from Industry Leaders</h2>
+        <p class="text-sm text-slate-600 mt-2">Direct feedback from operational leads running on our custom architectures.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto justify-center items-stretch">
+        
+        <!-- Quote 1: Doveton Farm -->
+        <div class="group p-8 bg-white border border-slate-200 rounded-2xl flex flex-col justify-between shadow-sm text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:border-slate-300">
+          <div class="mb-6 flex justify-center">
+            <img src="assets/logos/reviews/doveton_farms_logo.png" alt="Doveton Farms logo" class="h-14 w-auto object-contain rounded-xl bg-white border border-slate-200 p-2 shadow-sm" />
+          </div>
+          <div class="flex-1 flex flex-col justify-center">
+            <p class="text-sm text-slate-800 italic leading-relaxed mb-8">
+              "Easy to present to staff and simple to understand"
+            </p>
+          </div>
+          <div class="pt-5 border-t border-border">
+            <div class="font-bold text-primary text-sm">Sean Doveton</div>
+            <div class="text-xs text-slate-500 mt-0.5">Doveton Farms Pty Ltd</div>
+          </div>
+        </div>
+
+        <!-- Quote 2: Elliott Farm -->
+        <div class="group p-8 bg-white border border-slate-200 rounded-2xl flex flex-col justify-between shadow-sm text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:border-slate-300">
+          <div class="mb-6 flex justify-center">
+            <img src="assets/logos/reviews/elliott_farms_logo.png" alt="Elliott Farm logo" class="h-14 w-auto object-contain rounded-xl bg-white border border-slate-200 p-2 shadow-sm" />
+          </div>
+          <div class="flex-1 flex flex-col justify-center">
+            <p class="text-sm text-slate-800 italic leading-relaxed mb-8">
+              "Very practical with high efficiency implementation"
+            </p>
+          </div>
+          <div class="pt-5 border-t border-border">
+            <div class="font-bold text-primary text-sm">Quentin Elliott</div>
+            <div class="text-xs text-slate-500 mt-0.5">GG & QG Elliott Farm CC</div>
+          </div>
+        </div>
+
+        <!-- Quote 3: Outlook Farm -->
+        <div class="group p-8 bg-white border border-slate-200 rounded-2xl flex flex-col justify-between shadow-sm text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:border-slate-300">
+          <div class="mb-6 flex justify-center">
+            <img src="assets/logos/reviews/outlook_farms_logo.png" alt="Outlook Farms logo" class="h-14 w-auto object-contain rounded-xl bg-white border border-slate-200 p-2 shadow-sm" />
+          </div>
+          <div class="flex-1 flex flex-col justify-center">
+            <p class="text-sm text-slate-800 italic leading-relaxed mb-8">
+              "Exactly what we have been looking for."
+            </p>
+          </div>
+          <div class="pt-5 border-t border-border">
+            <div class="font-bold text-primary text-sm">Blaine Peckham</div>
+            <div class="text-xs text-slate-500 mt-0.5">Outlook Farms</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
   <!-- OPERATIONAL FAQ SECTION -->
   <!-- ============================================== -->
   <section id="faq" class="py-20 lg:py-24">
@@ -845,41 +676,67 @@
       <div class="space-y-4 text-left">
         <details class="group bg-white/90 backdrop-blur-sm border border-slate-200/80 rounded-2xl p-6 shadow-sm cursor-pointer">
           <summary class="flex justify-between items-center font-bold text-primary text-sm">
-            Why do you price per operating site instead of per user seat?
+            Why do you price per site instead of per user seat?
             <span class="text-slate-400 group-open:rotate-45 transition-transform text-xl">+</span>
           </summary>
           <p class="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-border pt-4">
-            Traditional SaaS per-seat pricing penalizes agriculture and heavy industry because estates employ hundreds of seasonal laborers. Pricing per seat creates a perverse incentive to exclude frontline staff from digital records. With our flat site pricing, you can deploy the tools across your entire workforce without paying extra per person.
+            Agriculture and industry run on large frontline teams. Charging per user punishes businesses for digitising their entire workforce.<br><br>
+            We charge per operating site, which means every supervisor, seasonal worker, operator, and manager can use the platform without increasing your subscription costs.
           </p>
         </details>
 
         <details class="group bg-white/90 backdrop-blur-sm border border-slate-200/80 rounded-2xl p-6 shadow-sm cursor-pointer">
           <summary class="flex justify-between items-center font-bold text-primary text-sm">
-            Do general workers need email accounts to sign off on tasks?
+            Do general workers need email addresses or user accounts?
             <span class="text-slate-400 group-open:rotate-45 transition-transform text-xl">+</span>
           </summary>
           <p class="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-border pt-4">
-            No. Only control-plane managers and supervisors hold authenticated login profiles. Frontline workers exist on your tenant worker registry and are attributed to tasks via privacy-preserving QR badges or supervisor verification.
+            No.<br><br>
+            Frontline workers can be linked to training records, task sign-offs, and operational activities through QR badges or supervisor verification. Only managers and administrators need platform logins.
           </p>
         </details>
 
         <details class="group bg-white/90 backdrop-blur-sm border border-slate-200/80 rounded-2xl p-6 shadow-sm cursor-pointer">
           <summary class="flex justify-between items-center font-bold text-primary text-sm">
-            How does offline sync work in remote orchard blocks and warehouses?
+            Will the system work without internet?
             <span class="text-slate-400 group-open:rotate-45 transition-transform text-xl">+</span>
           </summary>
           <p class="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-border pt-4">
-            Our tools operate as offline-first Progressive Web Apps with client-side IndexedDB databases (Dexie.js). High-priority transactional records submit instantly via an outbox over 2G/EDGE networks upon reconnection. Photos and heavy files queue separately in the background.
+            Yes.<br><br>
+            The Ecosystem is built for real-world conditions where connectivity is unreliable. Workers can continue capturing information in the field, orchard, warehouse, workshop, or processing facility, and records synchronise automatically when a connection becomes available.
           </p>
         </details>
 
         <details class="group bg-white/90 backdrop-blur-sm border border-slate-200/80 rounded-2xl p-6 shadow-sm cursor-pointer">
           <summary class="flex justify-between items-center font-bold text-primary text-sm">
-            Do you engineer custom software or ClickUp systems outside standard tools?
+            Can I start with just one module?
             <span class="text-slate-400 group-open:rotate-45 transition-transform text-xl">+</span>
           </summary>
           <p class="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-border pt-4">
-            Yes. Through our Bespoke Systems &amp; Data Architectures division, we build custom ClickUp operational workspaces, Power BI executive telemetry dashboards, hardware scale bridges, and automated AI data extraction pipelines with 100% client intellectual property ownership. <a href="bespoke.html" class="text-primary font-bold underline">Explore Bespoke Engineering &rarr;</a>
+            Absolutely.<br><br>
+            Whether you need compliance training, spray traceability, procurement workflows, or packhouse intake management, each module can be deployed independently and expanded as your requirements grow.
+          </p>
+        </details>
+
+        <details class="group bg-white/90 backdrop-blur-sm border border-slate-200/80 rounded-2xl p-6 shadow-sm cursor-pointer">
+          <summary class="flex justify-between items-center font-bold text-primary text-sm">
+            What support is included?
+            <span class="text-slate-400 group-open:rotate-45 transition-transform text-xl">+</span>
+          </summary>
+          <p class="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-border pt-4">
+            Every subscription includes onboarding assistance, product support, and platform updates.<br><br>
+            We're a South African team building software for South African operations. When you need help, you speak to people who understand your environment, not a call centre on another continent.
+          </p>
+        </details>
+
+        <details class="group bg-white/90 backdrop-blur-sm border border-slate-200/80 rounded-2xl p-6 shadow-sm cursor-pointer">
+          <summary class="flex justify-between items-center font-bold text-primary text-sm">
+            Can the platform be customised for my operation?
+            <span class="text-slate-400 group-open:rotate-45 transition-transform text-xl">+</span>
+          </summary>
+          <p class="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-border pt-4">
+            Yes<br><br>
+            Every business works differently. Beyond our standard modules, we build custom portals, dashboards, integrations, automations, hardware bridges, and operational workflows tailored to your environment.
           </p>
         </details>
       </div>
@@ -888,68 +745,9 @@
   </section>
 
   <!-- ============================================== -->
-  <!-- UNIFIED FOOTER -->
+  <!-- CENTRALIZED FOOTER MOUNT -->
   <!-- ============================================== -->
-  <footer class="border-t border-slate-200/80 bg-white/70 backdrop-blur-md py-16">
-    <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 text-left">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-border pb-12 mb-8">
-        
-        <!-- Col 1: Bio -->
-        <div class="md:col-span-1">
-          <div class="flex items-center gap-2 mb-3">
-            <img src="assets/logos/Simple_Logo-removebg-preview.png" alt="Simple Solutions" class="h-7 w-auto object-contain">
-            <span class="font-serif font-bold text-lg text-primary">Simple Solutions</span>
-          </div>
-          <p class="text-xs text-slate-500 leading-relaxed mb-4">
-            Modular, offline-first operational software for commercial agriculture, packhouses, logistics, and heavy industry.
-          </p>
-          <p class="text-[11px] text-slate-400 font-medium">📍 Stellenbosch &amp; Durban, South Africa</p>
-          <p class="text-[11px] text-slate-400 font-medium mt-1">✉️ simple.lucadudley@gmail.com</p>
-        </div>
-
-        <!-- Col 2: The Ecosystem -->
-        <div>
-          <h5 class="font-bold text-primary text-xs uppercase tracking-wider mb-4 font-mono">The Ecosystem</h5>
-          <div class="flex flex-col gap-2.5 text-xs text-slate-600">
-            <a href="index.html#ecosystem" onclick="switchTab('vault')" class="hover:text-primary transition-colors">The Vault (OHS &amp; Compliance)</a>
-            <a href="index.html#ecosystem" onclick="switchTab('spray')" class="hover:text-primary transition-colors">Spray Trace (Act 36 Agri)</a>
-            <a href="index.html#ecosystem" onclick="switchTab('fleet')" class="hover:text-primary transition-colors">Fleet Log &amp; Fuel Track</a>
-            <a href="index.html#ecosystem" onclick="switchTab('packhouse')" class="hover:text-primary transition-colors">Packhouse Pass (Intake &amp; QC)</a>
-            <a href="index.html#pricing" class="hover:text-primary transition-colors">Site Bundle Pricing (R2,250)</a>
-          </div>
-        </div>
-
-        <!-- Col 3: Bespoke Engineering -->
-        <div>
-          <h5 class="font-bold text-primary text-xs uppercase tracking-wider mb-4 font-mono">Bespoke Engineering</h5>
-          <div class="flex flex-col gap-2.5 text-xs text-slate-600">
-            <a href="bespoke.html#capabilities" class="hover:text-primary transition-colors">ClickUp Workspace Architecture</a>
-            <a href="bespoke.html#capabilities" class="hover:text-primary transition-colors">Custom Web Apps &amp; Field Portals</a>
-            <a href="bespoke.html#capabilities" class="hover:text-primary transition-colors">AI Data Extraction &amp; Pipelines</a>
-            <a href="bespoke.html#roadmap" class="hover:text-primary transition-colors">Fixed-Scope Milestones</a>
-            <a href="bespoke.html#proof" class="hover:text-primary transition-colors">Client Reviews &amp; Feedback</a>
-          </div>
-        </div>
-
-        <!-- Col 4: Legal -->
-        <div>
-          <h5 class="font-bold text-primary text-xs uppercase tracking-wider mb-4 font-mono">Legal &amp; Assurance</h5>
-          <div class="flex flex-col gap-2.5 text-xs text-slate-600">
-            <a href="docs/POPIA%20PRIVACY%20POLICY.pdf" target="_blank" class="hover:text-primary transition-colors">POPIA Privacy Policy</a>
-            <a href="docs/TERMS%20OF%20SERVICE.pdf" target="_blank" class="hover:text-primary transition-colors">Terms of Service</a>
-            <a href="docs/LEGAL%20AND%20LIABILITY%20DISCLAIMER.pdf" target="_blank" class="hover:text-primary transition-colors">Statutory Audit Disclaimer</a>
-            <span class="text-[11px] text-slate-400 mt-2 block">SIZA, GLOBALG.A.P. &amp; Act 36 evidence alignment.</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400">
-        <p>&copy; 2026 Simple Solutions. All rights reserved.</p>
-        <p class="mt-2 sm:mt-0 font-mono text-[11px]">BUILT FOR FRONTLINE OPERATIONS • NOT SPREADSHEETS</p>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
   <!-- ============================================== -->
   <!-- MODALS -->
@@ -999,5 +797,6 @@
 
   <!-- Shared Core Scripts -->
   <script src="assets/js/portal-core.js"></script>
+  <script src="assets/js/layout.js"></script>
 </body>
 </html>
