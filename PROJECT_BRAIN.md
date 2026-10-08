@@ -123,7 +123,8 @@ simple-solutions-ecosystem/
 ├── packages/                        # Shared contracts, database schemas & design tokens
 │   ├── db/                          # Master DDL schemas, migration manifests, and database views
 │   ├── shared-types/                # TypeScript interface definitions (profiles, workers, sync contracts)
-│   └── ui/                          # Mobile-first Tailwind tokens, QR scanners, and sync status badges
+│   └── ui/                          # Mobile-first Tailwind tokens, QR scanners, and shared assets
+│       └── assets/legal/            # Statutory legal policies, agreements, terms & liability waivers
 ├── supabase/                        # Unified backend infrastructure
 │   ├── migrations/                  # Timestamped multi-tenant PostgreSQL migrations with RLS
 │   └── functions/                   # Deno Edge Functions (sync_inbox, processor_bridge, audit_pack)
@@ -342,3 +343,12 @@ To maintain database integrity across offline PWA devices, all tools adhere to u
   - Refactored [`portal/bespoke.html`](file:///home/luca/dev/simple-solutions-ecosystem/portal/bespoke.html): Shifted tone to *"Right Tool for the Job"* custom engineering (de-emphasizing pure ClickUp reliance); framed 3 core capabilities around *01/ Proprietary Web Apps & Offline Portals*, *02/ Hardware, Scale & Data Integration*, and *03/ Workflow Automation & Command Dashboards*; overhauled pricing into flexible engagement models (*Architecture Blueprint*, *Milestone Sprints*, *Engineering Retainer / Hourly*); replaced bottom banner with a high-trust direct technical discovery consultation card.
   - Asset reorganization & client review logo integration: Reorganized brand logos under `portal/assets/logos/business/` and added verified client logos under `portal/assets/logos/reviews/` (Doveton Farms, Elliott Farm CC, Outlook Farms, Tigre Solutions, Verve Water). Integrated authentic logos and matching alt text into review cards on both index and bespoke pages.
   - Updated [`docs/FRONTEND_INTEGRATION_PLAN.md`](file:///home/luca/dev/simple-solutions-ecosystem/docs/FRONTEND_INTEGRATION_PLAN.md) and hardened [`scripts/sync_schema.sh`](file:///home/luca/dev/simple-solutions-ecosystem/scripts/sync_schema.sh) (`npx --yes` non-interactive CLI dump). Executed database schema sync test.
+- **2026-10-08**: Commercial tier refinements, landing page copy polish, and legal document suite integration:
+  - **Landing Page Refinement (`portal/index.html`)**: Polished benefit metric bar to focus on clear operational outcomes ("No Signal? No Problem.", "Unlimited Workers", "Fast Field Capture", "Proof on Demand"). Left-aligned section headers for "Modular Software Studio", "Verified Client Feedback", and "Operational FAQ" to establish clean typographical consistency across the portal.
+  - **The Vault Pricing & Video Showcase (`portal/index.html`)**: Added standalone "Compliance Core" tier (R550 / site / month) within The Vault ecosystem showcase, alongside an interactive training sample video carousel (`vaultVideoCarousel`) linked directly to the video modal.
+  - **Ecosystem Spokes & Processor Network Copy Alignment (`portal/index.html`)**: Clarified spoke value propositions in the Full Ecosystem Site Bundle (highlighting The Vault, Spray Trace, Supply Conduit, and Packhouse Pass). Reframed processor sponsorship card for "Processors, Exporters & Grower Networks" to emphasize standardized data capture and supply chain visibility.
+  - **Bespoke Systems Copy Polish (`portal/bespoke.html`)**: Left-aligned section headers, aligned capability descriptions across equipment connectivity and workflow automation, and replaced the bottom consultation card with a conversational discovery call invitation focused on pragmatic operational diagnosis.
+  - **Statutory Legal Suite (`packages/ui/assets/legal/`)**: Populated canonical PDF legal documents (POPIA Section 21 Operator Agreement, Master Terms of Service & Statutory OHSA Liability Waiver, Website & Portal POPIA Privacy Policy, Cookie & Local Storage Policy, Corporate Partner Data Sharing & Subsidy Agreement, Aggregated Underwriter & Exporter Data Feed Terms, and Statutory Risk Assessment Template Notice).
+  - **Shared Footer Integration (`portal/assets/js/layout.js`)**: Updated shared footer legal links to point directly to canonical PDF agreements under `packages/ui/assets/legal/`.
+  - **Schema Synchronization**: Executed `./scripts/sync_schema.sh` verifying local schema integrity while Supabase CLI is offline.
+

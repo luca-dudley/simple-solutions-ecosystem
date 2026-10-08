@@ -138,10 +138,9 @@ function renderSharedFooter() {
         <div>
           <h5 class="font-bold text-primary text-xs uppercase tracking-wider mb-4 font-mono">Legal &amp; Assurance</h5>
           <div class="flex flex-col gap-2.5 text-xs text-slate-600">
-            <a href="docs/POPIA%20PRIVACY%20POLICY.pdf" target="_blank" class="hover:text-primary transition-colors">POPIA Privacy Policy</a>
-            <a href="docs/TERMS%20OF%20SERVICE.pdf" target="_blank" class="hover:text-primary transition-colors">Terms of Service</a>
-            <a href="docs/LEGAL%20AND%20LIABILITY%20DISCLAIMER.pdf" target="_blank" class="hover:text-primary transition-colors">Statutory Audit Disclaimer</a>
-            <span class="text-[11px] text-slate-400 mt-2 block">SIZA, GLOBALG.A.P. &amp; Act 36 evidence alignment.</span>
+            <a href="../packages/ui/assets/legal/WEBSITE%20%26%20PORTAL%20POPIA%20PRIVACY%20POLICY.pdf" target="_blank" class="hover:text-primary transition-colors">POPIA Privacy Policy</a>
+            <a href="../packages/ui/assets/legal/MASTER%20TERMS%20OF%20SERVICE%20%26%20STATUTORY%20OHSA%20LIABILITY%20WAIVER.pdf" target="_blank" class="hover:text-primary transition-colors">Terms of Service</a>
+            <a href="../packages/ui/assets/legal/STATUTORY%20RISK%20ASSESSMENT%20TEMPLATE%20NOTICE%20%26%20APPOINTEE%20SCHEDULE.pdf" target="_blank" class="hover:text-primary transition-colors">Statutory Audit Disclaimer</a>
           </div>
         </div>
 
