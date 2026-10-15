@@ -37,6 +37,11 @@
     }
   </script>
 
+  <!-- Paystack Public Configuration -->
+  <script>
+    window.PAYSTACK_PUBLIC_KEY = "pk_test_c413ac7e0b598c657a54309b26a10b232ca9d4d2";
+  </script>
+
   <style>
     .tab-active { 
       background-color: #0f172a; 
@@ -108,28 +113,37 @@
         </button>
       </div>
 
-      <!-- Precision Trust Metric Bar (4 Benefit Pills from target layout) -->
-      <div class="mt-12 mx-auto max-w-5xl rounded-2xl border border-slate-200/80 bg-white/95 backdrop-blur-sm shadow-card overflow-hidden">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border">
-          <div class="p-6 text-center">
-            <div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 mb-2 font-mono text-sm font-bold">⚡</div>
-            <p class="text-xl font-bold text-primary">No Signal? No Problem.</p>
-            <p class="mt-1 text-xs font-medium text-slate-500 px-2">Built to keep working, even when the internet doesn't.</p>
+      <!-- Trust & Proof Stats Bar -->
+      <div class="mt-12 w-full bg-white/95 rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border">
+        <div class="flex items-start gap-3.5 p-3 sm:px-5 text-left">
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0">⚡</div>
+          <div>
+            <div class="text-sm font-bold text-primary font-mono">No Signal? No Problem.</div>
+            <div class="text-xs text-slate-500 mt-0.5">Built to keep working, even when the internet doesn't.</div>
           </div>
-          <div class="p-6 text-center">
-            <div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 mb-2 font-mono text-sm font-bold">👥</div>
-            <p class="text-xl font-bold text-primary">Unlimited Workers</p>
-            <p class="mt-1 text-xs font-medium text-slate-500 px-2">One price. Your entire workforce.</p>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-3 sm:px-5 text-left">
+          <div class="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm shrink-0">👥</div>
+          <div>
+            <div class="text-sm font-bold text-primary font-mono">Unlimited Workers</div>
+            <div class="text-xs text-slate-500 mt-0.5">One price. Your entire workforce.</div>
           </div>
-          <div class="p-6 text-center">
-            <div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 mb-2 font-mono text-sm font-bold">⏱️</div>
-            <p class="text-xl font-bold text-primary">Fast Field Capture</p>
-            <p class="mt-1 text-xs font-medium text-slate-500 px-2">Simple workflows designed for people doing the work.</p>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-3 sm:px-5 text-left">
+          <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm shrink-0">⏱️</div>
+          <div>
+            <div class="text-sm font-bold text-primary font-mono">Fast Field Capture</div>
+            <div class="text-xs text-slate-500 mt-0.5">Simple workflows designed for people doing the work.</div>
           </div>
-          <div class="p-6 text-center">
-            <div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 mb-2 font-mono text-sm font-bold">📋</div>
-            <p class="text-xl font-bold text-primary">Proof on Demand</p>
-            <p class="mt-1 text-xs font-medium text-slate-500 px-2">Clear records, instant exports, less paperwork.</p>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-3 sm:px-5 text-left">
+          <div class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-sm shrink-0">📋</div>
+          <div>
+            <div class="text-sm font-bold text-primary font-mono">Proof on Demand</div>
+            <div class="text-xs text-slate-500 mt-0.5">Clear records, instant exports, less paperwork.</div>
           </div>
         </div>
       </div>
@@ -191,35 +205,44 @@
           
           <!-- SPOKE 1: THE VAULT -->
           <div id="tab-vault" class="block">
-            <div class="grid lg:grid-cols-12 gap-10 items-center">
+            <div class="grid lg:grid-cols-12 gap-10 items-stretch">
               <!-- Left Column: Value Prop & Quick Features -->
-              <div class="lg:col-span-7 text-left">
-                <div class="inline-flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 rounded-full mb-4">
-                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-600"></span> Live Core • Universal Compliance
+              <div class="lg:col-span-7 text-left flex flex-col justify-between">
+                <div>
+                  <div class="inline-flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 rounded-full mb-4">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-600"></span> Live Core • Universal Compliance
+                  </div>
+                  <h3 class="font-serif text-3xl font-bold text-primary mb-4">The Vault</h3>
+                  <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                    <strong>Training. Compliance. Accountability. All in one place.</strong><br><br>
+                    Multilingual safety training your employees actually understand. Delivered through easy to understand videos, track worker competency and sign-offs, manage SOPs and risk assessments, and generate audit-ready records whenever they're needed. Built for agricultural and industrial operations where compliance must work on the frontline, not just in the office.
+                  </p>
+                  <ul class="space-y-3.5 text-sm text-slate-700">
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">✓</span>
+                      <span><strong>Extensive multilingual video training library</strong></span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">✓</span>
+                      <span><strong>SOPs, checklists, and record tracking</strong></span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">✓</span>
+                      <span><strong>Risk assessments and audit-ready compliance records</strong></span>
+                    </li>
+                  </ul>
                 </div>
-                <h3 class="font-serif text-3xl font-bold text-primary mb-4">The Vault</h3>
-                <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                  <strong>Training. Compliance. Accountability. All in one place.</strong><br><br>
-                  Multilingual safety training your employees actually understand. Delivered through easy to understand videos, track worker competency and sign-offs, manage SOPs and risk assessments, and generate audit-ready records whenever they're needed. Built for agricultural and industrial operations where compliance must work on the frontline, not just in the office.
-                </p>
-                <ul class="space-y-3.5 text-sm text-slate-700">
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">✓</span>
-                    <span><strong>Extensive multilingual video training library</strong></span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">✓</span>
-                    <span><strong>SOPs, checklists, and record tracking</strong></span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">✓</span>
-                    <span><strong>Risk assessments and audit-ready compliance records</strong></span>
-                  </li>
-                </ul>
+
+                <!-- Clean Action Row Underneath Bullets -->
+                <div class="mt-8 pt-2 flex flex-wrap items-center gap-3">
+                  <button type="button" data-plan="PLN_3xf464fdsv96ezp" data-plan-name="The Vault" data-plan-price="R550 / mo" class="inline-flex items-center justify-center gap-2 bg-primary text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-primary-light transition-all shadow-sm">
+                    Purchase Standalone (R550/mo) &rarr;
+                  </button>
+                </div>
               </div>
 
               <!-- Right Column: Micro-UI Attribution Card -->
-              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full text-left">
+              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full text-left flex flex-col justify-between">
                 <div class="flex items-center justify-between pb-3 mb-4 border-b border-border">
                   <span class="text-[10px] font-bold font-mono uppercase text-slate-400">Live Verification Feed</span>
                   <span class="text-[10px] text-emerald-600 font-bold flex items-center gap-1.5">
@@ -252,128 +275,282 @@
               </div>
             </div>
 
-            <!-- Vault Pricing & Training Library -->
-            <div class="mt-12 pt-10 border-t border-slate-200/80">
-              <div class="grid lg:grid-cols-12 gap-8 items-start">
-                <div class="lg:col-span-4 text-left">
-                  <p class="text-[10px] font-bold uppercase tracking-wider font-mono text-emerald-700 mb-2">The Vault pricing</p>
+            <!-- Training Library Video Carousel -->
+            <div class="mt-10 pt-8 border-t border-slate-200/80 text-left">
+              <div class="flex items-end justify-between gap-4 mb-4">
+                <div>
+                  <p class="text-[10px] font-bold uppercase tracking-wider font-mono text-slate-400 mb-1">Training library</p>
+                  <h4 class="font-serif text-xl font-bold text-primary">Watch a sample of the Vault experience</h4>
                 </div>
-                <div class="lg:col-span-8 grid sm:grid-cols-2 gap-4 text-left">
-                  <div class="p-5 rounded-2xl border-2 border-emerald-200 bg-emerald-50/60">
-                    <div class="flex items-center justify-between gap-3 mb-2">
-                      <h5 class="font-bold text-primary">Compliance Core</h5>
-                    </div>
-                    <div class="flex items-baseline gap-1 mb-3">
-                      <span class="font-serif text-3xl font-bold text-primary">R550</span>
-                      <span class="text-xs text-slate-500">/ site / month</span>
-                    </div>
-                    <p class="text-xs text-slate-600 leading-relaxed">Add SOPs, competency sign-offs, records, and audit-ready reporting.</p>
-                  </div>
+                <div class="hidden sm:flex gap-2">
+                  <button onclick="scrollCarousel('vaultVideoCarousel', -320)" class="h-8 w-8 rounded-full border border-slate-200 bg-white text-primary hover:bg-slate-50 transition-colors flex items-center justify-center shadow-xs" aria-label="Previous Vault video">&#8592;</button>
+                  <button onclick="scrollCarousel('vaultVideoCarousel', 320)" class="h-8 w-8 rounded-full border border-slate-200 bg-white text-primary hover:bg-slate-50 transition-colors flex items-center justify-center shadow-xs" aria-label="Next Vault video">&#8594;</button>
                 </div>
               </div>
+              <div id="vaultVideoCarousel" class="snap-carousel flex gap-4 overflow-x-auto pb-2">
+                <!-- Video Card 1 -->
+                <button onclick="openModal('videoModal')" class="snap-card group min-w-[260px] sm:min-w-[300px] flex-1 text-left bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-emerald-400 hover:shadow-md transition-all shrink-0">
+                  <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <svg class="absolute h-28 w-28 text-emerald-500/10 pointer-events-none transform -rotate-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-800/40 pointer-events-none"></div>
+                    <span class="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white border border-white/10">3:45</span>
+                    <span class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-emerald-950/80 backdrop-blur-sm text-[9px] font-mono font-semibold text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> isiZulu &amp; English Audio
+                    </span>
+                    <span class="relative z-10 h-11 w-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <svg class="h-4 w-4 fill-white ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <p class="text-xs font-bold text-primary group-hover:text-emerald-700 transition-colors">Chemical Handling &amp; Act 36 Safety</p>
+                    <p class="text-[10px] text-slate-500 mt-1 line-clamp-1">Personal protective equipment &amp; emergency eyewash</p>
+                  </div>
+                </button>
 
-              <div class="mt-10 text-left">
-                <div class="flex items-end justify-between gap-4 mb-4">
-                  <div>
-                    <p class="text-[10px] font-bold uppercase tracking-wider font-mono text-slate-400 mb-1">Training library</p>
-                    <h4 class="font-serif text-xl font-bold text-primary">Watch a sample of the Vault experience</h4>
+                <!-- Video Card 2 -->
+                <button onclick="openModal('videoModal')" class="snap-card group min-w-[260px] sm:min-w-[300px] flex-1 text-left bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-emerald-400 hover:shadow-md transition-all shrink-0">
+                  <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <svg class="absolute h-28 w-28 text-sky-500/10 pointer-events-none transform rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                      <circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-800/40 pointer-events-none"></div>
+                    <span class="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white border border-white/10">4:12</span>
+                    <span class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-emerald-950/80 backdrop-blur-sm text-[9px] font-mono font-semibold text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> isiZulu &amp; English Audio
+                    </span>
+                    <span class="relative z-10 h-11 w-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <svg class="h-4 w-4 fill-white ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
                   </div>
-                  <div class="hidden sm:flex gap-2">
-                    <button onclick="scrollCarousel('vaultVideoCarousel', -280)" class="h-8 w-8 rounded-full border border-slate-200 bg-white text-primary hover:bg-slate-50" aria-label="Previous Vault video">&#8592;</button>
-                    <button onclick="scrollCarousel('vaultVideoCarousel', 280)" class="h-8 w-8 rounded-full border border-slate-200 bg-white text-primary hover:bg-slate-50" aria-label="Next Vault video">&#8594;</button>
+                  <div class="p-4 bg-white">
+                    <p class="text-xs font-bold text-primary group-hover:text-emerald-700 transition-colors">Tractor &amp; Machinery Pre-Start SOP</p>
+                    <p class="text-[10px] text-slate-500 mt-1 line-clamp-1">Daily walkaround, fluid checks, PTO guard safety</p>
                   </div>
-                </div>
-                <div id="vaultVideoCarousel" class="snap-carousel flex gap-4 overflow-x-auto pb-2">
-                  <button onclick="openModal('videoModal')" class="snap-card min-w-[240px] sm:min-w-[280px] text-left bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:border-emerald-300 transition-colors">
-                    <div class="aspect-video bg-primary flex items-center justify-center">
-                      <span class="h-10 w-10 rounded-full bg-white/15 text-white flex items-center justify-center text-lg">&#9654;</span>
-                    </div>
-                    <div class="p-4">
-                      <p class="text-xs font-bold text-primary">Chemical handling essentials</p>
-                      <p class="text-[10px] text-slate-500 mt-1">Multilingual frontline training</p>
-                    </div>
-                  </button>
-                  <button onclick="openModal('videoModal')" class="snap-card min-w-[240px] sm:min-w-[280px] text-left bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:border-emerald-300 transition-colors">
-                    <div class="aspect-video bg-emerald-700 flex items-center justify-center">
-                      <span class="h-10 w-10 rounded-full bg-white/15 text-white flex items-center justify-center text-lg">&#9654;</span>
-                    </div>
-                    <div class="p-4">
-                      <p class="text-xs font-bold text-primary">Workplace safety briefing</p>
-                      <p class="text-[10px] text-slate-500 mt-1">Short, practical compliance lessons</p>
-                    </div>
-                  </button>
-                  <button onclick="openModal('videoModal')" class="snap-card min-w-[240px] sm:min-w-[280px] text-left bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:border-emerald-300 transition-colors">
-                    <div class="aspect-video bg-slate-500 flex items-center justify-center">
-                      <span class="h-10 w-10 rounded-full bg-white/15 text-white flex items-center justify-center text-lg">&#9654;</span>
-                    </div>
-                    <div class="p-4">
-                      <p class="text-xs font-bold text-primary">Operator competency module</p>
-                      <p class="text-[10px] text-slate-500 mt-1">Track understanding and sign-offs</p>
-                    </div>
-                  </button>
-                </div>
+                </button>
+
+                <!-- Video Card 3 -->
+                <button onclick="openModal('videoModal')" class="snap-card group min-w-[260px] sm:min-w-[300px] flex-1 text-left bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-emerald-400 hover:shadow-md transition-all shrink-0">
+                  <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <svg class="absolute h-28 w-28 text-purple-500/10 pointer-events-none transform -rotate-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-800/40 pointer-events-none"></div>
+                    <span class="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white border border-white/10">2:50</span>
+                    <span class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-emerald-950/80 backdrop-blur-sm text-[9px] font-mono font-semibold text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> isiZulu &amp; English Audio
+                    </span>
+                    <span class="relative z-10 h-11 w-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <svg class="h-4 w-4 fill-white ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <p class="text-xs font-bold text-primary group-hover:text-emerald-700 transition-colors">General Farm &amp; Packhouse Induction</p>
+                    <p class="text-[10px] text-slate-500 mt-1 line-clamp-1">Hygiene protocols, hazard identification, reporting</p>
+                  </div>
+                </button>
               </div>
             </div>
           </div>
 
           <!-- SPOKE 2: SPRAY TRACE -->
           <div id="tab-spray" class="hidden">
-            <div class="grid lg:grid-cols-12 gap-10 items-center">
+            <div class="grid lg:grid-cols-12 gap-10 items-stretch">
               <!-- Left Column: Value Prop & Quick Features -->
-              <div class="lg:col-span-7 text-left">
-                <div class="inline-flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-sky-800 bg-sky-100 rounded-full mb-4">
-                  <span class="h-1.5 w-1.5 rounded-full bg-sky-600"></span> Agriculture &amp; Orchard Specific
+              <div class="lg:col-span-7 text-left flex flex-col justify-between">
+                <div>
+                  <div class="inline-flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-sky-800 bg-sky-100 rounded-full mb-4">
+                    <span class="h-1.5 w-1.5 rounded-full bg-sky-600"></span> Agriculture &amp; Orchard Specific
+                  </div>
+                  <h3 class="font-serif text-3xl font-bold text-primary mb-4">Spray Trace</h3>
+                  <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                    <strong>Orchard to Market Chemical Traceability.</strong><br><br>
+                    Capture spray activities in the orchard, maintain chemical compliance automatically, and provide exporters and packhouses with accurate, audit-ready traceability records. Spray Trace bridges the gap between field execution and market access.
+                  </p>
+                  <ul class="space-y-3.5 text-sm text-slate-700">
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-600 font-bold text-xs">✓</span>
+                      <span><strong>Fast mobile spray logging</strong> designed for use in the field, not behind a desk.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-600 font-bold text-xs">✓</span>
+                      <span><strong>Automated compliance controls</strong> including chemical inventories, dosage limits, and withholding period tracking.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-600 font-bold text-xs">✓</span>
+                      <span><strong>Export-ready traceability records</strong> formatted for packhouses, exporters, and certification requirements.</span>
+                    </li>
+                  </ul>
                 </div>
-                <h3 class="font-serif text-3xl font-bold text-primary mb-4">Spray Trace</h3>
-                <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                  <strong>Orchard to Market Chemical Traceability</strong>
-                  Capture spray activities in the orchard, maintain chemical compliance automatically, and provide exporters and packhouses with accurate, audit-ready traceability records. Spray Trace bridges the gap between field execution and market access.
-                </p>
-                <ul class="space-y-3.5 text-sm text-slate-700">
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-600 font-bold text-xs">✓</span>
-                    <span><strong>Fast mobile spray logging</strong> designed for use in the field, not behind a desk.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-600 font-bold text-xs">✓</span>
-                    <span><strong>Automated compliance controls</strong> including chemical inventories, dosage limits, and withholding period tracking.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-sky-600 font-bold text-xs">✓</span>
-                    <span><strong>Export-ready traceability records</strong> formatted for packhouses, exporters, and certification requirements.</span>
-                  </li>
-                </ul>
+
+                <!-- Clean Action Row Underneath Bullets -->
+                <div class="mt-8 pt-2 flex flex-wrap items-center gap-3">
+                  <button type="button" data-plan="PLN_qafs5ik0lh12gan" data-plan-name="Spray Trace" data-plan-price="R550 / mo" class="inline-flex items-center justify-center gap-2 bg-primary text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-primary-light transition-all shadow-sm">
+                    Purchase Standalone (R550/mo) &rarr;
+                  </button>
+                </div>
               </div>
 
-              <!-- Right Column: Micro-UI Agrochemical Check -->
-              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full text-left">
+              <!-- Right Column: Micro-UI Process Flow -->
+              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full text-left flex flex-col justify-between">
                 <div class="flex items-center justify-between pb-3 mb-4 border-b border-border">
-                  <span class="text-[10px] font-bold font-mono uppercase text-slate-400">Processor Compliance Bridge</span>
-                  <span class="text-[10px] font-bold text-sky-700 bg-sky-100 px-2 py-0.5 rounded">Coastal Macadamia Pilot</span>
+                  <span class="text-[10px] font-bold font-mono uppercase text-slate-400">Orchard-to-Export Timeline</span>
+                  <span class="text-[10px] font-bold text-sky-700 bg-sky-100 px-2 py-0.5 rounded flex items-center gap-1.5">
+                    <span class="h-1.5 w-1.5 rounded-full bg-sky-600 animate-pulse"></span> Coastal Macadamia Bridge
+                  </span>
                 </div>
-                <div class="space-y-3">
-                  <div class="p-4 bg-white border border-slate-200/90 rounded-xl shadow-sm">
+
+                <!-- 3-Step Process Flow -->
+                <div class="relative pl-6 space-y-3.5 before:absolute before:left-2.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-sky-500 before:via-sky-400 before:to-emerald-500">
+                  <!-- Step 1: Field Spray Logged -->
+                  <div class="relative p-3 bg-white border border-slate-200/90 rounded-xl shadow-xs">
+                    <div class="absolute -left-[27px] top-3.5 h-5 w-5 rounded-full bg-sky-600 text-white flex items-center justify-center text-[10px] font-mono font-bold shadow-xs">1</div>
+                    <div class="flex items-center justify-between gap-2 mb-1">
+                      <span class="text-xs font-bold text-primary">Field Spray Logged</span>
+                      <span class="px-1.5 py-0.5 bg-sky-50 text-sky-700 font-mono font-bold rounded text-[9px]">07:30 SAST</span>
+                    </div>
+                    <p class="text-[11px] font-medium text-slate-700">Block B-14 • Azoxystrobin <span class="text-slate-400 font-mono text-[10px]">(Act 36 L7810)</span></p>
+                    <div class="flex items-center justify-between mt-1.5 pt-1.5 border-t border-slate-100 text-[10px]">
+                      <span class="text-slate-500">Operator Verified: <strong class="text-slate-800">Nomsa Dlamini</strong></span>
+                      <span class="text-emerald-600 font-bold font-mono">✓ Signed</span>
+                    </div>
+                  </div>
+
+                  <!-- Step 2: Active PHI Safety Countdown -->
+                  <div class="relative p-3 bg-white border border-slate-200/90 rounded-xl shadow-xs">
+                    <div class="absolute -left-[27px] top-3.5 h-5 w-5 rounded-full bg-sky-600 text-white flex items-center justify-center text-[10px] font-mono font-bold shadow-xs">2</div>
+                    <div class="flex items-center gap-3">
+                      <!-- 14-Day Visual Progress Ring -->
+                      <div class="relative flex items-center justify-center shrink-0">
+                        <svg class="w-11 h-11 transform -rotate-90" viewBox="0 0 36 36">
+                          <path class="text-slate-100" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                          <path class="text-emerald-500" stroke-width="3.5" stroke-dasharray="100, 100" stroke="currentColor" stroke-linecap="round" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        </svg>
+                        <span class="absolute text-[10px] font-mono font-bold text-emerald-700">14d</span>
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between gap-1 mb-0.5">
+                          <span class="text-xs font-bold text-primary truncate">Active PHI Safety Countdown</span>
+                          <span class="px-1.5 py-0.5 bg-emerald-50 text-emerald-700 font-bold font-mono rounded text-[9px] whitespace-nowrap">CLEAR</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500 leading-tight">14-day withholding window elapsed • MRL residue clearance verified</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Step 3: Exporter Clearance -->
+                  <div class="relative p-3 bg-white border border-slate-200/90 rounded-xl shadow-xs">
+                    <div class="absolute -left-[27px] top-3.5 h-5 w-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px] font-mono font-bold shadow-xs">3</div>
                     <div class="flex items-center justify-between mb-2">
-                      <p class="text-xs font-bold text-primary">Batch #AZX-492 • Block B-14</p>
-                      <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 font-bold font-mono rounded text-[9px] uppercase">Export Ready</span>
-                    </div>
-                    <p class="text-[11px] text-slate-500 mb-3">Active: Azoxystrobin (Act 36 L7810) • Dosage: 180ml / 100L</p>
-                    <div class="grid grid-cols-2 gap-2 text-xs">
-                      <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                        <p class="text-[9px] text-slate-400 uppercase font-mono font-bold">Withholding (PHI)</p>
-                        <p class="font-bold text-primary font-mono mt-0.5">14 Days Total</p>
+                      <div>
+                        <span class="text-xs font-bold text-primary">Exporter Clearance</span>
+                        <p class="text-[10px] text-slate-500">Coastal Macadamia Intake Stream</p>
                       </div>
-                      <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                        <p class="text-[9px] text-slate-400 uppercase font-mono font-bold">MRL Clearance</p>
-                        <p class="font-bold text-emerald-600 font-mono mt-0.5">PASS (Safe to Pick)</p>
-                      </div>
+                      <!-- Green "Export Ready" Seal -->
+                      <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-100 text-emerald-800 font-bold font-mono rounded-full text-[9px] uppercase tracking-wider border border-emerald-300 shadow-xs">
+                        <svg class="w-3 h-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Export Ready
+                      </span>
                     </div>
-                    <button class="w-full mt-3 bg-primary text-white text-[11px] font-bold py-2 rounded-lg hover:bg-primary-light transition-colors">Export Processor Intake CSV</button>
+                    <!-- 1-Click Coastal Macadamia CSV Export Button -->
+                    <button type="button" class="w-full bg-primary hover:bg-primary-light text-white text-[11px] font-bold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-xs">
+                      <svg class="h-3.5 w-3.5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                      1-Click Coastal Macadamia CSV Export
+                    </button>
                   </div>
                 </div>
+
                 <div class="mt-4 pt-3 border-t border-border flex items-center justify-between text-[10px] font-mono text-slate-500">
                   <span>ACT 36 LEDGER • MRL VALIDATION</span>
                   <span class="text-sky-600 font-semibold">GEO-TAGGED ORCHARD</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Spray Trace Safeguards Carousel / Bottom Strip -->
+            <div class="mt-10 pt-8 border-t border-slate-200/80 text-left">
+              <div class="flex items-end justify-between gap-4 mb-4">
+                <div>
+                  <p class="text-[10px] font-bold uppercase tracking-wider font-mono text-slate-400 mb-1">Statutory &amp; Export Safeguards</p>
+                  <h4 class="font-serif text-xl font-bold text-primary">Automated chemical compliance from store to export clearance</h4>
+                </div>
+                <div class="hidden sm:flex gap-2">
+                  <button onclick="scrollCarousel('sprayFeatureCarousel', -320)" class="h-8 w-8 rounded-full border border-slate-200 bg-white text-primary hover:bg-slate-50 transition-colors flex items-center justify-center shadow-xs" aria-label="Previous Spray Trace feature">&#8592;</button>
+                  <button onclick="scrollCarousel('sprayFeatureCarousel', 320)" class="h-8 w-8 rounded-full border border-slate-200 bg-white text-primary hover:bg-slate-50 transition-colors flex items-center justify-center shadow-xs" aria-label="Next Spray Trace feature">&#8594;</button>
+                </div>
+              </div>
+              <div id="sprayFeatureCarousel" class="snap-carousel flex gap-4 overflow-x-auto pb-2">
+                <!-- Card 1: Act 36 Chemical Register -->
+                <div class="snap-card group min-w-[260px] sm:min-w-[300px] flex-1 text-left bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-sky-400 hover:shadow-md transition-all shrink-0">
+                  <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <svg class="absolute h-28 w-28 text-sky-500/10 pointer-events-none transform -rotate-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-800/40 pointer-events-none"></div>
+                    <span class="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white border border-white/10">ACT 36</span>
+                    <span class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-sky-950/80 backdrop-blur-sm text-[9px] font-mono font-semibold text-sky-300 border border-sky-500/30 flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span> Registered Actives
+                    </span>
+                    <span class="relative z-10 h-11 w-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <svg class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <p class="text-xs font-bold text-primary group-hover:text-sky-700 transition-colors">Act 36 Chemical Register</p>
+                    <p class="text-[10px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">Standardized dosages &amp; registered South African active ingredients</p>
+                  </div>
+                </div>
+
+                <!-- Card 2: Automated PHI Withholding Timers -->
+                <div class="snap-card group min-w-[260px] sm:min-w-[300px] flex-1 text-left bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-sky-400 hover:shadow-md transition-all shrink-0">
+                  <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <svg class="absolute h-28 w-28 text-emerald-500/10 pointer-events-none transform rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <circle cx="12" cy="12" r="9"/>
+                      <polyline points="12 7 12 12 15 15"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-800/40 pointer-events-none"></div>
+                    <span class="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white border border-white/10">MRL SAFE</span>
+                    <span class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-emerald-950/80 backdrop-blur-sm text-[9px] font-mono font-semibold text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Real-Time Pick Locks
+                    </span>
+                    <span class="relative z-10 h-11 w-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <svg class="h-5 w-5 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <p class="text-xs font-bold text-primary group-hover:text-sky-700 transition-colors">Automated PHI Withholding Timers</p>
+                    <p class="text-[10px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">Real-time pick locks protecting MRL compliance</p>
+                  </div>
+                </div>
+
+                <!-- Card 3: 1-Click Exporter Bridge -->
+                <div class="snap-card group min-w-[260px] sm:min-w-[300px] flex-1 text-left bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-sky-400 hover:shadow-md transition-all shrink-0">
+                  <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <svg class="absolute h-28 w-28 text-sky-500/10 pointer-events-none transform -rotate-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-800/40 pointer-events-none"></div>
+                    <span class="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white border border-white/10">CSV EXPORT</span>
+                    <span class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-sky-950/80 backdrop-blur-sm text-[9px] font-mono font-semibold text-sky-300 border border-sky-500/30 flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span> Processor Intake Pack
+                    </span>
+                    <span class="relative z-10 h-11 w-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <svg class="h-5 w-5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <p class="text-xs font-bold text-primary group-hover:text-sky-700 transition-colors">1-Click Exporter Bridge</p>
+                    <p class="text-[10px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">Automated CSV data packs formatted for processor intake</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -381,64 +558,193 @@
 
           <!-- SPOKE 3: SUPPLY CONDUIT -->
           <div id="tab-fleet" class="hidden">
-            <div class="grid lg:grid-cols-12 gap-10 items-center">
+            <div class="grid lg:grid-cols-12 gap-10 items-stretch">
               <!-- Left Column: Value Prop & Quick Features -->
-              <div class="lg:col-span-7 text-left">
-                <div class="inline-flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-100 rounded-full mb-4">
-                  <span class="h-1.5 w-1.5 rounded-full bg-amber-600"></span> Procurement & Logistics
+              <div class="lg:col-span-7 text-left flex flex-col justify-between">
+                <div>
+                  <div class="inline-flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-100 rounded-full mb-4">
+                    <span class="h-1.5 w-1.5 rounded-full bg-amber-600"></span> Procurement &amp; Logistics
+                  </div>
+                  <h3 class="font-serif text-3xl font-bold text-primary mb-4">Supply Conduit</h3>
+                  <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                    <strong>Request Accounted For. Every Order Tracked.</strong><br><br>
+                    Supply Conduit streamlines the flow between frontline teams and procurement. Field staff can submit supply requests in seconds through WhatsApp, while office teams manage approvals, purchasing, and fulfillment through a centralized dashboard. No missed requests, no duplicate orders, and complete visibility from request to delivery.
+                  </p>
+                  <ul class="space-y-3.5 text-sm text-slate-700">
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-600 font-bold text-xs">✓</span>
+                      <span><strong>WhatsApp-based requisitions</strong></span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-600 font-bold text-xs">✓</span>
+                      <span><strong>Centralized procurement tracking &amp; management</strong></span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-600 font-bold text-xs">✓</span>
+                      <span><strong>Full traceability from request to purchase</strong></span>
+                    </li>
+                  </ul>
                 </div>
-                <h3 class="font-serif text-3xl font-bold text-primary mb-4">Supply Conduit</h3>
-                <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                  <strong>Request Accounted For. Every Order Tracked.</strong><br><br>
-                  Supply Conduit streamlines the flow between frontline teams and procurement. Field staff can submit supply requests in seconds through WhatsApp, while office teams manage approvals, purchasing, and fulfillment through a centralized dashboard. No missed requests, no duplicate orders, and complete visibility from request to delivery.
-                </p>
-                <ul class="space-y-3.5 text-sm text-slate-700">
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-600 font-bold text-xs">✓</span>
-                    <span><strong>WhatsApp-based requisitions</strong></span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-600 font-bold text-xs">✓</span>
-                    <span><strong>Centralized procurement tracking & management</strong></span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-50 text-amber-600 font-bold text-xs">✓</span>
-                    <span><strong>Full traceability from request to purchase</strong></span>
-                  </li>
-                </ul>
+
+                <!-- Clean Action Row Underneath Bullets -->
+                <div class="mt-8 pt-2 flex flex-wrap items-center gap-3">
+                  <button type="button" data-plan="PLN_4veaygp3t3iiont" data-plan-name="Supply Conduit" data-plan-price="R550 / mo" class="inline-flex items-center justify-center gap-2 bg-primary text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-primary-light transition-all shadow-sm">
+                    Purchase Standalone (R550/mo) &rarr;
+                  </button>
+                </div>
               </div>
 
-              <!-- Right Column: Micro-UI Bowser Ledger Card -->
-              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full text-left">
+              <!-- Right Column: Micro-UI Requisition Pipeline -->
+              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full text-left flex flex-col justify-between">
                 <div class="flex items-center justify-between pb-3 mb-4 border-b border-border">
-                  <span class="text-[10px] font-bold font-mono uppercase text-slate-400">Fleet Telemetry Ledger</span>
-                  <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Active Asset</span>
+                  <span class="text-[10px] font-bold font-mono uppercase text-slate-400">Requisition Pipeline</span>
+                  <span class="text-[10px] text-amber-700 bg-amber-100 px-2 py-0.5 rounded font-bold flex items-center gap-1.5">
+                    <span class="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse"></span> Active Stream
+                  </span>
                 </div>
-                <div class="space-y-3">
-                  <div class="p-4 bg-white border border-slate-200/90 rounded-xl shadow-sm">
-                    <div class="flex items-center justify-between mb-2">
-                      <p class="text-xs font-bold text-primary">John Deere 6120M (Tractor #07)</p>
-                      <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 font-bold font-mono rounded text-[9px]">Pre-Start: OK</span>
+
+                <!-- 3-Step Process Flow -->
+                <div class="relative pl-6 space-y-3.5 before:absolute before:left-2.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-emerald-500 before:via-amber-400 before:to-primary">
+                  <!-- Step 1: Frontline WhatsApp Ingest -->
+                  <div class="relative p-3 bg-white border border-slate-200/90 rounded-xl shadow-xs">
+                    <div class="absolute -left-[27px] top-3.5 h-5 w-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px] font-mono font-bold shadow-xs">1</div>
+                    <div class="flex items-center justify-between text-[9px] font-mono text-slate-500 mb-1.5">
+                      <span class="font-bold text-emerald-700 flex items-center gap-1">
+                        <svg class="h-2.5 w-2.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                        Frontline WhatsApp Ingest
+                      </span>
+                      <span>08:12 SAST</span>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 text-xs mb-3">
-                      <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                        <p class="text-[9px] text-slate-400 uppercase font-mono font-bold">Hour Meter</p>
-                        <p class="font-bold text-primary font-mono mt-0.5">4,812.5 hrs</p>
+                    <!-- Styled green chat bubble -->
+                    <div class="bg-[#dcf8c6] border border-emerald-200/90 rounded-xl rounded-tl-none p-2.5 shadow-xs">
+                      <p class="text-xs font-semibold text-slate-900 leading-snug">
+                        "Tractor #07 Fleet Bay: 2x 20L Caltex Delo 400 + Oil Filter"
+                      </p>
+                      <div class="flex justify-end items-center gap-1 mt-1 text-[9px] text-emerald-800 font-mono">
+                        <span>Delivered</span>
+                        <span class="text-sky-600 font-bold">✓✓</span>
                       </div>
-                      <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                        <p class="text-[9px] text-slate-400 uppercase font-mono font-bold">Bowser Delta</p>
-                        <p class="font-bold text-amber-700 font-mono mt-0.5">85.0 L Dispensed</p>
-                      </div>
-                    </div>
-                    <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-100 text-xs">
-                      <span class="text-[10px] font-mono text-slate-500">Consumption Variance:</span>
-                      <span class="font-mono font-bold text-emerald-600">1.4% (Normal)</span>
                     </div>
                   </div>
+
+                  <!-- Step 2: 1-Tap Manager Authorization -->
+                  <div class="relative p-3 bg-white border border-slate-200/90 rounded-xl shadow-xs">
+                    <div class="absolute -left-[27px] top-3.5 h-5 w-5 rounded-full bg-amber-500 text-white flex items-center justify-center text-[10px] font-mono font-bold shadow-xs">2</div>
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-xs shrink-0 border border-amber-200">GD</div>
+                        <div>
+                          <p class="text-xs font-bold text-primary">Guy Dudley • Approved via WhatsApp</p>
+                          <p class="text-[10px] text-slate-500 mt-0.5">1-Tap Authorization • 08:14 SAST</p>
+                        </div>
+                      </div>
+                      <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[9px] font-bold font-mono rounded border border-emerald-200 shrink-0">APPROVED</span>
+                    </div>
+                  </div>
+
+                  <!-- Step 3: Digital PO & Supplier Dispatch -->
+                  <div class="relative p-3 bg-amber-50/70 border border-amber-200/90 rounded-xl shadow-xs">
+                    <div class="absolute -left-[27px] top-3.5 h-5 w-5 rounded-full bg-primary text-white flex items-center justify-center text-[10px] font-mono font-bold shadow-xs">3</div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-xs font-bold text-primary font-mono">PO #SC-1084 Generated &amp; Synced</span>
+                      <span class="px-1.5 py-0.5 bg-white border border-amber-300 text-amber-900 font-bold font-mono rounded text-[9px]">DISPATCHED</span>
+                    </div>
+                    <p class="text-[10px] text-slate-600 mb-2">Automated RFQ routed to KZN AgriSupply • Linked to Tractor #07</p>
+                    <button type="button" class="w-full bg-primary hover:bg-primary-light text-white text-[11px] font-bold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-xs">
+                      <span>View Digital PO &amp; Audit Trail</span> &rarr;
+                    </button>
+                  </div>
                 </div>
+
                 <div class="mt-4 pt-3 border-t border-border flex items-center justify-between text-[10px] font-mono text-slate-500">
-                  <span>30S INSPECTION • DIESEL BOWSER</span>
-                  <span class="text-amber-600 font-semibold">HOUR METER SYNC</span>
+                  <span>WHATSAPP INGEST • ZERO-APP REQ</span>
+                  <span class="text-amber-600 font-semibold">AUTOMATED PO QUEUE</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Supply Conduit Feature Carousel / Bottom Strip -->
+            <div class="mt-10 pt-8 border-t border-slate-200/80 text-left">
+              <div class="flex items-end justify-between gap-4 mb-4">
+                <div>
+                  <p class="text-[10px] font-bold uppercase tracking-wider font-mono text-slate-400 mb-1">Frictionless Frontline Procurement</p>
+                  <h4 class="font-serif text-xl font-bold text-primary">From WhatsApp field request to verified delivery slip</h4>
+                </div>
+                <div class="hidden sm:flex gap-2">
+                  <button onclick="scrollCarousel('fleetFeatureCarousel', -320)" class="h-8 w-8 rounded-full border border-slate-200 bg-white text-primary hover:bg-slate-50 transition-colors flex items-center justify-center shadow-xs" aria-label="Previous Supply Conduit feature">&#8592;</button>
+                  <button onclick="scrollCarousel('fleetFeatureCarousel', 320)" class="h-8 w-8 rounded-full border border-slate-200 bg-white text-primary hover:bg-slate-50 transition-colors flex items-center justify-center shadow-xs" aria-label="Next Supply Conduit feature">&#8594;</button>
+                </div>
+              </div>
+              <div id="fleetFeatureCarousel" class="snap-carousel flex gap-4 overflow-x-auto pb-2">
+                <!-- Card 1: Zero-App WhatsApp Ingest -->
+                <div class="snap-card group min-w-[260px] sm:min-w-[300px] flex-1 text-left bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-amber-400 hover:shadow-md transition-all shrink-0">
+                  <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <svg class="absolute h-28 w-28 text-emerald-500/10 pointer-events-none transform -rotate-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-800/40 pointer-events-none"></div>
+                    <span class="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white border border-white/10">ZERO APPS</span>
+                    <span class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-emerald-950/80 backdrop-blur-sm text-[9px] font-mono font-semibold text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Voice &amp; Text Ingest
+                    </span>
+                    <span class="relative z-10 h-11 w-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <svg class="h-5 w-5 text-emerald-300 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <p class="text-xs font-bold text-primary group-hover:text-amber-700 transition-colors">Zero-App WhatsApp Ingest</p>
+                    <p class="text-[10px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">Staff request parts directly via text/voice note without app downloads</p>
+                  </div>
+                </div>
+
+                <!-- Card 2: 1-Tap Approval & PO Generation -->
+                <div class="snap-card group min-w-[260px] sm:min-w-[300px] flex-1 text-left bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-amber-400 hover:shadow-md transition-all shrink-0">
+                  <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <svg class="absolute h-28 w-28 text-amber-500/10 pointer-events-none transform rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-800/40 pointer-events-none"></div>
+                    <span class="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white border border-white/10">INSTANT PO</span>
+                    <span class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-amber-950/80 backdrop-blur-sm text-[9px] font-mono font-semibold text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span> 1-Tap Mobile Sign-Off
+                    </span>
+                    <span class="relative z-10 h-11 w-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <svg class="h-5 w-5 text-amber-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <p class="text-xs font-bold text-primary group-hover:text-amber-700 transition-colors">1-Tap Approval &amp; PO Generation</p>
+                    <p class="text-[10px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">Managers approve on their phone; PO auto-generated in seconds</p>
+                  </div>
+                </div>
+
+                <!-- Card 3: Delivery Slip Photo Reconciliation -->
+                <div class="snap-card group min-w-[260px] sm:min-w-[300px] flex-1 text-left bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-amber-400 hover:shadow-md transition-all shrink-0">
+                  <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <svg class="absolute h-28 w-28 text-amber-500/10 pointer-events-none transform -rotate-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                      <circle cx="12" cy="13" r="3"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-800/40 pointer-events-none"></div>
+                    <span class="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white border border-white/10">POD MATCH</span>
+                    <span class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-amber-950/80 backdrop-blur-sm text-[9px] font-mono font-semibold text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span> Anti-Double Invoicing
+                    </span>
+                    <span class="relative z-10 h-11 w-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <svg class="h-5 w-5 text-amber-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                        <circle cx="12" cy="13" r="3"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <p class="text-xs font-bold text-primary group-hover:text-amber-700 transition-colors">Delivery Slip Photo Reconciliation</p>
+                    <p class="text-[10px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">POD photos linked to PO to prevent double-invoicing</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -446,66 +752,193 @@
 
           <!-- SPOKE 4: PACKHOUSE PASS -->
           <div id="tab-packhouse" class="hidden">
-            <div class="grid lg:grid-cols-12 gap-10 items-center">
+            <div class="grid lg:grid-cols-12 gap-10 items-stretch">
               <!-- Left Column: Value Prop & Quick Features -->
-              <div class="lg:col-span-7 text-left">
-                <div class="inline-flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-purple-800 bg-purple-100 rounded-full mb-4">
-                  <span class="h-1.5 w-1.5 rounded-full bg-purple-600"></span> Processing &amp; Intake
+              <div class="lg:col-span-7 text-left flex flex-col justify-between">
+                <div>
+                  <div class="inline-flex items-center gap-2 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-purple-800 bg-purple-100 rounded-full mb-4">
+                    <span class="h-1.5 w-1.5 rounded-full bg-purple-600"></span> Processing &amp; Intake
+                  </div>
+                  <h3 class="font-serif text-3xl font-bold text-primary mb-4">Packhouse Pass</h3>
+                  <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                    <strong>From Intake to Dispatch. Fully Traceable.</strong><br><br>
+                    Digitize intake, grading, quality control, and dispatch processes from a single platform. Packhouse Pass replaces paper forms and clipboards with real-time operational records, giving processors complete visibility from receiving through to final shipment.
+                  </p>
+                  <ul class="space-y-3.5 text-sm text-slate-700">
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-50 text-purple-600 font-bold text-xs">✓</span>
+                      <span><strong>Serial RS232 weighbridge bridging:</strong> Eliminate paper-based intake records</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-50 text-purple-600 font-bold text-xs">✓</span>
+                      <span><strong>Moisture &amp; quality testing:</strong> Quality testing, grading, and lot tracking</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-50 text-purple-600 font-bold text-xs">✓</span>
+                      <span><strong>Outbound pallet dispatch:</strong> End-to-end traceability from source to dispatch</span>
+                    </li>
+                  </ul>
                 </div>
-                <h3 class="font-serif text-3xl font-bold text-primary mb-4">Packhouse Pass</h3>
-                <p class="text-sm text-slate-600 leading-relaxed mb-6">
-                  <strong>From Intake to Dispatch. Fully Traceable.</strong><br><br>
-                  Digitize intake, grading, quality control, and dispatch processes from a single platform. Packhouse Pass replaces paper forms and clipboards with real-time operational records, giving processors complete visibility from receiving through to final shipment.
-                </p>
-                <ul class="space-y-3.5 text-sm text-slate-700">
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-50 text-purple-600 font-bold text-xs">✓</span>
-                    <span><strong>Serial RS232 weighbridge bridging:</strong>Eliminate paper-based intake records</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-50 text-purple-600 font-bold text-xs">✓</span>
-                    <span><strong>Moisture &amp; quality testing:</strong>Quality testing, grading, and lot tracking</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-50 text-purple-600 font-bold text-xs">✓</span>
-                    <span><strong>Outbound pallet dispatch:</strong>End-to-end traceability from source to dispatch</span>
-                  </li>
-                </ul>
+
+                <!-- Clean Action Row Underneath Bullets -->
+                <div class="mt-8 pt-2 flex flex-wrap items-center gap-3">
+                  <button type="button" data-plan="PLN_h3jrnmwcn5yfwri" data-plan-name="Packhouse Pass" data-plan-price="R550 / mo" class="inline-flex items-center justify-center gap-2 bg-primary text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-primary-light transition-all shadow-sm">
+                    Purchase Standalone (R550/mo) &rarr;
+                  </button>
+                </div>
               </div>
 
-              <!-- Right Column: Micro-UI RS232 Differential -->
-              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full text-left">
+              <!-- Right Column: Micro-UI Ingest & Pallet Lineage -->
+              <div class="lg:col-span-5 bg-slate-50/90 border border-slate-200 rounded-2xl p-6 shadow-inner w-full text-left flex flex-col justify-between">
                 <div class="flex items-center justify-between pb-3 mb-4 border-b border-border">
-                  <span class="text-[10px] font-bold font-mono uppercase text-slate-400">RS232 Serial Weighbridge</span>
-                  <span class="text-[10px] font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded">Intake Bay 02</span>
+                  <span class="text-[10px] font-bold font-mono uppercase text-slate-400">Physical Ingest &amp; Pallet Lineage</span>
+                  <span class="text-[10px] font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded flex items-center gap-1.5">
+                    <span class="h-1.5 w-1.5 rounded-full bg-purple-600 animate-pulse"></span> Intake Bay 02
+                  </span>
                 </div>
+
+                <!-- High-Contrast Digital Scale LCD & Pallet Lineage Graphic -->
                 <div class="space-y-3">
-                  <div class="p-4 bg-white border border-slate-200/90 rounded-xl shadow-sm">
-                    <div class="flex items-center justify-between mb-2">
-                      <p class="text-xs font-bold text-primary">Consignment: ELLIOTT-0914</p>
-                      <span class="px-2 py-0.5 bg-slate-100 text-primary font-bold font-mono rounded text-[9px]">BIN #B4091</span>
+                  <!-- High-contrast digital scale LCD readout -->
+                  <div class="bg-slate-950 rounded-xl p-3 border border-slate-800 text-left shadow-inner">
+                    <div class="flex items-center justify-between text-[9px] font-mono text-slate-400 mb-2 pb-1.5 border-b border-slate-800">
+                      <span class="flex items-center gap-1.5 text-emerald-400 font-bold">
+                        <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span> RS232 SERIAL WEIGHBRIDGE
+                      </span>
+                      <span class="text-slate-500">STABLE READOUT</span>
                     </div>
-                    <p class="text-[11px] text-slate-500 mb-3">Cultivar: Beaumont Macadamia • Moisture: 9.8%</p>
-                    <div class="grid grid-cols-3 gap-2 text-center text-xs mb-3">
-                      <div class="bg-slate-50 p-2 rounded-lg border border-slate-100">
-                        <p class="text-[9px] text-slate-400 font-mono">Gross</p>
-                        <p class="font-bold font-mono text-primary">1,420 kg</p>
+                    <div class="grid grid-cols-3 gap-2 text-center font-mono">
+                      <div class="bg-slate-900/90 p-2 rounded-lg border border-slate-800">
+                        <p class="text-[9px] text-slate-400 uppercase tracking-wider">Gross</p>
+                        <p class="text-xs sm:text-sm font-bold text-slate-200 mt-0.5">1,420 kg</p>
                       </div>
-                      <div class="bg-slate-50 p-2 rounded-lg border border-slate-100">
-                        <p class="text-[9px] text-slate-400 font-mono">Tare</p>
-                        <p class="font-bold font-mono text-primary">280 kg</p>
+                      <div class="bg-slate-900/90 p-2 rounded-lg border border-slate-800">
+                        <p class="text-[9px] text-slate-400 uppercase tracking-wider">Tare</p>
+                        <p class="text-xs sm:text-sm font-bold text-slate-400 mt-0.5">280 kg</p>
                       </div>
-                      <div class="bg-primary text-white p-2 rounded-lg shadow-sm">
-                        <p class="text-[9px] text-slate-300 font-mono">Net</p>
-                        <p class="font-bold font-mono">1,140 kg</p>
+                      <div class="bg-emerald-950/80 p-2 rounded-lg border border-emerald-500/40 shadow-xs">
+                        <p class="text-[9px] text-emerald-300 uppercase tracking-wider font-bold">Net Fruit</p>
+                        <p class="text-xs sm:text-sm font-extrabold text-emerald-400 mt-0.5">1,140 kg</p>
                       </div>
                     </div>
-                    <button class="w-full bg-primary text-white text-[11px] font-bold py-2 rounded-lg hover:bg-primary-light transition-colors">Accept Scale Weight &amp; Print Lot</button>
                   </div>
+
+                  <!-- Barcode/QR pallet tag generation chip -->
+                  <div class="p-3 bg-white border border-slate-200/90 rounded-xl shadow-xs flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-lg bg-purple-50 border border-purple-200 flex items-center justify-center font-mono text-purple-700 shrink-0">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="3" y="3" width="7" height="7"/>
+                          <rect x="14" y="3" width="7" height="7"/>
+                          <rect x="14" y="14" width="7" height="7"/>
+                          <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <div class="flex items-center gap-2">
+                          <span class="text-xs font-bold text-primary font-mono">#BIN-B4091</span>
+                          <span class="px-1.5 py-0.2 bg-purple-100 text-purple-800 font-mono font-bold rounded text-[9px]">PALLET TAG</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500 mt-0.5">Supplier Consignment: <strong class="text-slate-800">ELLIOTT-0914</strong></p>
+                      </div>
+                    </div>
+                    <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 font-bold font-mono rounded text-[9px] uppercase shrink-0">QC Passed</span>
+                  </div>
+
+                  <!-- Action button: Commit Weight & Issue Pallet QR -->
+                  <button type="button" class="w-full bg-primary hover:bg-primary-light text-white text-[11px] font-bold py-2.5 px-3 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-xs">
+                    <svg class="w-3.5 h-3.5 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
+                    Commit Weight &amp; Issue Pallet QR &rarr;
+                  </button>
                 </div>
+
                 <div class="mt-4 pt-3 border-t border-border flex items-center justify-between text-[10px] font-mono text-slate-500">
                   <span>SCALE SERIAL BRIDGING</span>
                   <span class="text-purple-600 font-semibold">PALLET LINEAGE</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Packhouse Pass Feature Carousel / Bottom Strip -->
+            <div class="mt-10 pt-8 border-t border-slate-200/80 text-left">
+              <div class="flex items-end justify-between gap-4 mb-4">
+                <div>
+                  <p class="text-[10px] font-bold uppercase tracking-wider font-mono text-slate-400 mb-1">Traceable Intake-to-Dispatch Flow</p>
+                  <h4 class="font-serif text-xl font-bold text-primary">Complete tree-to-pallet traceability and quality control</h4>
+                </div>
+                <div class="hidden sm:flex gap-2">
+                  <button onclick="scrollCarousel('packhouseFeatureCarousel', -320)" class="h-8 w-8 rounded-full border border-slate-200 bg-white text-primary hover:bg-slate-50 transition-colors flex items-center justify-center shadow-xs" aria-label="Previous Packhouse Pass feature">&#8592;</button>
+                  <button onclick="scrollCarousel('packhouseFeatureCarousel', 320)" class="h-8 w-8 rounded-full border border-slate-200 bg-white text-primary hover:bg-slate-50 transition-colors flex items-center justify-center shadow-xs" aria-label="Next Packhouse Pass feature">&#8594;</button>
+                </div>
+              </div>
+              <div id="packhouseFeatureCarousel" class="snap-carousel flex gap-4 overflow-x-auto pb-2">
+                <!-- Card 1: Direct Scale Serial Bridging -->
+                <div class="snap-card group min-w-[260px] sm:min-w-[300px] flex-1 text-left bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-purple-400 hover:shadow-md transition-all shrink-0">
+                  <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <svg class="absolute h-28 w-28 text-purple-500/10 pointer-events-none transform -rotate-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-800/40 pointer-events-none"></div>
+                    <span class="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white border border-white/10">RS232 / USB</span>
+                    <span class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-purple-950/80 backdrop-blur-sm text-[9px] font-mono font-semibold text-purple-300 border border-purple-500/30 flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-purple-400"></span> Clipboard-Free Intake
+                    </span>
+                    <span class="relative z-10 h-11 w-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <svg class="h-5 w-5 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <p class="text-xs font-bold text-primary group-hover:text-purple-700 transition-colors">Direct Scale Serial Bridging</p>
+                    <p class="text-[10px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">RS232/USB capture replacing manual clipboard scales</p>
+                  </div>
+                </div>
+
+                <!-- Card 2: Instant QC & Crack-Out Testing -->
+                <div class="snap-card group min-w-[260px] sm:min-w-[300px] flex-1 text-left bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-purple-400 hover:shadow-md transition-all shrink-0">
+                  <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <svg class="absolute h-28 w-28 text-purple-500/10 pointer-events-none transform rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-800/40 pointer-events-none"></div>
+                    <span class="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white border border-white/10">SKR &amp; MOISTURE</span>
+                    <span class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-purple-950/80 backdrop-blur-sm text-[9px] font-mono font-semibold text-purple-300 border border-purple-500/30 flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-purple-400"></span> Defect Run Logs
+                    </span>
+                    <span class="relative z-10 h-11 w-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <svg class="h-5 w-5 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <p class="text-xs font-bold text-primary group-hover:text-purple-700 transition-colors">Instant QC &amp; Crack-Out Testing</p>
+                    <p class="text-[10px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">Moisture %, sound kernel recovery, and defect run logs</p>
+                  </div>
+                </div>
+
+                <!-- Card 3: Pallet & Container Dispatch -->
+                <div class="snap-card group min-w-[260px] sm:min-w-[300px] flex-1 text-left bg-white border border-slate-200/90 rounded-2xl overflow-hidden hover:border-purple-400 hover:shadow-md transition-all shrink-0">
+                  <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <svg class="absolute h-28 w-28 text-purple-500/10 pointer-events-none transform -rotate-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-800/40 pointer-events-none"></div>
+                    <span class="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white border border-white/10">DISPATCH</span>
+                    <span class="absolute bottom-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md bg-purple-950/80 backdrop-blur-sm text-[9px] font-mono font-semibold text-purple-300 border border-purple-500/30 flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-purple-400"></span> Block-to-Container
+                    </span>
+                    <span class="relative z-10 h-11 w-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                      <svg class="h-5 w-5 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <p class="text-xs font-bold text-primary group-hover:text-purple-700 transition-colors">Pallet &amp; Container Dispatch</p>
+                    <p class="text-[10px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">Trace fruit lots from orchard block to shipping container</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -555,7 +988,7 @@
             </p>
 
             <div class="mt-6 flex items-baseline gap-2 pb-6 border-b border-white/15">
-              <span class="text-5xl sm:text-6xl font-extrabold text-white font-mono tracking-tight">R2,250</span>
+              <span class="text-5xl sm:text-6xl font-extrabold text-white font-mono tracking-tight">R1,750</span>
               <span class="text-sm text-slate-300 font-medium font-mono">/ site / month</span>
             </div>
 
@@ -606,7 +1039,7 @@
 
           <div class="mt-8 pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center gap-4">
             <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-white text-primary font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-slate-100 transition-colors shadow-md">Schedule Operational Scoping Call</a>
-            <button onclick="openModal('checkoutModal')" class="w-full sm:w-auto text-center border border-white/30 text-white font-bold text-sm px-6 py-3.5 rounded-xl hover:bg-white/10 transition-colors">Paystack Instant Activation</button>
+            <button type="button" data-plan="PLN_rxhjg4j2icqyd8i" data-plan-name="Full Ecosystem Bundle" data-plan-price="R1,750 / mo" class="w-full sm:w-auto text-center border border-white/30 text-white font-bold text-sm px-6 py-3.5 rounded-xl hover:bg-white/10 transition-colors">Get Full Ecosystem &rarr;</button>
           </div>
         </div>
 
@@ -838,20 +1271,147 @@
     </div>
   </div>
 
-  <!-- 3. Checkout Modal Placeholder -->
-  <div id="checkoutModal" class="fixed inset-0 z-[100] hidden bg-primary/80 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target === this) closeModal('checkoutModal')">
-    <div class="relative w-full max-w-sm bg-white rounded-3xl p-8 shadow-2xl border border-border text-center">
-      <button onclick="closeModal('checkoutModal')" class="absolute right-5 top-5 text-slate-400 hover:text-primary text-2xl font-bold" aria-label="Close modal">&times;</button>
-      <div class="h-12 w-12 bg-sky-50 rounded-full flex items-center justify-center text-sky-600 text-xl mx-auto mb-4 font-mono font-bold">🔒</div>
-      <h3 class="font-serif text-2xl font-bold text-primary mb-2">Secure Checkout</h3>
-      <p class="text-xs text-slate-600 mb-6">Connects directly with Paystack for automated monthly billing and account provisioning.</p>
-      <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="block w-full bg-primary text-white py-3 rounded-xl font-bold text-sm hover:bg-primary-light transition-colors mb-2">Schedule Setup Call</a>
-      <button onclick="closeModal('checkoutModal')" class="w-full bg-slate-100 text-slate-700 py-3 rounded-xl font-bold text-sm hover:bg-slate-200 transition-colors">Close</button>
+  <!-- ============================================== -->
+  <!-- 3. ESTATE REGISTRATION & PAYMENT GATEWAY MODAL -->
+  <!-- ============================================== -->
+  <div id="estateOnboardingModal" class="fixed inset-0 z-[100] hidden bg-primary/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto" onclick="if(event.target === this) closeModal('estateOnboardingModal')">
+    <div class="relative w-full max-w-xl bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-border text-left my-auto max-h-[92vh] overflow-y-auto">
+      
+      <!-- Close button -->
+      <button onclick="closeModal('estateOnboardingModal')" class="absolute right-5 top-5 text-slate-400 hover:text-primary text-2xl font-bold w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center transition-colors" aria-label="Close modal">&times;</button>
+      
+      <!-- Modal Header -->
+      <div class="pr-8">
+        <div class="flex flex-wrap items-center gap-2 mb-2.5">
+          <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-1 rounded-full flex items-center gap-1.5">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            Instant Site Activation
+          </span>
+          
+          <!-- Dynamic Chosen Tool & Price Badge -->
+          <div class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-slate-900 text-white flex items-center gap-1.5 shadow-sm border border-slate-700">
+            <span id="onboardingPlanNameText">Full Ecosystem Bundle</span>
+            <span class="text-emerald-400">•</span>
+            <span id="onboardingPlanPriceText" class="text-emerald-400 font-bold">R1,750 / mo</span>
+          </div>
+        </div>
+
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-primary">Activate Your Site License</h3>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+          Register your operating entity to generate your isolated tenant database and initiate automated billing.
+        </p>
+      </div>
+
+      <!-- Value Anchor Pill -->
+      <div class="mt-4 p-2.5 sm:p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center gap-2 text-[11px] sm:text-xs font-medium text-slate-700 font-mono text-center flex-wrap">
+        <span class="text-emerald-600 font-bold">✓</span> Unlimited Frontline Workers
+        <span class="text-slate-300">•</span>
+        <span class="text-emerald-600 font-bold">✓</span> Zero Per-Seat Tax
+        <span class="text-slate-300">•</span>
+        <span class="text-emerald-600 font-bold">✓</span> Cancel Anytime
+      </div>
+
+      <!-- Registration Form -->
+      <form id="estateOnboardingForm" class="mt-6 space-y-4">
+        <input type="hidden" id="onboardingPlanCode" value="">
+        <input type="hidden" id="onboardingPlanName" value="">
+        <input type="hidden" id="onboardingPlanPrice" value="">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- 1. Estate / Company Name -->
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex justify-between">
+              <span>Estate / Company Name <span class="text-red-500">*</span></span>
+              <span class="text-[10px] text-slate-400 font-mono normal-case">Operating Entity</span>
+            </label>
+            <input type="text" id="onboardingCompanyName" class="w-full border border-border px-4 py-2.5 rounded-xl text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-medium text-slate-900 bg-white" placeholder="e.g. Doveton Macadamias" required>
+          </div>
+
+          <!-- 2. Operational Lead Full Name -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex justify-between">
+              <span>Operational Lead <span class="text-red-500">*</span></span>
+            </label>
+            <input type="text" id="onboardingLeadName" class="w-full border border-border px-4 py-2.5 rounded-xl text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-medium text-slate-900 bg-white" placeholder="e.g. Guy Dudley" required>
+          </div>
+
+          <!-- 4. Contact Phone -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex justify-between">
+              <span>Contact Phone <span class="text-red-500">*</span></span>
+              <span class="text-[10px] text-slate-400 font-mono normal-case">WhatsApp / POs</span>
+            </label>
+            <input type="tel" id="onboardingPhone" class="w-full border border-border px-4 py-2.5 rounded-xl text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-medium text-slate-900 bg-white" placeholder="e.g. +27 82 123 4567" required>
+          </div>
+
+          <!-- 3. Billing & Audit Email -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex justify-between">
+              <span>Billing &amp; Audit Email <span class="text-red-500">*</span></span>
+            </label>
+            <input type="email" id="onboardingEmail" class="w-full border border-border px-4 py-2.5 rounded-xl text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-medium text-slate-900 bg-white" placeholder="e.g. accounts@doveton.co.za" required>
+          </div>
+
+          <!-- 5. VAT Number -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex justify-between">
+              <span>VAT Number</span>
+              <span class="text-[10px] text-slate-400 font-mono normal-case">Optional (Tax Invoices)</span>
+            </label>
+            <input type="text" id="onboardingVatNumber" class="w-full border border-border px-4 py-2.5 rounded-xl text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all font-medium text-slate-900 bg-white" placeholder="e.g. 4120284729">
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <button type="submit" id="onboardingSubmitBtn" class="w-full bg-primary text-white py-3.5 px-6 rounded-xl font-bold text-sm hover:bg-primary-light transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group mt-2">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+          <span>Proceed to Bank-Secured Checkout</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </button>
+      </form>
+
+      <!-- Security & Trust Guarantee Strip -->
+      <div class="mt-5 pt-4 border-t border-slate-200/80 space-y-2.5">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <!-- Gateway Identity -->
+          <div class="flex items-center gap-1.5 text-xs font-medium text-slate-700">
+            <svg class="h-3.5 w-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span><strong>Paystack</strong> <span class="text-slate-400 font-normal">(a Stripe Company)</span></span>
+          </div>
+
+          <!-- Visual Payment Badges -->
+          <div class="flex items-center gap-1.5">
+            <!-- Visa -->
+            <span class="h-6 px-2 rounded bg-slate-100 border border-slate-200 text-[10px] font-black italic tracking-tighter text-blue-900 flex items-center justify-center">VISA</span>
+            <!-- Mastercard -->
+            <span class="h-6 px-2 rounded bg-slate-100 border border-slate-200 flex items-center justify-center gap-0.5">
+              <span class="h-2.5 w-2.5 rounded-full bg-red-500 opacity-90 inline-block"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-amber-500 opacity-90 inline-block -ml-1.5"></span>
+            </span>
+            <!-- Apple Pay -->
+            <span class="h-6 px-2 rounded bg-slate-100 border border-slate-200 text-[10px] font-semibold text-slate-800 flex items-center justify-center">
+              Pay
+            </span>
+          </div>
+        </div>
+
+        <p class="text-[11px] text-slate-500 leading-relaxed">
+          <strong class="text-slate-700">PCI-DSS Level 1 Certified</strong> • 256-Bit Bank Grade Encryption via Paystack (a Stripe Company).
+        </p>
+        <p class="text-[10px] text-slate-400 leading-normal">
+          <strong>POPIA Statutory Disclaimer:</strong> All employee registries and operational data are strictly encrypted and tenant-isolated. No payment card credentials are ever stored on Simple Solutions servers.
+        </p>
+      </div>
+
     </div>
   </div>
 
   <!-- Shared Core Scripts -->
-  <script src="assets/js/portal-core.js"></script>
+  <script type="module" src="assets/js/portal-core.js"></script>
   <script src="assets/js/layout.js"></script>
 </body>
 </html>
