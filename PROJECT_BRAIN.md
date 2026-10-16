@@ -107,6 +107,7 @@ simple-solutions-ecosystem/
 ├── portal/                          # Central Hub: Administration, Auth, Worker Registry & Billing
 │   ├── index.html                   # Public landing page: The Operational Ecosystem
 │   ├── bespoke.html                 # Bespoke Systems & Data Architectures
+│   ├── welcome.html                 # Post-checkout license activation & tenant onboarding confirmation
 │   ├── dashboard/                   # Unified operations cockpit & cross-tool analytics
 │   ├── admin/                       # Tenant admin: company setup, site/zone management, module toggles, Paystack billing
 │   └── assets/                      # Shared styling, layout components (layout.js), and core client scripts
@@ -127,8 +128,8 @@ simple-solutions-ecosystem/
 │       └── assets/legal/            # Statutory legal policies, agreements, terms & liability waivers
 ├── supabase/                        # Unified backend infrastructure
 │   ├── migrations/                  # Timestamped multi-tenant PostgreSQL migrations with RLS
-│   └── functions/                   # Deno Edge Functions (sync_inbox, processor_bridge, audit_pack)
-├── scripts/                         # Operational automation (schema synchronization, seed scripts)
+│   └── functions/                   # Deno Edge Functions (sync_inbox, processor_bridge, audit_pack, paystack-webhook, initialize-checkout)
+├── scripts/                         # Operational automation (schema synchronization, cross-project storage pipe, Vimeo catalog audit)
 ├── .agents/                         # Autonomous engineering personas and domain skills
 ├── AGENTS.md                        # Master agent behavioral rules and instructions
 └── PROJECT_BRAIN.md                 # Primary architectural source of truth
@@ -322,9 +323,26 @@ To maintain database integrity across offline PWA devices, all tools adhere to u
 - **Unified Multi-Tenant Core (Active Foundation)**: Deployed via `supabase/migrations/20261015000000_unified_core_foundation.sql`. Master tables: `companies`, `sites`, `zones`, `profiles`, `workers`, `corporate_partners`, `partner_grower_registry`, `training_records`, `sops`, `videos`, `company_risk_assessments`, `requisitions`, `requisition_items`, `sync_inbox`, and `audit_events`.
 - **Identity & Performance RLS Hook**: `public.custom_access_token_hook` stamps `company_id` and `role` directly into JWT `app_metadata` claims, enabling zero-recursion RLS across all tenant tables via `((auth.jwt() ->> 'company_id')::uuid = company_id)`.
 - **Tenant Provisioning**: Atomic security definer function `public.provision_new_tenant(p_company_name, p_slug, p_company_code, p_owner_full_name)` provisions company and owner profile simultaneously.
-- **Storage Topology**: Storage buckets initialized with path-isolated RLS (`vault-media`, `conduit-docs`, `public-assets`).
-- **Billing Edge Function**: `supabase/functions/paystack-webhook/index.ts` processes Paystack subscription lifecycle events using native HMAC SHA512 signature authentication.
-- **Client Billing Module**: `packages/ui/assets/js/paystack-billing.js` provides zero-build pure ES6 inline checkout.
+- **Storage Topology & Phase 1 Migration**:
+  - Storage buckets initialized with path-isolated RLS (`vault-media`, `conduit-docs`, `public-assets`).
+  - **Cross-Project Storage Pipeline (`scripts/pipe_storage_cross_project.py`)**: Dedicated migration script streaming legacy assets into target multi-tenant storage (`vault-media/global/`).
+    * *Path Transformations*: `thumbnails/simple_solutions/*` $\rightarrow$ `vault-media/global/thumbnails/*` (26 global UI thumbnails); `sops/simple_solutions/*` $\rightarrow$ `vault-media/global/sops/*` (29 global master SOP documents). Total: 55 global catalog assets.
+    * *Canonical Slug Normalization*: Maps legacy inconsistent slugs to canonical forms via `CANONICAL_SLUG_MAP` (`bush_knives` $\rightarrow$ `bush_knife`, `high_noise_areas` $\rightarrow$ `farm_noise`, `general_farm_workers` $\rightarrow$ `general_farm_employees`, `fertigation_pump_house` $\rightarrow$ `irrigation_pump_house`), enforcing strict naming standards (`sop_{canonical_slug}.docx` and `{canonical_slug}.svg`).
+    * *Authentication & Key Resolution*: Automatically ingests `.env` and environment variables with fallback across `SERVICE_ROLE_KEY`, `TARGET_SERVICE_ROLE_KEY`, and `SUPABASE_SERVICE_ROLE_KEY`, or CLI flags (`--target-key`, `--legacy-key`).
+    * *Configuration & Endpoints*:
+      - `TARGET_SERVICE_ROLE_KEY` / `SERVICE_ROLE_KEY`: Elevated service key for target project (mandatory for live `--execute`).
+      - `LEGACY_SERVICE_ROLE_KEY`: Legacy project service key (optional for public legacy assets).
+      - `TARGET_SUPABASE_URL`: Target project endpoint (default: `https://jlwjqdeffpmabrbwozji.supabase.co`).
+      - `LEGACY_SUPABASE_URL`: Legacy project endpoint (default: `https://ujhfkvoaaebdntuheyqo.supabase.co`).
+    * *Execution Commands*:
+      - Dry-run verification (safe, default): `python3 scripts/pipe_storage_cross_project.py`
+      - Live cross-project migration: `python3 scripts/pipe_storage_cross_project.py --execute`
+- **Billing & Checkout Edge Functions**:
+  - `supabase/functions/paystack-webhook/index.ts`: Native Deno Edge Function verifying HMAC SHA512 signatures and processing Paystack subscription lifecycle events (`charge.success`, `subscription.create`, `invoice.payment_failed`, `subscription.disable`).
+  - `supabase/functions/initialize-checkout/index.ts`: Server-side checkout initialization invoking Paystack's Transaction Initialize API with B2B metadata (`plan_code`, `company_name`, `full_name`, `email`, `phone`, `vat_number`, `callback_url`) and returning an enterprise `authorization_url` for full-page redirection, keeping sensitive gateway secrets off the client.
+- **Client Billing & Landing Pages**:
+  - `packages/ui/assets/js/paystack-billing.js`: Pure ES6 module export for inline plan registration and checkout fallbacks.
+  - `portal/welcome.html`: Post-checkout confirmation and onboarding landing page resolving `?reference=` and providing immediate operational setup guidance.
 
 ## 6. Changelog & Current State
 - **2026-09-27**: Completed legacy ingest analysis of `/legacy` codebase and database exports (`the-vault-web`). Generated comprehensive migration plan in [`docs/MIGRATION_PLAN.md`](file:///home/luca/dev/simple-solutions-ecosystem/docs/MIGRATION_PLAN.md) covering entity transformations, two-tier identity enforcement, custom JWT claims hook, decoupled module layout, and 6-phase milestone sign-off roadmap.
@@ -357,5 +375,19 @@ To maintain database integrity across offline PWA devices, all tools adhere to u
   - **Zero-Build Client Checkout Helper (`packages/ui/assets/js/paystack-billing.js`)**: Implemented pure ES6 module exporting `initializePlanCheckout` and `PAYSTACK_PLANS` registry with dynamic lazy injection of Paystack inline JS (`https://js.paystack.co/v1/inline.js`) and seamless modal triggering without node bundlers.
   - **Landing Page Paystack Checkout Wiring (`portal/index.html`, `portal/assets/js/portal-core.js`)**: Configured test public key `window.PAYSTACK_PUBLIC_KEY`, tagged all standalone tool purchase buttons and the Full Ecosystem bundle CTA with `data-plan` and `data-plan-name` attributes, and wired global click interception in `portal-core.js` to seamlessly launch `initializePlanCheckout` with celebration toasts and dashboard redirection.
   - **Estate Registration & Payment Gateway Modal Redesign (`portal/index.html`, `portal/assets/js/portal-core.js`)**: Upgraded checkout trigger to a high-trust, two-step B2B modal (`#estateOnboardingModal`). Intercepts purchase actions to capture operating entity name, operational lead full name, contact phone (WhatsApp/PO notifications), billing email, and optional VAT number alongside value anchor pills ("Unlimited Frontline Workers • Zero Per-Seat Tax • Cancel Anytime"). Integrated PCI-DSS Level 1 / Paystack security guarantees, visual payment badges (Visa, Mastercard, Apple Pay), and POPIA tenant-isolation statutory notices. Pre-populates customer name and phone into `PaystackPop.setup` with structured B2B tenant metadata.
+- **2026-10-16**: Checkout full-page redirect refactor, storage migration pipeline, and catalog reconciliation tooling:
+  - **Paystack Full-Page Redirect Checkout Pipeline (`supabase/functions/initialize-checkout/index.ts`, `portal/assets/js/portal-core.js`, `portal/welcome.html`)**:
+    - Built Deno Edge Function `supabase/functions/initialize-checkout/index.ts` interfacing with Paystack's Transaction Initialize REST API using `PAYSTACK_SECRET_KEY`, packaging tenant and subscription metadata (`plan_code`, `company_name`, `full_name`, `email`, `phone`, `vat_number`, `callback_url`), and returning dynamic `authorization_url`.
+    - Refactored `portal/assets/js/portal-core.js` to replace client-side popups with an enterprise redirect flow: dispatches checkout payload to the Edge Function, activates interactive button spinner state ("Securing Payment Gateway..."), handles server errors via inline alert component (`#onboardingErrorNotice`), and executes `window.location.href = data.authorization_url`.
+    - Created dedicated confirmation landing page `portal/welcome.html` that ingests `?reference=`, renders an estate license activation confirmation card with operational summary pills, and outlines onboarding instructions.
+    - Security & clean-up: Removed client-exposed `window.PAYSTACK_PUBLIC_KEY` script from `portal/index.html`. Removed broken `portal/packages` symlink and appended `/data` to `.gitignore`.
+  - **Cross-Project Storage Migration Pipeline (`scripts/pipe_storage_cross_project.py`)**:
+    - Built streaming migration pipeline migrating legacy assets into multi-tenant `vault-media/global/` (`thumbnails/simple_solutions/*` $\rightarrow$ `vault-media/global/thumbnails/`, `sops/simple_solutions/*` $\rightarrow$ `vault-media/global/sops/`).
+    - Added canonical slug normalization (`CANONICAL_SLUG_MAP`) for naming anomalies: `bush_knives` $\rightarrow$ `bush_knife`, `high_noise_areas` $\rightarrow$ `farm_noise`, `general_farm_workers` $\rightarrow$ `general_farm_employees`, and `fertigation_pump_house` $\rightarrow$ `irrigation_pump_house`, ensuring standard `sop_{canonical_slug}.docx` and `{canonical_slug}.svg` naming.
+    - Added automated credential resolution supporting `SERVICE_ROLE_KEY`, `TARGET_SERVICE_ROLE_KEY`, and `SUPABASE_SERVICE_ROLE_KEY` across `.env` and environment variables. Verified all 55 legacy source assets with 100% reachability.
+  - **Vimeo Catalog Audit & Reconciliation Tooling (`scripts/audit_vimeo_catalog.py`, `scripts/reconcile_vimeo_catalog.py`)**:
+    - Created Vimeo catalog inspection and audit tools to compare video manifests with remote storage and database entries.
+  - **Database Schema Sync**:
+    - Executed `./scripts/sync_schema.sh`, updating live PostgreSQL schema dumps in `packages/db/schema.sql` and `.ai/SUPABASE_SCHEMA.md`.
 
 

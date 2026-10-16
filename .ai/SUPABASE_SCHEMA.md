@@ -1,5 +1,5 @@
 # Live Supabase Schema Manifest
-> **Last Synchronized:** 2026-10-15 15:55:34 UTC
+> **Last Synchronized:** 2026-10-16 19:59:45 UTC
 > **Source:** Remote Supabase Instance via pg_dump (Direct Connection)
 > **Single Source of Truth for Autonomous Agents:** @architect, @auditor, @closer
 
@@ -12,7 +12,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict zsO46h9WhQC8UfTesKKQdDko5h8octp0tbi7yfI3AzSaFzRBrj30z7OxffZ5PII
+\restrict BmbN6tY9gFINmRJdne56Q5SaUYUx23R1nxXXZPqWTaUU4d0sL7gwsS6KaYdP3eE
 
 -- Dumped from database version 17.11
 -- Dumped by pg_dump version 17.11 (Ubuntu 17.11-1.pgdg24.04+2)
@@ -1564,7 +1564,7 @@ CREATE POLICY zones_tenant_all ON public.zones TO authenticated USING ((company_
 -- PostgreSQL database dump complete
 --
 
-\unrestrict zsO46h9WhQC8UfTesKKQdDko5h8octp0tbi7yfI3AzSaFzRBrj30z7OxffZ5PII
+\unrestrict BmbN6tY9gFINmRJdne56Q5SaUYUx23R1nxXXZPqWTaUU4d0sL7gwsS6KaYdP3eE
 
 
 ```

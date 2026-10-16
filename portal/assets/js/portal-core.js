@@ -5,7 +5,13 @@
 // Path: portal/assets/js/portal-core.js
 // ============================================================================
 
-import { initializePlanCheckout } from '../../packages/ui/assets/js/paystack-billing.js';
+const SUPABASE_URL =
+  (typeof window !== 'undefined' && window.SUPABASE_URL) ||
+  'https://jlwjqdeffpmabrbwozji.supabase.co';
+
+const CHECKOUT_FUNCTION_URL =
+  (typeof window !== 'undefined' && window.CHECKOUT_FUNCTION_URL) ||
+  `${SUPABASE_URL}/functions/v1/initialize-checkout`;
 
 /**
  * Plan Details Registry (Canonical UI Names & Monthly Prices)
@@ -17,6 +23,24 @@ export const PLAN_DETAILS = Object.freeze({
   'PLN_qafs5ik0lh12gan': { name: 'Spray Trace', price: 'R550 / mo' },
   'PLN_h3jrnmwcn5yfwri': { name: 'Packhouse Pass', price: 'R550 / mo' },
 });
+
+export function showModalError(message) {
+  const errorBox = document.getElementById('onboardingErrorNotice');
+  const errorText = document.getElementById('onboardingErrorMessage');
+  if (errorBox && errorText) {
+    errorText.textContent = message;
+    errorBox.classList.remove('hidden');
+  } else {
+    alert(message);
+  }
+}
+
+export function clearModalError() {
+  const errorBox = document.getElementById('onboardingErrorNotice');
+  if (errorBox) {
+    errorBox.classList.add('hidden');
+  }
+}
 
 export function openModal(id) {
   const modal = document.getElementById(id);
@@ -96,6 +120,7 @@ if (typeof document !== 'undefined') {
  * Pre-populates and opens the Estate Onboarding & Payment Gateway Modal
  */
 export function openEstateOnboardingModal(planCode, planName, planPrice) {
+  clearModalError();
   const resolvedPlanCode = planCode || 'PLN_rxhjg4j2icqyd8i';
   const meta = PLAN_DETAILS[resolvedPlanCode] || {};
   const resolvedName = planName || meta.name || 'Selected Plan';
@@ -219,7 +244,7 @@ function setupOnboardingFlow() {
 
       // Validation
       if (!companyName || !leadName || !email || !phone) {
-        alert('Please complete all required fields (Estate Name, Operational Lead, Phone, and Email).');
+        showModalError('Please complete all required fields (Estate Name, Operational Lead, Phone, and Email).');
         return;
       }
 
@@ -232,24 +257,6 @@ function setupOnboardingFlow() {
         localStorage.setItem('ecosystem_vat', vatNumber);
       }
 
-      // Package full tenant & B2B metadata
-      const tenantMetadata = {
-        company_name: companyName,
-        owner_name: leadName,
-        email: email,
-        phone: phone,
-        vat_number: vatNumber || null,
-        plan_code: planCode,
-        plan_name: planName,
-        custom_fields: [
-          { display_name: 'Estate / Company', variable_name: 'company_name', value: companyName },
-          { display_name: 'Operational Lead', variable_name: 'owner_name', value: leadName },
-          { display_name: 'Contact Phone', variable_name: 'phone', value: phone },
-          { display_name: 'VAT Number', variable_name: 'vat_number', value: vatNumber || 'N/A' },
-          { display_name: 'Plan Name', variable_name: 'plan_name', value: planName },
-        ],
-      };
-
       const submitBtn = document.getElementById('onboardingSubmitBtn');
       const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
@@ -259,40 +266,47 @@ function setupOnboardingFlow() {
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
-          <span>Connecting Gateway...</span>
+          <span>Securing Payment Gateway...</span>
         `;
       }
 
       try {
-        // Trigger Paystack inline checkout popup
-        await initializePlanCheckout({
-          planCode: planCode,
-          companyId: localStorage.getItem('ecosystem_company_id') || '00000000-0000-0000-0000-000000000001',
-          userEmail: email,
-          customMetadata: tenantMetadata,
-          onSuccess: (response) => {
-            console.log('[Paystack Checkout] Payment approved:', response);
-            closeModal('estateOnboardingModal');
-            showCelebrationToast(planName, response?.reference || response?.trxref);
-            setTimeout(() => {
-              window.location.href = 'dashboard/';
-            }, 3500);
+        // Resolve callback URL for post-checkout landing
+        const callbackUrl =
+          (typeof window !== 'undefined' && window.location && window.location.origin)
+            ? `${window.location.origin}/portal/welcome.html`
+            : 'https://portal.simplesolutions.co.za/welcome.html';
+
+        console.log(`[Checkout Pipeline] Dispatching checkout request to ${CHECKOUT_FUNCTION_URL}`);
+
+        const response = await fetch(CHECKOUT_FUNCTION_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
           },
-          onClose: () => {
-            console.log('[Paystack Checkout] Payment modal dismissed.');
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = originalBtnHtml;
-            }
-          },
+          body: JSON.stringify({
+            plan_code: planCode,
+            company_name: companyName,
+            full_name: leadName,
+            email: email,
+            phone: phone,
+            vat_number: vatNumber || null,
+            callback_url: callbackUrl,
+          }),
         });
 
-        // Hide onboarding modal once Paystack popup successfully opens
-        closeModal('estateOnboardingModal');
+        const data = await response.json();
+
+        if (!response.ok || !data.authorization_url) {
+          throw new Error(data.error || 'Payment gateway initialization failed. Please try again.');
+        }
+
+        console.log('[Checkout Pipeline] Redirecting to Paystack gateway:', data.authorization_url);
+        // Execute enterprise full-page redirect
+        window.location.href = data.authorization_url;
       } catch (err) {
-        console.error('[Paystack Checkout] Gateway error:', err);
-        alert(`Could not launch Paystack checkout: ${err.message}`);
-      } finally {
+        console.error('[Checkout Pipeline] Gateway initialization error:', err);
+        showModalError(err.message || 'Unable to connect to the payment gateway. Please check your connection and try again.');
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalBtnHtml;
@@ -320,4 +334,6 @@ if (typeof window !== 'undefined') {
   window.toggleMobileMenu = toggleMobileMenu;
   window.openEstateOnboardingModal = openEstateOnboardingModal;
   window.showCelebrationToast = showCelebrationToast;
+  window.showModalError = showModalError;
+  window.clearModalError = clearModalError;
 }

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estate License Activated | Simple Solutions</title>
+  <link rel="icon" type="image/png" href="assets/logos/business/simple_bg-removed.png">
+  <meta name="description" content="Your Simple Solutions estate site license has been activated. Access your operational workspace and review onboarding instructions.">
+
+  <!-- Tailwind CSS CDN & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            primary: '#0f172a',
+            'primary-light': '#1e293b',
+            accent: '#1e3a5f',
+            border: '#e2e8f0',
+          },
+          boxShadow: {
+            'card': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+            'card-hover': '0 10px 30px -4px rgba(0, 0, 0, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gradient-to-b from-slate-50 via-slate-100/60 via-40% to-slate-200/50 font-sans text-slate-900 antialiased overflow-x-hidden min-h-screen flex flex-col justify-between">
+
+  <!-- ============================================== -->
+  <!-- CENTRALIZED HEADER MOUNT -->
+  <!-- ============================================== -->
+  <div id="site-header" data-active-page="welcome"></div>
+
+  <!-- ============================================== -->
+  <!-- CONTEXTUAL BREADCRUMB SUB-BAR -->
+  <!-- ============================================== -->
+  <div class="pt-16 w-full bg-white/80 border-b border-border/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 h-11 flex items-center justify-between text-xs font-mono text-slate-500">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="hover:text-primary transition-colors flex items-center gap-1">
+          <span>&larr;</span>
+          <span>The Ecosystem</span>
+        </a>
+        <span>/</span>
+        <span class="text-primary font-semibold">License Activation</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="font-bold text-emerald-700 uppercase tracking-wider text-[10px]">Payment Confirmed</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MAIN CONFIRMATION CARD SECTION -->
+  <!-- ============================================== -->
+  <main class="flex-1 py-12 sm:py-16 lg:py-20 flex items-center">
+    <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 w-full">
+      
+      <!-- Primary Confirmation Card -->
+      <div class="bg-white/95 backdrop-blur-sm rounded-3xl border border-slate-200/90 p-8 sm:p-12 shadow-card text-left relative overflow-hidden">
+        
+        <!-- Decorative Ambient Glow -->
+        <div class="absolute -right-20 -top-20 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Success Status Pill & Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-border">
+          <div class="flex items-center gap-3.5">
+            <div class="h-12 w-12 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0 text-2xl font-bold border border-emerald-500/30">
+              <svg class="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
+                Provisioning Complete
+              </span>
+              <h1 class="font-serif text-2xl sm:text-3xl font-extrabold text-primary mt-1">
+                Estate License Activated
+              </h1>
+            </div>
+          </div>
+
+          <!-- Subscription Badge -->
+          <div class="text-left sm:text-right">
+            <div class="text-[10px] font-mono uppercase tracking-wider text-slate-400">License Status</div>
+            <div class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-1 rounded-full mt-0.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              Active Site Tier
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Subscription Details Block -->
+        <div class="mt-6 p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/90 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+          <div>
+            <span class="text-slate-400 uppercase tracking-wider text-[10px] block mb-0.5">Operating Entity</span>
+            <span id="confirmedCompanyName" class="font-bold text-primary text-sm font-sans">Registered Estate</span>
+          </div>
+
+          <div>
+            <span class="text-slate-400 uppercase tracking-wider text-[10px] block mb-0.5">Transaction Reference</span>
+            <code id="confirmedReference" class="font-bold text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded text-[11px] inline-block">
+              VERIFYING...
+            </code>
+          </div>
+
+          <div>
+            <span class="text-slate-400 uppercase tracking-wider text-[10px] block mb-0.5">Primary Audit Contact</span>
+            <span id="confirmedEmail" class="font-semibold text-slate-700 font-sans break-all">Checking record...</span>
+          </div>
+
+          <div>
+            <span class="text-slate-400 uppercase tracking-wider text-[10px] block mb-0.5">Billing Interval</span>
+            <span class="font-semibold text-slate-700 font-sans">Monthly Recurring • Flat Site Rate</span>
+          </div>
+        </div>
+
+        <!-- Step-by-Step Instructions -->
+        <div class="mt-8 space-y-4">
+          <h2 class="text-xs font-bold font-mono uppercase tracking-wider text-slate-400">
+            Next Steps &amp; Workspace Access
+          </h2>
+
+          <div class="space-y-3">
+            <!-- Instruction 1: Check Email -->
+            <div class="p-4 bg-white border border-slate-200 rounded-xl flex items-start gap-3.5 shadow-sm">
+              <div class="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm shrink-0 font-mono">
+                1
+              </div>
+              <div class="flex-1 text-left">
+                <p class="text-sm font-bold text-primary">Check your email for login credentials</p>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  An automated setup email has been dispatched to <strong id="instructionEmail" class="text-slate-800">your registered address</strong> with temporary administrative login credentials and tenant access links.
+                </p>
+              </div>
+            </div>
+
+            <!-- Instruction 2: Frontline Deployment -->
+            <div class="p-4 bg-white border border-slate-200 rounded-xl flex items-start gap-3.5 shadow-sm">
+              <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0 font-mono">
+                2
+              </div>
+              <div class="flex-1 text-left">
+                <p class="text-sm font-bold text-primary">Generate Frontline Worker QR Badges</p>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Once logged into the management portal, import your employee roster to issue offline QR tokens with zero per-seat licensing fees.
+                </p>
+              </div>
+            </div>
+
+            <!-- Instruction 3: Support -->
+            <div class="p-4 bg-white border border-slate-200 rounded-xl flex items-start gap-3.5 shadow-sm">
+              <div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-sm shrink-0 font-mono">
+                3
+              </div>
+              <div class="flex-1 text-left">
+                <p class="text-sm font-bold text-primary">Dedicated Onboarding Support</p>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Our engineering and operational desk is available to assist with initial zone mapping, chemical library presets, and SOP configurations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="index.html" class="w-full sm:w-auto text-center px-6 py-3 rounded-xl border border-slate-300 text-slate-700 font-bold text-xs hover:bg-slate-50 transition-colors">
+            &larr; Return to Portal
+          </a>
+
+          <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+            <button onclick="openModal('loginModal')" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-primary text-white font-bold text-xs hover:bg-primary-light transition-all shadow-md flex items-center justify-center gap-2">
+              <span>Sign In to Workspace</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Security & Legal Notice -->
+        <div class="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] text-slate-400 font-mono">
+          <span>PCI-DSS LEVEL 1 VERIFIED • 256-BIT ENCRYPTION</span>
+          <span>POPIA SECTION 21 TENANT ISOLATION</span>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ============================================== -->
+  <!-- CENTRALIZED FOOTER MOUNT -->
+  <!-- ============================================== -->
+  <div id="site-footer"></div>
+
+  <!-- ============================================== -->
+  <!-- LOGIN MODAL -->
+  <!-- ============================================== -->
+  <div id="loginModal" class="fixed inset-0 z-[100] hidden bg-primary/80 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target === this) closeModal('loginModal')">
+    <div class="relative w-full max-w-sm bg-white rounded-3xl p-8 shadow-2xl border border-border text-left">
+      <button onclick="closeModal('loginModal')" class="absolute right-5 top-5 text-slate-400 hover:text-primary text-2xl font-bold" aria-label="Close modal">&times;</button>
+      <h3 class="font-serif text-2xl font-bold text-primary mb-1">Client Login</h3>
+      <p class="text-xs text-slate-500 mb-6">Access your Simple Solutions workspace.</p>
+      <form class="space-y-4" onsubmit="event.preventDefault(); alert('Connecting to Supabase Auth...');">
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">Work Email</label>
+          <input type="email" id="loginEmailField" class="w-full border border-border px-4 py-3 rounded-xl text-sm outline-none focus:border-primary" placeholder="name@company.com" required>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">Password</label>
+          <input type="password" class="w-full border border-border px-4 py-3 rounded-xl text-sm outline-none focus:border-primary" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold text-sm hover:bg-primary-light transition-colors mt-2">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Shared Core Scripts -->
+  <script type="module" src="assets/js/portal-core.js"></script>
+  <script src="assets/js/layout.js"></script>
+
+  <!-- Dynamic Parameter Ingestion -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Ingest Paystack Reference from URL Query Parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const reference = urlParams.get('reference') || urlParams.get('trxref') || 'CONFIRMED-TX';
+
+      const refElem = document.getElementById('confirmedReference');
+      if (refElem) {
+        refElem.textContent = reference;
+      }
+
+      // 2. Ingest Cached Onboarding Context from LocalStorage
+      const savedCompany = localStorage.getItem('ecosystem_company_name');
+      const savedEmail = localStorage.getItem('ecosystem_billing_email');
+
+      const companyElem = document.getElementById('confirmedCompanyName');
+      const emailElem = document.getElementById('confirmedEmail');
+      const instructionEmailElem = document.getElementById('instructionEmail');
+      const loginEmailElem = document.getElementById('loginEmailField');
+
+      if (companyElem && savedCompany) {
+        companyElem.textContent = savedCompany;
+      }
+
+      if (savedEmail) {
+        if (emailElem) emailElem.textContent = savedEmail;
+        if (instructionEmailElem) instructionEmailElem.textContent = savedEmail;
+        if (loginEmailElem) loginEmailElem.value = savedEmail;
+      } else {
+        if (emailElem) emailElem.textContent = 'Registered Admin Email';
+        if (instructionEmailElem) instructionEmailElem.textContent = 'your registered address';
+      }
+    });
+  </script>
+</body>
+</html>
