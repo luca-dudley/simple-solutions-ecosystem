@@ -9,9 +9,12 @@ Reconciles existing Vimeo video titles against canonical module slugs:
    - Reads canonical slugs from 'data/migration/legacy_bucket_export.csv' using CANONICAL_SLUG_MAP
 2. Reconciliation Logic:
    - Maps folder context to scope: Simple_Branded -> 'global', {Tenant}_Farm_Branded -> '{tenant}'
-   - Detects language flags in title (e.g., 'Zulu', 'isizulu', 'Afrikaans' -> 'zu', 'af', default 'en')
+   - Detects language flags:
+     * If video title has 'EA' (e.g. 'Hygiene EA'): language = 'en_af'
+     * Standard training videos: language = 'en_zu'
+     * Marketing/demo videos in Landing_Page folder: skip / empty
    - Matches closest canonical slug (exact, alias, and fuzzy sequence matching)
-   - Formulates proposed standardized title: "{slug}__{lang}__{tenant_or_global} - {Clean Title}"
+   - Formulates proposed standardized title strictly as "{slug}__{language}" (no display title, hyphens, or tenant tags)
 3. Execution Modes:
    - Mode 1: Dry-run reconciliation (--plan) -> outputs 'data/migration/vimeo_rename_plan.csv'
    - Mode 2: Batch API update (--apply) -> issues PATCH requests to https://api.vimeo.com/videos/{vimeo_id}
@@ -50,7 +53,6 @@ CANONICAL_SLUG_MAP: Dict[str, str] = {
     "bush_knives": "bush_knife",
     "high_noise_areas": "farm_noise",
     "general_farm_workers": "general_farm_employees",
-    "fertigation_pump_house": "irrigation_pump_house",
 }
 
 # Known direct aliases and phrase variations mapping to canonical slugs
@@ -73,10 +75,11 @@ SLUG_ALIASES: Dict[str, List[str]] = {
     "employee_allergens": ["employee allergens"],
     "farm_noise": ["farm noise", "farm noise exposure safety", "farm noise exposure", "high noise areas"],
     "farm_saw": ["farm saw", "farm saw safety"],
+    "fertigation_pump_house": ["fertigation pump house", "fertigation pump house safety", "fertigation"],
     "general_farm_employees": ["general farm employees", "general staff safety", "general farm staff safety", "general farm workers"],
     "hygiene": ["hygiene"],
     "irrigation_manager": ["irrigation manager"],
-    "irrigation_pump_house": ["irrigation pump house", "irrigation pump house safety", "fertigation pump house", "fertigation pump house safety"],
+    "irrigation_pump_house": ["irrigation pump house", "irrigation pump house safety"],
     "macadamia_boiler": ["mac boiler", "boiler", "macadamia boiler"],
     "macadamia_chemical_spraying": ["spray training safety", "macadamia chemical spraying"],
     "macadamia_dehusking": ["mac dehusking", "dehusking", "macadamia dehusking"],
@@ -192,35 +195,38 @@ def extract_folder_scope(folder_name: str) -> str:
     return folder_name.lower().replace(" ", "_")
 
 
-def detect_language(title: str) -> str:
+def detect_language(title: str, folder_name: str = "") -> str:
     """
-    Detect language code from title flags.
-    Defaults to 'en' (English).
-    Supported: 'zu' (Zulu/isiZulu), 'af' (Afrikaans), 'xh' (Xhosa), 'st' (Sotho).
+    Detect bilingual language code.
+    - If video title has 'EA' (e.g., 'Hygiene EA', 'Angle Grinder Safety EA'): language = 'en_af'.
+    - For marketing/demo videos in Landing_Page folder: skip / empty ('').
+    - For all standard training videos: language = 'en_zu'.
     """
-    if re.search(r"\b(zulu|isizulu|zul)\b", title, flags=re.IGNORECASE):
-        return "zu"
-    if re.search(r"\b(afrikaans|afr)\b", title, flags=re.IGNORECASE):
-        return "af"
-    if re.search(r"\b(xhosa|isixhosa)\b", title, flags=re.IGNORECASE):
-        return "xh"
-    if re.search(r"\b(sotho|sesotho)\b", title, flags=re.IGNORECASE):
-        return "st"
-    return "en"
+    if folder_name.lower() in ("landing_page", "landing page"):
+        return ""
+    if re.search(r"\bEA\b", title, flags=re.IGNORECASE) or re.search(r"\b(afrikaans|afr)\b", title, flags=re.IGNORECASE):
+        return "en_af"
+    return "en_zu"
 
 
-def clean_title(title: str, folder_name: str) -> str:
+def clean_title(title: str, folder_name: str = "") -> str:
     """
-    Strip boilerplate prefixes, suffixes, file extensions, and brand tags.
-    Preserves module descriptor and variant flags (e.g. EA).
+    Strip boilerplate prefixes, suffixes, file extensions, and brand/tenant tags.
+    Strips language variant flags (e.g. EA) so the stem matches canonical slugs.
     """
     t = title.strip()
     # Remove leading company prefixes (e.g. 'Simple.za - ', 'Simple - ')
     t = re.sub(r"^(Simple\.za\s*-\s*|Simple\s*-\s*)", "", t, flags=re.IGNORECASE).strip()
     # Remove trailing extension if present (.mp4, .mov, etc.)
     t = re.sub(r"\.(mp4|mov|avi|mkv)$", "", t, flags=re.IGNORECASE).strip()
-    # Remove tenant suffix (e.g. '_Doveton', '_Elliott', '_Outlook', '_TGK')
-    t = re.sub(r"_(Doveton|Elliott|Outlook|TGK)$", "", t, flags=re.IGNORECASE).strip()
+    # Remove tenant suffix (e.g. '_Doveton', '- Doveton', '_Elliott', '_Outlook', '_TGK')
+    t = re.sub(r"\s*[-_]\s*(Doveton|Elliott|Outlook|TGK)$", "", t, flags=re.IGNORECASE).strip()
+    if folder_name:
+        scope = extract_folder_scope(folder_name)
+        if scope and scope not in ("global", "unassigned", "landing_page"):
+            t = re.sub(rf"\s*[-_]\s*{re.escape(scope)}$", "", t, flags=re.IGNORECASE).strip()
+    # Remove EA variant flag
+    t = re.sub(r"\bEA\b", "", t, flags=re.IGNORECASE).strip()
     return t
 
 
@@ -309,21 +315,30 @@ def generate_plan(audit_csv: str, legacy_csv: str, plan_csv: str) -> None:
 
         cleaned = clean_title(current_title, folder_name)
         scope = extract_folder_scope(folder_name)
-        lang = detect_language(current_title)
+        lang = detect_language(current_title, folder_name)
 
-        matched_slug, confidence, match_type = match_canonical_slug(cleaned, canonical_slugs)
+        is_landing_page = folder_name.lower() in ("landing_page", "landing page") or scope == "landing_page"
 
-        if confidence == 1.0:
-            exact_count += 1
-            proposed_title = f"{matched_slug}__{lang}__{scope} - {cleaned}"
-        elif confidence > 0.0:
-            fuzzy_count += 1
-            proposed_title = f"{matched_slug}__{lang}__{scope} - {cleaned}"
-        else:
+        if is_landing_page:
+            matched_slug = ""
+            confidence = 0.0
+            proposed_title = ""
             unmapped_count += 1
-            proposed_title = ""  # Left blank to prevent accidental renaming of marketing/draft videos
+        else:
+            matched_slug, confidence, match_type = match_canonical_slug(cleaned, canonical_slugs)
 
-        lang_stats[lang] = lang_stats.get(lang, 0) + 1
+            if confidence == 1.0:
+                exact_count += 1
+                proposed_title = f"{matched_slug}__{lang}"
+            elif confidence > 0.0:
+                fuzzy_count += 1
+                proposed_title = f"{matched_slug}__{lang}"
+            else:
+                unmapped_count += 1
+                proposed_title = ""  # Left blank to prevent accidental renaming of marketing/draft videos
+
+        if lang:
+            lang_stats[lang] = lang_stats.get(lang, 0) + 1
         scope_stats[scope] = scope_stats.get(scope, 0) + 1
 
         plan_rows.append({

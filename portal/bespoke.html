@@ -36,6 +36,27 @@
       }
     }
   </script>
+
+  <style>
+    /* Progressive Enhancement: Vertical Timeline Scroll Reveal */
+    .js-timeline-ready .timeline-step {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .js-timeline-ready .timeline-step.timeline-step-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .js-timeline-ready .timeline-step {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 <body class="bg-gradient-to-b from-slate-50 via-slate-100/60 via-40% to-slate-200/50 font-sans text-slate-900 antialiased overflow-x-hidden min-h-screen">
 
@@ -61,9 +82,9 @@
   </div>
 
   <!-- ============================================== -->
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION                                   -->
   <!-- ============================================== -->
-  <section class="py-16 sm:py-24 border-b border-border/80">
+  <section class="bg-white pt-16 sm:pt-20 pb-20 lg:pb-24">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-3xl text-left">
 
@@ -78,43 +99,14 @@
         </p>
 
         <!-- CTAs -->
-        <div class="flex flex-wrap items-center gap-4 mb-12">
+        <div class="flex flex-wrap items-center gap-4">
           <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="h-11 px-6 inline-flex items-center justify-center text-sm font-bold bg-primary text-white hover:bg-primary-light rounded-xl transition-all shadow-md gap-2">
             <span>Schedule 30-Min Scoping Call</span>
             <span>&rarr;</span>
           </a>
-          <a href="#pricing" class="h-11 px-6 inline-flex items-center justify-center text-sm font-bold bg-white text-primary border border-slate-300 hover:bg-slate-50 rounded-xl transition-all shadow-sm">
-            View Engagement Models
+          <a href="#process" class="h-11 px-6 inline-flex items-center justify-center text-sm font-bold bg-white text-primary border border-slate-300 hover:bg-slate-50 rounded-xl transition-all shadow-sm">
+            How Projects Work
           </a>
-        </div>
-
-      </div>
-
-      <!-- Trust & Proof Stats Bar -->
-      <div class="w-full bg-white/95 rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-6 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
-        
-        <div class="flex items-start gap-3.5 p-3 md:px-5 text-left">
-          <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0">✓</div>
-          <div>
-            <div class="text-sm font-bold text-primary font-mono">100% Client IP Ownership</div>
-            <div class="text-xs text-slate-500 mt-0.5">Zero lock-in. Full source code, database DDLs &amp; credentials transferred directly.</div>
-          </div>
-        </div>
-
-        <div class="flex items-start gap-3.5 p-3 md:px-5 text-left">
-          <div class="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-sm shrink-0">#</div>
-          <div>
-            <div class="text-sm font-bold text-primary font-mono">Flexible Commercial Models</div>
-            <div class="text-xs text-slate-500 mt-0.5">Fixed-scope blueprints, deliverable-based sprints &amp; retainer support.</div>
-          </div>
-        </div>
-
-        <div class="flex items-start gap-3.5 p-3 md:px-5 text-left">
-          <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm shrink-0">📍</div>
-          <div>
-            <div class="text-sm font-bold text-primary font-mono">Stellenbosch &amp; Durban Engineering</div>
-            <div class="text-xs text-slate-500 mt-0.5">Direct technical consultation with our engineering lead. No sales reps.</div>
-          </div>
         </div>
 
       </div>
@@ -123,46 +115,62 @@
   </section>
 
   <!-- ============================================== -->
-  <!-- CORE PHILOSOPHY SECTION -->
+  <!-- CORE PHILOSOPHY SECTION                        -->
   <!-- ============================================== -->
-  <section class="py-16 sm:py-20 bg-white/90 border-b border-border/80">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left">
+  <section class="py-20 lg:py-24 bg-slate-50 border-y border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-left">
+      
+      <!-- Top Header Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div class="lg:col-span-5">
+          <div class="text-xs font-mono tracking-widest text-slate-500 uppercase font-semibold">OUR CORE PHILOSOPHY</div>
+          <h2 class="font-serif text-3xl lg:text-4xl text-slate-900 tracking-tight mt-2">Keeping Things Simple.</h2>
+        </div>
+        <div class="lg:col-span-7">
+          <blockquote class="border-l-2 border-slate-900 pl-6 text-slate-700 leading-relaxed text-base lg:text-lg">
+            <strong class="font-bold text-slate-900">Complex software won't fix a broken process.</strong> Rather than forcing unnecessary digital layers into your business, we engineer practical solutions that fit your frontline reality: resilient tools, streamlined workflows, and clear operational data. Build the foundation properly, and scale follows naturally.
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- 3-Pillar Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-12">
         
-        <div class="lg:col-span-4">
-          <div class="text-xs font-bold uppercase tracking-wider font-mono text-slate-400 mb-2">Our Core Philosophy</div>
-          <h2 class="font-serif text-3xl font-bold text-primary tracking-tight">Keeping Things Simple.</h2>
+        <!-- Pillar 1 -->
+        <div class="bg-white p-7 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-slate-500 tracking-wider uppercase font-semibold mb-3">01 // Frontline Reality</div>
+            <h3 class="font-serif text-xl text-slate-900 font-medium mb-2">Understand the Operation</h3>
+            <p class="text-sm text-slate-600 leading-relaxed font-sans">
+              We take time to understand how your business actually works before perscribing technology & writing code.
+            </p>
+          </div>
         </div>
 
-        <div class="lg:col-span-8 flex flex-col gap-6">
-          <p class="text-base text-slate-600 leading-relaxed border-l-2 border-primary pl-4">
-            <strong>Complex software won't fix a broken process.</strong> Rather than introducing unnecessary complexity, we focus on getting the fundamentals right first: clear processes, streamlined workflows, and a solid operational foundation. Build the foundation properly, and scale follows naturally.
-          </p>
+        <!-- Pillar 2 -->
+        <div class="bg-white p-7 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-slate-500 tracking-wider uppercase font-semibold mb-3">02 // Pragmatic Engineering</div>
+            <h3 class="font-serif text-xl text-slate-900 font-medium mb-2">Keep It Practical</h3>
+            <p class="text-sm text-slate-600 leading-relaxed font-sans">
+              The right solution isn't always the most complex one. We focus on practical improvements that create measurable value.
+            </p>
+          </div>
+        </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-            <div class="p-5 bg-slate-50 border border-slate-200 rounded-xl">
-              <div class="flex items-center gap-2 text-primary font-bold text-sm mb-1.5">
-                <span class="text-emerald-600">✓</span>
-                <span>Audit &amp; Distill</span>
-              </div>
-              <p class="text-xs text-slate-600 leading-relaxed">
-                Isolate the true daily bottlenecks in logistics, compliance, and frontline handovers before choosing architecture.
-              </p>
-            </div>
-            
-            <div class="p-5 bg-slate-50 border border-slate-200 rounded-xl">
-              <div class="flex items-center gap-2 text-primary font-bold text-sm mb-1.5">
-                <span class="text-emerald-600">✓</span>
-                <span>Engineer &amp; Automate</span>
-              </div>
-              <p class="text-xs text-slate-600 leading-relaxed">
-                Build clean, durable software and hardware integrations with 100% intellectual property transfer upon completion.
-              </p>
-            </div>
+        <!-- Pillar 3 -->
+        <div class="bg-white p-7 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-slate-500 tracking-wider uppercase font-semibold mb-3">03 // Complete Independence</div>
+            <h3 class="font-serif text-xl text-slate-900 font-medium mb-2">Build for the Long Term</h3>
+            <p class="text-sm text-slate-600 leading-relaxed font-sans">
+              Strong foundations, reliable systems, and scalable workflows that grow alongside your business.
+            </p>
           </div>
         </div>
 
       </div>
+
     </div>
   </section>
 
@@ -294,179 +302,253 @@
   </section>
 
   <!-- ============================================== -->
-  <!-- FIXED-SCOPE COMMERCIAL FRAMEWORK (3 TIERS) -->
+  <!-- MILESTONE EXECUTION ROADMAP (4 PHASES)         -->
   <!-- ============================================== -->
-  <!-- ============================================== -->
-  <!-- FLEXIBLE COMMERCIAL FRAMEWORK (3 MODELS) -->
-  <!-- ============================================== -->
-  <section id="pricing" class="py-20 lg:py-24 bg-white/90 border-b border-border/80">
+  <section id="process" class="py-20 lg:py-24 bg-white/95 border-b border-border/80 relative">
+    <div id="roadmap"></div>
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 text-left">
-        <div>
-          <div class="text-xs font-bold uppercase tracking-wider font-mono text-slate-400 mb-2">Commercial Framework</div>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-primary tracking-tight">Flexible Engagement Models</h2>
-          <p class="text-sm sm:text-base text-slate-600 max-w-2xl mt-2 leading-relaxed">
-            Transparent, high-trust commercial arrangements. Whether you need a fixed-scope architecture blueprint, deliverable-based milestone sprints, or dedicated engineering capacity.
-          </p>
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-16 sm:mb-20 text-left">
+        <div class="text-xs font-bold uppercase tracking-wider font-mono text-slate-400 mb-2">Execution Roadmap</div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-primary tracking-tight">How Projects Typically Work</h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-3.5 leading-relaxed">
+          A clear, collaborative process designed to reduce risk, align expectations, and deliver practical outcomes.
+        </p>
+      </div>
+
+      <!-- Alternating Vertical Timeline Container -->
+      <div id="timeline-container" class="relative max-w-5xl mx-auto">
+        <!-- Central Continuous Spine Line -->
+        <div class="absolute left-6 md:left-1/2 top-4 bottom-4 w-0.5 bg-slate-200 -translate-x-1/2" aria-hidden="true"></div>
+
+        <!-- STEP 01 -->
+        <div class="timeline-step relative mb-16 sm:mb-20">
+          <!-- Circular Step Badge -->
+          <div class="absolute left-6 md:left-1/2 top-0 -translate-x-1/2 w-12 h-12 rounded-full bg-primary text-white font-mono font-bold text-sm sm:text-base flex items-center justify-center shadow-md border-4 border-white z-10 select-none">
+            01
+          </div>
+          <!-- Left Text Block (on desktop) -->
+          <div class="pl-16 md:pl-0 md:w-1/2 md:pr-14 md:text-right text-left">
+            <div class="inline-flex items-center font-mono text-[11px] font-bold uppercase tracking-wider text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1 rounded-full mb-3">
+              Phase 01 // Discovery &amp; Assessment
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-primary tracking-tight mb-2.5">
+              Discovery &amp; Operational Assessment
+            </h3>
+            <p class="font-sans text-sm sm:text-base text-slate-600 leading-relaxed">
+              Initial scoping call or onsite meeting to understand facility operations, frontline workflow challenges, technical bottlenecks, and project objectives.
+            </p>
+          </div>
         </div>
-        <div class="inline-flex items-center gap-2 text-xs font-mono text-slate-700 bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-full self-start md:self-auto shadow-sm">
-          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-          <span>100% Direct IP Transfer • Zero Markups</span>
+
+        <!-- STEP 02 -->
+        <div class="timeline-step relative mb-16 sm:mb-20">
+          <!-- Circular Step Badge -->
+          <div class="absolute left-6 md:left-1/2 top-0 -translate-x-1/2 w-12 h-12 rounded-full bg-primary text-white font-mono font-bold text-sm sm:text-base flex items-center justify-center shadow-md border-4 border-white z-10 select-none">
+            02
+          </div>
+          <!-- Right Text Block (on desktop) -->
+          <div class="pl-16 md:pl-14 md:ml-auto md:w-1/2 text-left">
+            <div class="inline-flex items-center font-mono text-[11px] font-bold uppercase tracking-wider text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1 rounded-full mb-3">
+              Phase 02 // Architecture &amp; Spec
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-primary tracking-tight mb-2.5">
+              Project Framework &amp; Specification
+            </h3>
+            <p class="font-sans text-sm sm:text-base text-slate-600 leading-relaxed">
+              A comprehensive project proposal outlining requirements, recommended technical architecture, deliverables matrix, timeline schedule, and fixed commercial structure.
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 03 -->
+        <div class="timeline-step relative mb-16 sm:mb-20">
+          <!-- Circular Step Badge -->
+          <div class="absolute left-6 md:left-1/2 top-0 -translate-x-1/2 w-12 h-12 rounded-full bg-primary text-white font-mono font-bold text-sm sm:text-base flex items-center justify-center shadow-md border-4 border-white z-10 select-none">
+            03
+          </div>
+          <!-- Left Text Block (on desktop) -->
+          <div class="pl-16 md:pl-0 md:w-1/2 md:pr-14 md:text-right text-left">
+            <div class="inline-flex items-center font-mono text-[11px] font-bold uppercase tracking-wider text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1 rounded-full mb-3">
+              Phase 03 // Design &amp; Build
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-primary tracking-tight mb-2.5">
+              Milestone Build &amp; Validation
+            </h3>
+            <p class="font-sans text-sm sm:text-base text-slate-600 leading-relaxed">
+              Solution development delivered through structured milestones with bi-weekly updates, stakeholder reviews, hardware integration, and offline resilience stress-testing.
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 04 -->
+        <div class="timeline-step relative">
+          <!-- Circular Step Badge -->
+          <div class="absolute left-6 md:left-1/2 top-0 -translate-x-1/2 w-12 h-12 rounded-full bg-primary text-white font-mono font-bold text-sm sm:text-base flex items-center justify-center shadow-md border-4 border-white z-10 select-none">
+            04
+          </div>
+          <!-- Right Text Block (on desktop) -->
+          <div class="pl-16 md:pl-14 md:ml-auto md:w-1/2 text-left">
+            <div class="inline-flex items-center font-mono text-[11px] font-bold uppercase tracking-wider text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1 rounded-full mb-3">
+              Phase 04 // Handover &amp; Support
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-primary tracking-tight mb-2.5">
+              Handover, Training &amp; Support
+            </h3>
+            <p class="font-sans text-sm sm:text-base text-slate-600 leading-relaxed">
+              Controlled production rollout, frontline staff onboarding, documentation, complete intellectual property transfer, and optional monthly SLA maintenance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- SECTION 2 & 3: COMMERCIAL FRAMEWORK & NOTES   -->
+  <!-- ============================================== -->
+  <section id="pricing" class="py-20 lg:py-28 bg-gradient-to-b from-slate-50/70 via-white to-slate-50/70 border-b border-border/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-left">
+      
+      <!-- Section 2 Header & Body Copy -->
+      <div class="max-w-3xl mb-14 text-left">
+        <div class="text-xs font-bold uppercase tracking-wider font-mono text-slate-400 mb-2">Commercial Framework</div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-primary tracking-tight mb-6">Transparent Commercial Engagements</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p>
+            Every business operates differently. Rather than forcing projects into predefined packages, we scope each solution around your operational requirements, objectives, and expected outcomes.
+          </p>
+          <p>
+            Whether you require workflow automation, custom software, systems integration, operational dashboards, or a complete end-to-end platform, every engagement begins with a detailed discovery process and a clearly defined project framework.
+          </p>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 text-left">
+      <!-- Three Compact Information Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16 text-left">
         
-        <!-- Model 1: Architecture Blueprint -->
-        <div class="bg-white rounded-3xl border border-slate-200 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-sm">
+        <!-- CARD 1 -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 p-7 sm:p-8 flex flex-col justify-between shadow-card hover:border-slate-300 hover:shadow-card-hover transition-all">
           <div>
-            <div class="flex items-center justify-between pb-4 border-b border-border mb-5">
-              <span class="text-xs font-mono uppercase text-slate-400 font-bold">Model 01 // Audit &amp; Spec</span>
-              <span class="text-slate-400 font-mono text-xs font-bold">SPEC</span>
+            <div class="flex items-center justify-between pb-4 border-b border-border mb-6">
+              <span class="text-xs font-mono uppercase text-slate-400 font-bold">Engagement Pillar 01</span>
+              <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="9" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3m-9-9h3m12 0h3"/>
+                </svg>
+              </div>
             </div>
-            <h3 class="font-serif text-2xl font-bold text-primary mb-1">Architecture Blueprint</h3>
-            <div class="text-xs text-slate-500 mb-4">Operational workflow audit &amp; technical specification.</div>
-            <div class="flex items-baseline gap-1 mb-6 pb-6 border-b border-border">
-              <span class="text-4xl font-bold text-primary font-mono">R14,500</span>
-              <span class="text-xs text-slate-500 font-medium">/ fixed scope</span>
-            </div>
-            <ul class="space-y-3 mb-8 text-xs text-slate-600">
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Comprehensive workflow audit &amp; physical bottleneck mapping</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Data schema &amp; Entity Relationship (ERD) architecture</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Right-tool tech specification (PWA, DB, Hardware, Workflows)</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Fixed-scope implementation roadmap with deliverable matrix</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>100% intellectual property ownership from day one</span>
-              </li>
-            </ul>
+            <h3 class="font-serif text-2xl font-bold text-primary mb-3">Fixed-Scope Projects</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              Projects are scoped against clearly defined deliverables and milestones. No open-ended consulting fees. No surprise invoices.
+            </p>
           </div>
-          <div>
-            <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="h-11 w-full px-4 inline-flex items-center justify-center text-sm font-bold bg-white text-primary border border-slate-300 hover:bg-slate-50 rounded-xl transition-all shadow-sm gap-2">
-              <span>Schedule Scoping Session</span>
-              <span>&rarr;</span>
-            </a>
+          <div class="pt-4 border-t border-border font-mono text-xs text-slate-500 flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+            <span>Defined Deliverables • Zero Creep</span>
           </div>
         </div>
 
-        <!-- Model 2: Milestone Sprints (Most Popular) -->
-        <div class="bg-white rounded-3xl border-2 border-primary p-8 flex flex-col justify-between relative shadow-xl">
-          <div class="absolute -top-3.5 right-6 bg-primary text-white text-[10px] font-mono uppercase tracking-wider px-3 py-1 rounded-full font-bold">
-            Most Popular
-          </div>
+        <!-- CARD 2 -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 p-7 sm:p-8 flex flex-col justify-between shadow-card hover:border-slate-300 hover:shadow-card-hover transition-all">
           <div>
-            <div class="flex items-center justify-between pb-4 border-b border-border mb-5">
-              <span class="text-xs font-mono uppercase text-emerald-700 font-bold">Model 02 // Core Build</span>
-              <span class="text-emerald-600 font-mono text-xs font-bold">SPRINT</span>
+            <div class="flex items-center justify-between pb-4 border-b border-border mb-6">
+              <span class="text-xs font-mono uppercase text-slate-400 font-bold">Engagement Pillar 02</span>
+              <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
             </div>
-            <h3 class="font-serif text-2xl font-bold text-primary mb-1">Milestone Sprints</h3>
-            <div class="text-xs text-slate-500 mb-4">Deliverable-based custom software builds &amp; integrations.</div>
-            <div class="flex items-baseline gap-1 mb-6 pb-6 border-b border-border">
-              <span class="text-xs text-slate-400 font-mono uppercase mr-1">From</span>
-              <span class="text-4xl font-bold text-primary font-mono">R38,000</span>
-              <span class="text-xs text-slate-500 font-medium">/ milestone sprint</span>
-            </div>
-            <ul class="space-y-3 mb-8 text-xs text-slate-600">
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Custom offline PWA or internal operational portal development</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Serial RS232 scale &amp; weighbridge hardware bridging</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Automated webhook &amp; data routing pipelines (Make / Supabase)</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Real-time executive Power BI &amp; web telemetry KPI dashboards</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Frontline pilot testing &amp; 100% source code / IP handover</span>
-              </li>
-            </ul>
+            <h3 class="font-serif text-2xl font-bold text-primary mb-3">Simple Payment Structure</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              Most projects commence with a 50% deposit, with the remaining balance due upon project completion and handover.
+            </p>
           </div>
-          <div>
-            <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="h-11 w-full px-4 inline-flex items-center justify-center text-sm font-bold bg-primary text-white hover:bg-primary-light rounded-xl transition-all shadow-md gap-2">
-              <span>Commission Sprint</span>
-              <span>&rarr;</span>
-            </a>
+          <div class="pt-4 border-t border-border font-mono text-xs text-slate-500 flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+            <span>50% Deposit • 50% Handover</span>
           </div>
         </div>
 
-        <!-- Model 3: Engineering Retainer / Hourly -->
-        <div class="bg-white rounded-3xl border border-slate-200 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-sm">
+        <!-- CARD 3 -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 p-7 sm:p-8 flex flex-col justify-between shadow-card hover:border-slate-300 hover:shadow-card-hover transition-all">
           <div>
-            <div class="flex items-center justify-between pb-4 border-b border-border mb-5">
-              <span class="text-xs font-mono uppercase text-slate-400 font-bold">Model 03 // Dedicated Dev</span>
-              <span class="text-slate-400 font-mono text-xs font-bold">RETAINER</span>
+            <div class="flex items-center justify-between pb-4 border-b border-border mb-6">
+              <span class="text-xs font-mono uppercase text-slate-400 font-bold">Engagement Pillar 03</span>
+              <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                </svg>
+              </div>
             </div>
-            <h3 class="font-serif text-2xl font-bold text-primary mb-1">Engineering Retainer / Hourly</h3>
-            <div class="text-xs text-slate-500 mb-4">Dedicated systems development &amp; continuous evolution.</div>
-            <div class="flex items-baseline gap-1 mb-6 pb-6 border-b border-border">
-              <span class="text-3xl font-bold text-primary font-mono">Tailored</span>
-              <span class="text-xs text-slate-500 font-medium">/ monthly or hourly</span>
-            </div>
-            <ul class="space-y-3 mb-8 text-xs text-slate-600">
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Dedicated fractional systems engineer &amp; developer capacity</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Continuous custom feature development &amp; schema evolution</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Hardware scale driver maintenance &amp; third-party API updates</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Priority response SLA &amp; direct access to lead architect</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Zero long-term lock-in; flexible month-to-month commitment</span>
-              </li>
-            </ul>
+            <h3 class="font-serif text-2xl font-bold text-primary mb-3">Ongoing Support Available</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              Ongoing support, maintenance, enhancements, and future development can be provided through flexible monthly service retainers.
+            </p>
           </div>
-          <div>
-            <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="h-11 w-full px-4 inline-flex items-center justify-center text-sm font-bold bg-white text-primary border border-slate-300 hover:bg-slate-50 rounded-xl transition-all shadow-sm gap-2">
-              <span>Discuss Dedicated Retainer</span>
-              <span>&rarr;</span>
-            </a>
+          <div class="pt-4 border-t border-border font-mono text-xs text-slate-500 flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+            <span>Flexible Retainers • Continuous SLA</span>
           </div>
         </div>
 
       </div>
 
-      <!-- Direct Client Licensing Guarantee -->
-      <div class="p-6 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-left">
-        <div class="flex items-start gap-3">
-          <span class="text-emerald-600 font-bold text-lg mt-0.5">✓</span>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            <strong class="text-primary font-semibold">Direct Client Licensing:</strong> To guarantee total independence and data security, third-party software subscriptions (such as ClickUp, Microsoft 365 / Power BI, Supabase, Make.com) are licensed directly by your company. Simple Solutions never acts as a middleman markup on software subscriptions.
-          </p>
+      <!-- ASSURANCE & GOVERNING PRINCIPLES -->
+      <div class="mt-16 pt-12 border-t border-slate-200 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left Column (lg:col-span-6) -->
+        <div class="lg:col-span-6">
+          <div class="text-xs font-mono tracking-widest text-slate-500 uppercase font-semibold">COMMERCIAL ASSURANCE</div>
+          <h3 class="font-serif text-2xl text-slate-900 tracking-tight mt-1 mb-6">How We Work</h3>
+          
+          <ul class="space-y-4 text-sm sm:text-base text-slate-700">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <span>Direct access to the lead systems architect throughout discovery and build.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <span>Unambiguous milestone acceptance criteria before any handover sign-off.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <span>Full control of your data, business processes, and operational environment.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <span>Flexible post-launch support retainers scoped around your operational rhythm.</span>
+            </li>
+          </ul>
         </div>
-        <div class="shrink-0 font-mono text-xs text-slate-500 bg-white border border-slate-200 px-3 py-1.5 rounded-lg font-semibold">
-          Milestone-Tied Sign-offs
+
+        <!-- Right Column (lg:col-span-6) -->
+        <div class="lg:col-span-6">
+          <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-8">
+            <h4 class="font-serif text-lg text-slate-900 font-semibold mb-2 flex items-center gap-2">
+              <svg class="w-5 h-5 text-slate-700 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+              <span>Direct Client Licensing</span>
+            </h4>
+            <p class="text-sm text-slate-600 leading-relaxed font-sans">
+              Third-party platforms utilized in creating your businesses solution are licensed directly by your business. This ensures full control of your subscriptions, accounts, and operational data while avoiding unnecessary reseller markups or vendor dependency.
+            </p>
+          </div>
         </div>
+
       </div>
 
     </div>
@@ -557,11 +639,11 @@
 
         <details class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm cursor-pointer">
           <summary class="flex justify-between items-center font-bold text-primary text-sm">
-            How does fixed-scope project pricing work?
+            How does project scoping and commercial structuring work?
             <span class="text-slate-400 group-open:rotate-45 transition-transform text-xl">+</span>
           </summary>
           <p class="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-border pt-4">
-            Following an initial discovery session, we define a clear project scope and fixed price for each delivery milestone. No hourly billing, no scope ambiguity, and no surprise invoices.
+            Following an initial discovery session, we develop a comprehensive project framework defining deliverables, milestones, timeline, and commercial terms. Each project is scoped individually around your operational requirements so there are no open-ended consulting fees and no surprise invoices.
           </p>
         </details>
 
@@ -611,59 +693,79 @@
   </section>
 
   <!-- ============================================== -->
-  <!-- DISCOVERY CONSULTATION CARD -->
+  <!-- DISCOVERY CONSULTATION CARD                    -->
   <!-- ============================================== -->
   <section class="py-16 sm:py-24 bg-white/60 border-t border-border/80">
     <div class="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-12 shadow-card text-left relative overflow-hidden">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-8 lg:p-14 shadow-sm text-left">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
+          <!-- Left Column (lg:col-span-7) -->
           <div class="lg:col-span-7">
-            <div class="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-slate-500 mb-3 px-3 py-1 rounded-full bg-slate-100 border border-slate-200">
+            <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest text-slate-600 uppercase font-semibold mb-3 px-3 py-1 rounded-full bg-slate-100 border border-slate-200/80">
               <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Direct Discovery Call</span>
+              <span>DIRECT DISCOVERY CALL</span>
             </div>
             
-            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-primary tracking-tight mb-3">
+            <h2 class="font-serif text-3xl lg:text-4xl text-slate-900 tracking-tight mt-3 mb-4">
               Have a complex workflow or operational challenge?
             </h2>
             
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-              Not every operational challenge requires a complex system.<br><br>
-              Let's map out your current workflows, identify the largest bottlenecks, and determine the simplest path to improvement. Sometimes that's automation. Sometimes it's software. Sometimes it's fixing the process first.
+            <p class="text-slate-700 text-base lg:text-lg leading-relaxed mb-6 font-sans">
+              Not every operational challenge requires a complex system. Let's map out your current workflows, identify the largest bottlenecks, and determine the simplest path to improvement. Sometimes that's automation. Sometimes it's software. Sometimes it's fixing the process first.
             </p>
 
-            <div class="space-y-2.5 text-xs text-slate-600 font-mono">
-              <div class="flex items-center gap-2">
-                <span class="text-emerald-500 font-bold">✓</span>
+            <div class="space-y-3 font-sans text-sm text-slate-700">
+              <div class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
                 <span>Practical solutions, not unnecessary complexity</span>
               </div>
-              <div class="flex items-center gap-2">
-                <span class="text-emerald-500 font-bold">✓</span>
-                <span>Clear implementation roadmap and project scope</span>
+              <div class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>Clear implementation roadmap and fixed project scope</span>
               </div>
-              <div class="flex items-center gap-2">
-                <span class="text-emerald-500 font-bold">✓</span>
+              <div class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
                 <span>Direct access to the lead systems architect</span>
               </div>
             </div>
           </div>
 
-          <div class="lg:col-span-5 flex flex-col justify-center gap-4 bg-slate-50/90 border border-slate-200 p-6 rounded-2xl">
-            <div class="text-left pb-4 border-b border-border">
-              <div class="text-xs font-bold text-primary font-mono">Luca Dudley</div>
-              <div class="text-[11px] text-slate-500">Lead Systems Architect</div>
-              <div class="text-[11px] text-slate-400 mt-1">📍 Stellenbosch &amp; Durban, South Africa</div>
+          <!-- Right Column (lg:col-span-5) -->
+          <div class="lg:col-span-5">
+            <!-- Architect Credential Block -->
+            <div class="text-left">
+              <h3 class="font-serif text-xl text-slate-900 font-semibold">Luca Dudley</h3>
+              <p class="text-sm font-medium text-slate-600 mt-0.5">Lead Systems Architect</p>
+              <p class="text-xs font-mono text-slate-500 mt-1 flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+                <span>Stellenbosch &amp; Durban, South Africa</span>
+              </p>
             </div>
 
-            <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-primary text-white font-bold text-sm py-3.5 rounded-xl hover:bg-primary-light transition-all shadow-md flex items-center justify-center gap-2">
+            <div class="w-full h-px bg-slate-200 my-5"></div>
+
+            <!-- Action Buttons -->
+            <a href="https://calendar.app.google/xwA29eip7c7uDqPt6" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3.5 px-6 rounded-lg text-sm text-center transition-all shadow-sm flex items-center justify-center gap-2">
               <span>Book 30-Min Scoping Call</span>
               <span>&rarr;</span>
             </a>
 
-            <a href="mailto:luca@simpleza.co.za" class="w-full text-center bg-white border border-slate-300 text-slate-700 font-bold text-xs py-2.5 rounded-xl hover:bg-slate-50 transition-colors">
+            <a href="mailto:luca@simpleza.co.za" class="w-full mt-3 bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-medium py-3.5 px-6 rounded-lg text-sm text-center transition-all block">
               Email Engineering Directly
             </a>
+
+            <!-- Trust Subtext -->
+            <p class="text-xs text-center text-slate-500 mt-3 font-sans">Direct calendar booking. No sales reps or qualification tiers.</p>
           </div>
 
         </div>
@@ -723,7 +825,29 @@
   </div>
 
   <!-- Shared Core Scripts -->
-  <script src="assets/js/portal-core.js"></script>
+  <script type="module" src="assets/js/portal-core.js"></script>
   <script src="assets/js/layout.js"></script>
+  <script>
+    // Progressive Timeline Scroll Animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('timeline-container');
+      if (container && 'IntersectionObserver' in window) {
+        container.classList.add('js-timeline-ready');
+        const steps = container.querySelectorAll('.timeline-step');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('timeline-step-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+        steps.forEach((step) => observer.observe(step));
+      }
+    });
+  </script>
 </body>
 </html>

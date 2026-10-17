@@ -389,5 +389,38 @@ To maintain database integrity across offline PWA devices, all tools adhere to u
     - Created Vimeo catalog inspection and audit tools to compare video manifests with remote storage and database entries.
   - **Database Schema Sync**:
     - Executed `./scripts/sync_schema.sh`, updating live PostgreSQL schema dumps in `packages/db/schema.sql` and `.ai/SUPABASE_SCHEMA.md`.
+- **2026-10-17**: Bespoke Commercial Framework and Project Journey Timeline Redesign (`portal/bespoke.html`, `portal/assets/js/layout.js`):
+  - **Complete Redesign of Commercial Framework**: Removed fixed-amount pricing cards (`R14,500`, `R38,000`, `Tailored`) and package comparisons entirely. Scoped every project individually around operational requirements and expected outcomes.
+  - **Section 1: Implementation Methodology (`#process`)**: Replaced the initial 7-step timeline with a premium, boutique consulting 5-phase implementation methodology (01 DISCOVER, 02 DESIGN, 03 BUILD, 04 DEPLOY, 05 SUPPORT). Eliminated startup roadmap aesthetics and large numbered circles in favor of substantial, executive cards connected by a subtle vertical hairline spine, complete with 3 operational execution pillars and formal deliverable phase gate sign-offs per stage.
+  - **Section 2: Flexible Commercial Engagements (`#pricing`)**: Replaced pricing tables with 3 compact, trust-anchored cards (Fixed-Scope Projects, Simple Payment Structure, Ongoing Support Available) highlighting predictable milestone delivery, 50% deposit / 50% handover terms, and optional ongoing service retainers.
+  - **Section 3: Important Commercial Notes**: Designed 6 trust indicators in an elegant card grid (direct access to lead systems architect, transparent project scope and milestones, client ownership of operational data, optional monthly SLA retainers, zero software lock-in, bespoke solution design) accompanied by the Direct Client Licensing guarantee and discovery consultation CTA.
+  - **Navigation & Layout Synchronization**: Updated top CTA in hero to "How Projects Work" (`#process`), updated trust bar copy, synchronized shared footer links in `portal/assets/js/layout.js`, and updated FAQ scoping explanations to align with the consulting-first model.
+  - **Bespoke Landing Page Alignment & Roadmap Refactor (`portal/bespoke.html`)**:
+    - **Hero & Philosophy Alignment & Makeover**:
+      - Enhanced the pure white Hero canvas with dedicated bottom breathing room (`pb-20 lg:pb-24`) while retaining the core headline, subtext, and scoping CTAs.
+      - Refactored the Philosophy section into a distinct subtle container (`py-20 lg:py-24 bg-slate-50 border-y border-slate-200/70`) with an overline (`text-xs font-mono tracking-widest text-slate-500 uppercase font-semibold`), serif H2 (`font-serif text-3xl lg:text-4xl text-slate-900 tracking-tight mt-2`), and vertical accent pull-quote (`border-l-2 border-slate-900 pl-6 text-slate-700 leading-relaxed text-base lg:text-lg`).
+      - Elevated the 3 core pillars into crisp white cards (`bg-white p-7 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between mt-12`) without dividing horizontal rules, creating clear visual separation between the Hero canvas and the methodology sections.
+    - **Milestone Execution Roadmap (`#process`)**: Replaced bulky container cards with a clean 4-phase alternating vertical timeline (`Phase 01 // Discovery & Assessment`, `Phase 02 // Architecture & Spec`, `Phase 03 // Design & Build`, `Phase 04 // Handover & Support`). Retained central continuous hairline spine (`slate-200`) and dark navy circular step badges (`01`, `02`, `03`, `04`), with alternating left-to-right text blocks without heavy card borders or backgrounds, enforcing strict font hierarchy (`font-mono` pill labels, `font-serif` H3 step titles, and `font-sans` body copy). Fully responsive with mobile left-alignment and smooth progressive scroll-reveal animations.
+    - **Commercial Assurance & Governing Principles Refactor (`#pricing`)**: Replaced the nested-card "Important Commercial Notes" block with a balanced 2-column layout (`mt-16 pt-12 border-t border-slate-200 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start`). The left column (`lg:col-span-6`) features `Governing Engagement Principles` with clean emerald SVG checkmark bullets (direct lead architect access, unambiguous milestone criteria, 100% IP/data ownership, flexible retainers). The right column (`lg:col-span-6`) presents `Direct Client Licensing` as a distinguished standalone card with an SVG shield icon, removing the redundant CTA button and nested containers for a clean, cohesive consulting structure.
+    - **Vimeo Catalog Reconciler Refactor & Streamlined Naming (`scripts/reconcile_vimeo_catalog.py`, `data/migration/vimeo_rename_plan.csv`)**:
+    - Refactored Vimeo batch-renaming engine to enforce clean `"{slug}__{language}"` naming format, dropping display titles, hyphens, and tenant tags.
+    - Implemented bilingual language resolution: `EA` variant titles map to `en_af` (English & Afrikaans), standard training modules map to `en_zu` (English & isiZulu), and `Landing_Page` marketing/demo clips are skipped with empty proposed titles.
+    - Normalization & slug matching: Refactored `clean_title()` to strip `\bEA\b` and tenant suffixes (`_Doveton`, `- Doveton`, etc.), achieving 100% exact canonical slug matching across all 128 active training videos.
+  - **Fertigation Pump House Autonomous Canonical Decoupling (`scripts/pipe_storage_cross_project.py`, `scripts/reconcile_vimeo_catalog.py`)**:
+    - Removed `"fertigation_pump_house": "irrigation_pump_house"` from `CANONICAL_SLUG_MAP` across storage and video reconciliation tooling.
+    - Re-established `fertigation_pump_house` as an autonomous canonical module with its own SVG icon and video stream.
+    - Re-ran reconciliation plan (`--plan`), confirming all 4 estate Fertigation Pump House videos cleanly resolve to `fertigation_pump_house__en_zu`.
+  - **Legacy Codebase Artifact Cleanup (`legacy/codebase/`)**:
+    - Recursively scanned and purged 1,185 Windows NTFS alternate data stream artifacts (`*:Zone.Identifier`) across the legacy codebase tree.
+  - **The Vault Rebuild Specification & Architecture Blueprint (`docs/vault_rebuild_blueprint.md`)**:
+    - Formulated comprehensive reverse-engineering specification and rebuild architecture plan for The Vault frontend and edge infrastructure within `tools/vault/`.
+    - Defined bifurcated user identity model (`profiles` control plane vs. unauthenticated frontline `workers` attributed via opaque physical QR badges `WKT-{uuid}`), targeting GLOBALG.A.P. IFA v6, SIZA Social v3, and OHSA Act 85 compliance.
+    - Architected modular components: bilingual Vimeo SDK player (`en_zu` / `en_af` hot-swapping), camera-driven QR scanner, ECTA Section 13 vector signature pad, and controlled SOP reader with tenant override resolution.
+    - Hardened storage conventions: established strict immutable tenant UUID directory standard (`vault-media/tenants/{company_id}/sops/`) for zero-join Supabase Storage RLS parity.
+    - Defined PWA offline boundaries: established that high-def Vimeo video streaming requires live bandwidth, while the frontline compliance induction core (worker roster, camera QR scanner, SOP text, ECTA Section 13 signatures, and transactional command outbox) is 100% offline-capable via `Dexie.js` and `sync_inbox`.
+  - **Database Schema Sync**:
+    - Executed `./scripts/sync_schema.sh` via direct `pg_dump`, updating live PostgreSQL schema dumps in `packages/db/schema.sql` and `.ai/SUPABASE_SCHEMA.md`.
+
+
 
 

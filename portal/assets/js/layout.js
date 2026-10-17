@@ -129,7 +129,8 @@ function renderSharedFooter() {
             <a href="bespoke.html#capabilities" class="hover:text-primary transition-colors">Proprietary Web Apps &amp; Portals</a>
             <a href="bespoke.html#capabilities" class="hover:text-primary transition-colors">Hardware &amp; Scale Integration</a>
             <a href="bespoke.html#capabilities" class="hover:text-primary transition-colors">Workflow Automation &amp; Dashboards</a>
-            <a href="bespoke.html#pricing" class="hover:text-primary transition-colors">Commercial Framework &amp; Sprints</a>
+            <a href="bespoke.html#process" class="hover:text-primary transition-colors">How Projects Work</a>
+            <a href="bespoke.html#pricing" class="hover:text-primary transition-colors">Commercial Framework</a>
             <a href="bespoke.html#proof" class="hover:text-primary transition-colors">Client Reviews &amp; Feedback</a>
           </div>
         </div>

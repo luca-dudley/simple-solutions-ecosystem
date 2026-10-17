@@ -49,7 +49,6 @@ CANONICAL_SLUG_MAP = {
     "bush_knives": "bush_knife",
     "high_noise_areas": "farm_noise",
     "general_farm_workers": "general_farm_employees",
-    "fertigation_pump_house": "irrigation_pump_house",
 }
 
 
